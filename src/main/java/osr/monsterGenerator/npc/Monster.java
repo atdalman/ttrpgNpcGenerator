@@ -1,7 +1,7 @@
 package osr.monsterGenerator.npc;
 
-import osr.monsterGenerator.mechanicProperties.PhysicalAttack;
-import osr.monsterGenerator.mechanicProperties.SavingThrow;
+import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
+import osr.monsterGenerator.mechanicalProperties.SavingThrow;
 
 public class Monster {
     private String alignment;
@@ -24,7 +24,6 @@ public class Monster {
     private String motivation;
     private SavingThrow[] savingThrows;
     private String morale;
-
 
 
 }

@@ -1,4 +1,4 @@
-package osr.monsterGenerator.mechanicProperties;
+package osr.monsterGenerator.mechanicalProperties;
 
 enum Alignment {
 
