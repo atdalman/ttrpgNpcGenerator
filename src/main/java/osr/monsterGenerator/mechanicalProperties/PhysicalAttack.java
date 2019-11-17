@@ -4,8 +4,12 @@ public class PhysicalAttack {
 
     private String name; // claw/bite/strike
     private int flatDamage; // average damage
-    private String damageRoll; // d4/d6/etc
+    private int damageRoll; // d4/d6/etc
     private String specialEffect; //
+
+    public PhysicalAttack(){
+
+    }
 
     public String getName() {
         return name;
@@ -16,6 +20,7 @@ public class PhysicalAttack {
     }
 
     public int getFlatDamage() {
+
         return flatDamage;
     }
 
@@ -23,11 +28,11 @@ public class PhysicalAttack {
         this.flatDamage = flatDamage;
     }
 
-    public String getDamageRoll() {
+    public int getDamageRoll() {
         return damageRoll;
     }
 
-    public void setDamageRoll(String damageRoll) {
+    public void setDamageRoll(int damageRoll) {
         this.damageRoll = damageRoll;
     }
 
@@ -38,4 +43,5 @@ public class PhysicalAttack {
     public void setSpecialEffect(String specialEffect) {
         this.specialEffect = specialEffect;
     }
+
 }

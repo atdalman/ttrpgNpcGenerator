@@ -1,18 +1,19 @@
 package osr.monsterGenerator.npc;
 
+import osr.monsterGenerator.mechanicalProperties.Alignment;
 import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
 import osr.monsterGenerator.mechanicalProperties.SavingThrow;
 
 public class Monster {
     private String alignment;
-    private String name; // Species name, for example
-    private String properName; // Use if it is a named Monster.  Maybe a name generator in the future?
+    private String name;
+    private String properName;
     private String armorClass;
     private int healthPoints;
     private int hitDie;
     private int experienceGiven;
     private String generalBodyShape;
-    private String bodyCharacterstics;
+    private String bodyCharacteristics;
     private String size;
     private String movementStyle;
     private int movementSpeed;
@@ -24,6 +25,10 @@ public class Monster {
     private String motivation;
     private SavingThrow[] savingThrows;
     private String morale;
+
+    public Monster() {
+
+    }
 
     public String getAlignment() {
         return alignment;
@@ -89,12 +94,12 @@ public class Monster {
         this.generalBodyShape = generalBodyShape;
     }
 
-    public String getBodyCharacterstics() {
-        return bodyCharacterstics;
+    public String getBodyCharacteristics() {
+        return bodyCharacteristics;
     }
 
-    public void setBodyCharacterstics(String bodyCharacterstics) {
-        this.bodyCharacterstics = bodyCharacterstics;
+    public void setBodyCharacteristics(String bodyCharacteristics) {
+        this.bodyCharacteristics = bodyCharacteristics;
     }
 
     public String getSize() {
