@@ -1,4 +1,4 @@
-package osr.monsterGenerator.service;
+package osr.monsterGenerator.utilities;
 
 import org.springframework.stereotype.Service;
 

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.Monster;
 import osr.monsterGenerator.service.NPCFactory;
-import osr.monsterGenerator.service.StringUtils;
+import osr.monsterGenerator.utilities.StringUtils;
 
 public class NPCFactoryTest {
 
