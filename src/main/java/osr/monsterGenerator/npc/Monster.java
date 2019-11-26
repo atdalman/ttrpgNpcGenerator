@@ -1,6 +1,5 @@
 package osr.monsterGenerator.npc;
 
-import osr.monsterGenerator.mechanicalProperties.Alignment;
 import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
 import osr.monsterGenerator.mechanicalProperties.SavingThrow;
 
