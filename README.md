@@ -1,4 +1,4 @@
-Ultimately, this will be a monster generator for use in tabletop roleplaying games.  It will be supported on desktop and mobile browsers.
+Ultimately, this will be a monster generator for use in [tabletop roleplaying games](https://en.wikipedia.org/wiki/Tabletop_role-playing_game).  It will be supported on desktop and mobile browsers.
 Initially, this will support the game system I am running at the moment.  Namely, [Mothership](http://www.tuesdayknightgames.com/mothership).  The idea is to quickly generate a monster that the party has never seen in order to circumvent inherent metagaming in tabletop roleplaying.  
 Primary goals:
 Can be used with two button presses, at the table, during play
