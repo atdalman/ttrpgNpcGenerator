@@ -17,9 +17,9 @@ public interface NPC {
 
     void setProperName(String properName);
 
-    String getArmorClass();
+    int getArmorClass();
 
-    void setArmorClass(String armorClass);
+    void setArmorClass(int armorClass);
 
     int getHealthPoints();
 

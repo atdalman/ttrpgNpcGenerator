@@ -20,7 +20,7 @@ public class NPCFactoryTest {
         Monster testMon = NPCFactory.generateMonster("monster");
         boolean passed = false;
         if(testMon.getHitDie() > 0
-                && !StringUtils.isStringNullOrBlank(testMon.getArmorClass())
+                && testMon.getArmorClass() > Integer.MIN_VALUE
         && !StringUtils.isStringNullOrBlank(testMon.getBodyCharacteristics())
         && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape())
         && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeatures())

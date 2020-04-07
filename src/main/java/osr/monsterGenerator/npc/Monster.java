@@ -1,5 +1,6 @@
 package osr.monsterGenerator.npc;
 
+import osr.monsterGenerator.utilities.Alignments;
 import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
 import osr.monsterGenerator.mechanicalProperties.SavingThrow;
 
@@ -7,7 +8,7 @@ public class Monster implements NPC {
     private String alignment;
     private String name;
     private String properName;
-    private String armorClass;
+    private int armorClass;
     private int healthPoints;
     private int hitDie;
     private int experienceGiven;
@@ -26,7 +27,9 @@ public class Monster implements NPC {
     private String morale;
 
     public Monster() {
-
+        alignment = Alignments.NEUTRAL.name();
+        armorClass = 10;
+        hitDie = 2;
     }
 
     @Override
@@ -60,12 +63,12 @@ public class Monster implements NPC {
     }
 
     @Override
-    public String getArmorClass() {
+    public int getArmorClass() {
         return armorClass;
     }
 
     @Override
-    public void setArmorClass(String armorClass) {
+    public void setArmorClass(int armorClass) {
         this.armorClass = armorClass;
     }
 
