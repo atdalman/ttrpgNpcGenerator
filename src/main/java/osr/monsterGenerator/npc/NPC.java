@@ -1,87 +1,136 @@
 package osr.monsterGenerator.npc;
 
 import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
-import osr.monsterGenerator.mechanicalProperties.SavingThrow;
 
-// Included for the purpose of expanding this to systems where NPCs and monsters are treated separately
-public interface NPC {
-    String getAlignment();
+// A basic monster or NPC
+public abstract class NPC {
+    private String name;
+    private String properName;
+    // Generic flat health points, if desired
+    private String healthPoints;
+    private String size;
+    private int experienceGiven;
+    private String generalBodyShape;
+    private String bodyCharacteristics;
+    private String movementStyle;
+    private String movementSpeed;
+    private String distinctiveFeatures;
+    private PhysicalAttack[] physicalAttacks;
+    private String[] specialAbilities;
+    private String combatStrategyPrimary;
+    private String combatStrategySecondary;
+    private String[] motivations;
 
-    void setAlignment(String alignment);
+    public String getName() {
+        return name;
+    }
 
-    String getName();
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    void setName(String name);
+    public String getProperName() {
+        return properName;
+    }
 
-    String getProperName();
+    public void setProperName(String properName) {
+        this.properName = properName;
+    }
 
-    void setProperName(String properName);
+    public String getHealthPoints() {
+        return healthPoints;
+    }
 
-    int getArmorClass();
+    public void setHealthPoints(String healthPoints) {
+        this.healthPoints = healthPoints;
+    }
 
-    void setArmorClass(int armorClass);
+    public String getSize() {
+        return size;
+    }
 
-    int getHealthPoints();
+    public void setSize(String size) {
+        this.size = size;
+    }
 
-    void setHealthPoints(int healthPoints);
+    public int getExperienceGiven() {
+        return experienceGiven;
+    }
 
-    int getHitDie();
+    public void setExperienceGiven(int experienceGiven) {
+        this.experienceGiven = experienceGiven;
+    }
 
-    void setHitDie(int hitDie);
+    public String getGeneralBodyShape() {
+        return generalBodyShape;
+    }
 
-    int getExperienceGiven();
+    public void setGeneralBodyShape(String generalBodyShape) {
+        this.generalBodyShape = generalBodyShape;
+    }
 
-    void setExperienceGiven(int experienceGiven);
+    public String getBodyCharacteristics() {
+        return bodyCharacteristics;
+    }
 
-    String getGeneralBodyShape();
+    public void setBodyCharacteristics(String bodyCharacteristics) {
+        this.bodyCharacteristics = bodyCharacteristics;
+    }
 
-    void setGeneralBodyShape(String generalBodyShape);
+    public String getMovementStyle() {
+        return movementStyle;
+    }
 
-    String getBodyCharacteristics();
+    public void setMovementStyle(String movementStyle) {
+        this.movementStyle = movementStyle;
+    }
 
-    void setBodyCharacteristics(String bodyCharacteristics);
+    public String getMovementSpeed() {
+        return movementSpeed;
+    }
 
-    String getSize();
+    public void setMovementSpeed(String movementSpeed) {
+        this.movementSpeed = movementSpeed;
+    }
 
-    void setSize(String size);
+    public String getDistinctiveFeatures() {
+        return distinctiveFeatures;
+    }
 
-    String getMovementStyle();
+    public void setDistinctiveFeatures(String distinctiveFeatures) {
+        this.distinctiveFeatures = distinctiveFeatures;
+    }
 
-    void setMovementStyle(String movementStyle);
+    public PhysicalAttack[] getPhysicalAttacks() {
+        return physicalAttacks;
+    }
 
-    int getMovementSpeed();
+    public void setPhysicalAttacks(PhysicalAttack[] physicalAttacks) {
+        this.physicalAttacks = physicalAttacks;
+    }
 
-    void setMovementSpeed(int movementSpeed);
+    public String[] getSpecialAbilities() {
+        return specialAbilities;
+    }
 
-    String getDistinctiveFeatures();
+    public void setSpecialAbilities(String[] specialAbilities) {
+        this.specialAbilities = specialAbilities;
+    }
 
-    void setDistinctiveFeatures(String distinctiveFeatures);
+    public String getCombatStrategyPrimary() {
+        return combatStrategyPrimary;
+    }
 
-    PhysicalAttack[] getPhysicalAttacks();
+    public void setCombatStrategyPrimary(String combatStrategyPrimary) {
+        this.combatStrategyPrimary = combatStrategyPrimary;
+    }
 
-    void setPhysicalAttacks(PhysicalAttack[] physicalAttacks);
+    public String getCombatStrategySecondary() {
+        return combatStrategySecondary;
+    }
 
-    String[] getSpecialAbilities();
+    public void setCombatStrategySecondary(String combatStrategySecondary) {
+        this.combatStrategySecondary = combatStrategySecondary;
+    }
 
-    void setSpecialAbilities(String[] specialAbilities);
-
-    String getCombatStrategyPrimary();
-
-    void setCombatStrategyPrimary(String combatStrategyPrimary);
-
-    String getCombatStrategySecondary();
-
-    void setCombatStrategySecondary(String combatStrategySecondary);
-
-    String getMotivation();
-
-    void setMotivation(String motivation);
-
-    SavingThrow[] getSavingThrows();
-
-    void setSavingThrows(SavingThrow[] savingThrows);
-
-    String getMorale();
-
-    void setMorale(String morale);
 }
