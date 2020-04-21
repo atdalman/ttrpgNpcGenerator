@@ -12,7 +12,7 @@ public class CVSReader {
 // todo return array
     public ArrayList<String> readCVS(String cvsName){
         ArrayList<String> bodyList = new ArrayList();
-        String csvFile = "static/generalBodyShapes";
+        String csvFile = "";
         String line = "";
         String cvsSplitBy = ",";
 
@@ -22,7 +22,6 @@ public class CVSReader {
 
                 // use comma as separator
                 String[] bodyShapes = line.split(cvsSplitBy);
-
 
             }
 
