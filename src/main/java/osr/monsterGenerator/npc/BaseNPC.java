@@ -3,7 +3,7 @@ package osr.monsterGenerator.npc;
 import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
 
 // A basic monster or NPC
-public abstract class NPC {
+public class BaseNPC {
     private String name;
     private String properName;
     // Generic flat health points, if desired
@@ -20,6 +20,10 @@ public abstract class NPC {
     private String combatStrategyPrimary;
     private String combatStrategySecondary;
     private String[] motivations;
+
+    public BaseNPC(){
+
+    }
 
     public String getName() {
         return name;

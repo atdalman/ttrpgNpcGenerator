@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public enum BodyShape {
     CIRCULAR,
     SQUARE,
-    HUMANOID,
+    BIPEDAL,
     HEXAGONAL,
     OCTAGONAL,
     CYLINDRICAL,
@@ -25,7 +25,7 @@ public enum BodyShape {
                 shape= BodyShape.SQUARE.toString();
                 break;
             case 3:
-                shape= BodyShape.HUMANOID.toString();
+                shape= BodyShape.BIPEDAL.toString();
                 break;
             case 4:
                 shape= BodyShape.HEXAGONAL.toString();

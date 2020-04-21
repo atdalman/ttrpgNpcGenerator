@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import osr.monsterGenerator.npc.DndNPC;
 import osr.monsterGenerator.service.NPCFactory;
+import osr.monsterGenerator.utilities.Systems;
 
 @SpringBootApplication
 public class MonsterGeneratorApplication {
@@ -14,7 +15,7 @@ public class MonsterGeneratorApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MonsterGeneratorApplication.class, args);
-		DndNPC firstDndNPC = (DndNPC)npcFactory.generateMonster("Monster");
+		DndNPC firstDndNPC = (DndNPC)npcFactory.generateMonster(Systems.BASENPC);
 
 	}
 

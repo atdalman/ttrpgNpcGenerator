@@ -5,6 +5,7 @@ public enum Systems {
     ASSH, //Astonishing Swordsmen & Sorcerers of Hyperborea
     MOTHERSHIP,
     DND5E,
-    OSROTHER;
+    OSROTHER,
+    BASENPC;
 
 }

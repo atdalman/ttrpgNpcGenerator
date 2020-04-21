@@ -1,6 +1,6 @@
 package osr.monsterGenerator.npc;
 
-public class MothershipNPC extends NPC{
+public class MothershipNPC extends BaseNPC {
     public String instinct;
     public String combat;
     // Used for mercenaries

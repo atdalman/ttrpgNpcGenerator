@@ -5,11 +5,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.DndNPC;
 import osr.monsterGenerator.npc.MothershipNPC;
-import osr.monsterGenerator.npc.NPC;
+import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.StringUtils;
+import osr.monsterGenerator.utilities.Systems;
 
-public class NPCFactoryTest {
+public class BaseNPCFactoryTest {
 
     @Autowired
     private NPCFactory NPCFactory;
@@ -19,7 +20,7 @@ public class NPCFactoryTest {
 
     @Test
     public void generateMonsterTest(){
-        DndNPC testMon = (DndNPC)NPCFactory.generateMonster("monster");
+        DndNPC testMon = (DndNPC)NPCFactory.generateMonster(Systems.DND5E);
         boolean passed = false;
         if(!StringUtils.isStringNullOrBlank(testMon.getHitDie())
                 && testMon.getArmorClass() > Integer.MIN_VALUE
@@ -37,14 +38,14 @@ public class NPCFactoryTest {
 
     @Test
     public void generateMothershipNPC(){
-        MothershipNPC npc = (MothershipNPC)NPCFactory.generateMonster("mothership");
+        MothershipNPC npc = (MothershipNPC)NPCFactory.generateMonster(Systems.MOTHERSHIP);
         boolean passed = false;
 
     }
 
     @Test
     public void generateBasicMonster(){
-        NPC npc = NPCFactory.generateMonster("base");
+        BaseNPC baseNpc = NPCFactory.generateMonster(Systems.BASENPC);
         boolean passed = false;
 
 

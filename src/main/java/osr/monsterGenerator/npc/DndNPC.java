@@ -3,7 +3,7 @@ package osr.monsterGenerator.npc;
 import osr.monsterGenerator.utilities.Alignments;
 import osr.monsterGenerator.mechanicalProperties.SavingThrow;
 
-public class DndNPC extends NPC {
+public class DndNPC extends BaseNPC {
     private String alignment;
     private int armorClass;
     private String hitDie;
