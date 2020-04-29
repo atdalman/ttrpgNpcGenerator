@@ -37,7 +37,6 @@ public class RandomizeAttributeService {
                 return ThreadLocalRandom.current().nextInt(1, 5);
             case DND5E:
                 return ThreadLocalRandom.current().nextInt(1, 5);
-
             case OSROTHER:
                 return ThreadLocalRandom.current().nextInt(1, 5);
             default:
