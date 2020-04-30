@@ -14,6 +14,10 @@ public class RandomAttributeServiceTest {
     @Autowired
     private RandomizeAttributeService ras;
 
+    /*
+        Roughly tests if sizes of different weights are chosen at greater frequencies than others.  Hard to test for
+        randomness, so make sure the counts below are accurate expectations if the test starts failing
+     */
     @Test
     public void randomSizeTest(){
         Sizes.createSizeList();

@@ -8,6 +8,7 @@ public class Init implements InitializingBean {
 
     Logger logger = LoggerFactory.getLogger(InitializingBean.class);
 
+    // TODO May delete
     @Override
     public void afterPropertiesSet()  {
 

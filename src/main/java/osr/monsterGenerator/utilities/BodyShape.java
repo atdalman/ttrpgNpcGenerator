@@ -10,6 +10,8 @@ public enum BodyShape {
     OCTAGONAL,
     CYLINDRICAL,
     AMORPHOUSMASS,
+    AVIAN,
+    SERPENTINE,
     UNKNOWABLE;
 
     public static String selectRandomBodyShape() {
