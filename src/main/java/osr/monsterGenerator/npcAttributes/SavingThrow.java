@@ -1,4 +1,4 @@
-package osr.monsterGenerator.mechanicalProperties;
+package osr.monsterGenerator.npcAttributes;
 
 public class SavingThrow {
     private String name;

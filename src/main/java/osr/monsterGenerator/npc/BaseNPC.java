@@ -1,6 +1,6 @@
 package osr.monsterGenerator.npc;
 
-import osr.monsterGenerator.mechanicalProperties.PhysicalAttack;
+import osr.monsterGenerator.npcAttributes.PhysicalAttack;
 
 // A basic monster or NPC
 public class BaseNPC {

@@ -1,6 +1,7 @@
 package osr.monsterGenerator.utilities;
 
 import javax.annotation.PostConstruct;
+import java.io.OutputStream;
 
 // TO-DO Remove and put random functionality in attribute service
 public enum Sizes {
@@ -27,7 +28,7 @@ public enum Sizes {
     }
 
     @PostConstruct
-    public static void createSizeList(){
+    public static void createSizeList(OutputStream input){
         sizeList = new WeightedItemList();
 
         for(Sizes size : Sizes.values())
