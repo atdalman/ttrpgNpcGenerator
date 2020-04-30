@@ -28,10 +28,10 @@ public enum Sizes {
     }
 
     @PostConstruct
-    public static void createSizeList(OutputStream input){
+    public static void createSizeList(){
         sizeList = new WeightedItemList();
 
         for(Sizes size : Sizes.values())
-            Sizes.sizeList.addEntry(size, size.weight);
+            Sizes.sizeList.addEntry(size.name(), size.weight);
     }
 }

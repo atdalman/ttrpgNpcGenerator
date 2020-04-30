@@ -23,11 +23,12 @@ public class RandomAttributeServiceTest {
 
         for(int i = 0; i < 1000; i++){
             currSize = ras.getRandomSize();
+            System.out.println(currSize);
             if(sizeCounts.containsKey(currSize)) sizeCounts.replace(currSize, sizeCounts.get(currSize)+1);
             else sizeCounts.put(currSize, 1);
         }
 
-        if(sizeCounts.get("Medium") > 50 && sizeCounts.get("Gargantuan") < 15) passed = true;
+        if(sizeCounts.get(Sizes.MEDIUM.name()) > 50 && sizeCounts.get(Sizes.GARGANTUAN.name()) < 15) passed = true;
         else passed = false;
 
         Assert.assertTrue(passed);
