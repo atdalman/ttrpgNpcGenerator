@@ -28,7 +28,7 @@ public class BaseNPC {
     public BaseNPC(){
         this.size = AttributeService.getSize();
         this.generalBodyShape = AttributeService.getSize();
-        this.bodySurfaceCharacteristics = AttributeService.getBodyCharacteristics();
+        this.bodySurfaceCharacteristics = AttributeService.getBodySurfaceCharacteristics();
         this.movementStyle = AttributeService.getMovementStyle();
         this.movementSpeed = AttributeService.getMovementSpeed();
         this.distinctiveFeatures = AttributeService.getDistinctiveFeatures();

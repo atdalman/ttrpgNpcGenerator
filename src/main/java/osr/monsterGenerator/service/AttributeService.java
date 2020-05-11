@@ -35,8 +35,8 @@ public class AttributeService {
         return Sizes.getRandomSize();
     }
 
-    public static String getBodyCharacteristics() {
-        return "BODY CHARACTERISTIC";
+    public static String getBodySurfaceCharacteristics() {
+        return BodySurfaceCharacteristics.selectRandomBodyCharacteristic();
     }
 
     public static String getMovementStyle() {

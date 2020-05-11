@@ -12,7 +12,8 @@ public enum BodySurfaceCharacteristics {
     FLICKERY,
     GELATINOUS,
     SCALED,
-    EXOSKELETON;
+    EXOSKELETON,
+    FEATHERED;
 
     public static String selectRandomBodyCharacteristic() {
         int randNum = AttributeService.getRandomNum(BodySurfaceCharacteristics.values().length);;
