@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>monsterGenerator</name>
-	<description>Web app for quickly generating unique monsters.</description>
+	<description>Web app for quickly generating unique TTRPG npcs.</description>
 
 	<properties>
 		<java.version>12</java.version>

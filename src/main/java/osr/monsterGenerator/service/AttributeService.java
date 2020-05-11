@@ -1,10 +1,7 @@
 package osr.monsterGenerator.service;
 
 import org.springframework.stereotype.Service;
-import osr.monsterGenerator.npcAttributes.Alignments;
-import osr.monsterGenerator.npcAttributes.BodyShape;
-import osr.monsterGenerator.npcAttributes.BodySurfaceCharacteristics;
-import osr.monsterGenerator.npcAttributes.Sizes;
+import osr.monsterGenerator.npcAttributes.*;
 import osr.monsterGenerator.utilities.*;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -39,15 +36,9 @@ public class AttributeService {
         return BodySurfaceCharacteristics.selectRandomBodyCharacteristic();
     }
 
-    public static String getMovementStyle() {
-        return "MOVEMENTS";
+    public static Movement getMovement(){
+        return new Movement();
     }
-
-    public static String getMovementSpeed() {
-        return "SO FAST";
-    }
-
-    public static int getNumLimbs(){ return 6;}
 
     public static String getDistinctiveFeatures() {
         return "MOVEMENTS";

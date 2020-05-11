@@ -1,5 +1,6 @@
 package osr.monsterGenerator.npc;
 
+import osr.monsterGenerator.npcAttributes.Movement;
 import osr.monsterGenerator.npcAttributes.PhysicalAttack;
 import osr.monsterGenerator.service.AttributeService;
 
@@ -15,9 +16,7 @@ public class BaseNPC {
     private int experienceGiven;
     private String generalBodyShape;
     private String bodySurfaceCharacteristics;
-    private String movementStyle;
-    private int numLimbs;
-    private String movementSpeed;
+    private Movement movement;
     private String distinctiveFeatures;
     private PhysicalAttack[] physicalAttacks;
     private String[] specialAbilities;
@@ -29,13 +28,11 @@ public class BaseNPC {
         this.size = AttributeService.getSize();
         this.generalBodyShape = AttributeService.getSize();
         this.bodySurfaceCharacteristics = AttributeService.getBodySurfaceCharacteristics();
-        this.movementStyle = AttributeService.getMovementStyle();
-        this.movementSpeed = AttributeService.getMovementSpeed();
         this.distinctiveFeatures = AttributeService.getDistinctiveFeatures();
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
         this.combatStrategySecondary = AttributeService.getCombatStrategy();
         this.motivations = AttributeService.getMotivations();
-        this.numLimbs = AttributeService.getNumLimbs();
+        this.movement = AttributeService.getMovement();
     }
 
     public String getName() {
@@ -94,22 +91,6 @@ public class BaseNPC {
         this.bodySurfaceCharacteristics = bodySurfaceCharacteristics;
     }
 
-    public String getMovementStyle() {
-        return movementStyle;
-    }
-
-    public void setMovementStyle(String movementStyle) {
-        this.movementStyle = movementStyle;
-    }
-
-    public String getMovementSpeed() {
-        return movementSpeed;
-    }
-
-    public void setMovementSpeed(String movementSpeed) {
-        this.movementSpeed = movementSpeed;
-    }
-
     public String getDistinctiveFeatures() {
         return distinctiveFeatures;
     }
@@ -156,14 +137,6 @@ public class BaseNPC {
 
     public void setMotivations(String[] motivations) {
         this.motivations = motivations;
-    }
-
-    public int getNumLimbs() {
-        return numLimbs;
-    }
-
-    public void setNumLimbs(int numLimbs) {
-        this.numLimbs = numLimbs;
     }
 
 }
