@@ -35,6 +35,14 @@ public class BaseNPC {
         this.movement = AttributeService.getMovement();
     }
 
+    public Movement getMovement() {
+        return movement;
+    }
+
+    public void setMovement(Movement movement) {
+        this.movement = movement;
+    }
+
     public String getName() {
         return name;
     }

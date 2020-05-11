@@ -41,15 +41,14 @@ public class BaseNPCFactoryTest {
                 && testMon.getExperienceGiven() >= 0
                 && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape())
                 && StringUtils.isStringNullOrBlank(testMon.getBodySurfaceCharacteristics())
-                && StringUtils.isStringNullOrBlank(testMon.getMovementStyle())
-                && StringUtils.isStringNullOrBlank(testMon.getMovementSpeed())
                 && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeatures())
+                // TODO Write a better test
+                && testMon.getMovement() != null
                 && testMon.getPhysicalAttacks().length > 0
                 && testMon.getSpecialAbilities().length > 0
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategyPrimary())
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategySecondary())
                 && testMon.getMotivations().length > 0
-                && testMon.getNumLimbs() >= 0
         ){
             passed = true;
         }
