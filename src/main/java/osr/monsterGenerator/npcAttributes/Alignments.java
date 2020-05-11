@@ -20,23 +20,9 @@ public enum Alignments {
     }
 
     public static String selectRandomAlignment() {
-        int numAlignments = Alignments.values().length;
-        int randNum =  ThreadLocalRandom.current().nextInt(1, numAlignments + 1);
-        String alignment;
-        switch (randNum) {
-            case 1:
-                alignment= Alignments.CHAOTIC.toString();
-                break;
-            case 2:
-                alignment= Alignments.NEUTRAL.toString();
-                break;
-            case 3:
-                alignment= Alignments.LAWFUL.toString();
-                break;
-            default:
-                alignment = Alignments.NONE.toString();
-        }
-        return alignment;
+        int randNum = ThreadLocalRandom.current().nextInt(1, Alignments.values().length+1);
+
+        return Alignments.values()[randNum].toString();
     }
 
 }
