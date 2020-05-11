@@ -49,6 +49,7 @@ public class BaseNPCFactoryTest {
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategyPrimary())
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategySecondary())
                 && testMon.getMotivations().length > 0
+                && testMon.getNumLimbs() >= 0
         ){
             passed = true;
         }

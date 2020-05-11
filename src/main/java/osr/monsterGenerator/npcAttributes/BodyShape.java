@@ -1,5 +1,7 @@
 package osr.monsterGenerator.npcAttributes;
 
+import osr.monsterGenerator.service.AttributeService;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public enum BodyShape {
@@ -15,7 +17,7 @@ public enum BodyShape {
     UNKNOWABLE;
 
     public static String selectRandomBodyShape() {
-        int randNum = ThreadLocalRandom.current().nextInt(1, BodyShape.values().length+1);
+        int randNum = AttributeService.getRandomNum(BodyShape.values().length);
 
         return BodyShape.values()[randNum].toString();
     }

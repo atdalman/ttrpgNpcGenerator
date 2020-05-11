@@ -1,5 +1,7 @@
 package osr.monsterGenerator.npcAttributes;
 
+import osr.monsterGenerator.service.AttributeService;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public enum Alignments {
@@ -20,7 +22,7 @@ public enum Alignments {
     }
 
     public static String selectRandomAlignment() {
-        int randNum = ThreadLocalRandom.current().nextInt(1, Alignments.values().length+1);
+        int randNum = AttributeService.getRandomNum(Alignments.values().length);
 
         return Alignments.values()[randNum].toString();
     }

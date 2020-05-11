@@ -157,7 +157,7 @@ public class BaseNPC {
     public void setMotivations(String[] motivations) {
         this.motivations = motivations;
     }
-    
+
     public int getNumLimbs() {
         return numLimbs;
     }

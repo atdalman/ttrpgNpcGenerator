@@ -3,12 +3,17 @@ package osr.monsterGenerator.service;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.npcAttributes.Alignments;
 import osr.monsterGenerator.npcAttributes.BodyShape;
+import osr.monsterGenerator.npcAttributes.BodySurfaceCharacteristics;
 import osr.monsterGenerator.npcAttributes.Sizes;
 import osr.monsterGenerator.utilities.*;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class AttributeService {
+
+    public static int getRandomNum(int size){
+        return ThreadLocalRandom.current().nextInt(0, size+1);
+    }
 
     public static String getAlignment() {
         return Alignments.selectRandomAlignment();
