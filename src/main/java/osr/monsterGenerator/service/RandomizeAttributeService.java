@@ -13,12 +13,11 @@ public class RandomizeAttributeService {
     }
 
     public String getRandomProperName(int speciesType) {
-        //TODO Write generic humanoid name generator
-        return "PROPERNAME";
+        return "PHILBERT PENNYBOTTOMS";
     }
 
     public String getRandomName(){
-        return "NAME";
+        return "THE NEW GUY";
     }
 
     public String healthPoints(){
@@ -29,8 +28,36 @@ public class RandomizeAttributeService {
         return Sizes.getRandomSize();
     }
 
+    public static String getRandomBodyCharacteristics(){
+        return "BODY CHARACTERISTIC";
+    }
+
+    public static String getRandomMovementStyle(){
+        return "MOVEMENTS";
+    }
+
+    public static String getRandomMovementSpeed(){
+        return "SO FAST";
+    }
+
+    public static String getDistinctiveFeatures(){
+        return "MOVEMENTS";
+    }
+
+    public static String getCombatStrategy(){
+        return "DODGE, DUCK, DIP, DIVE, and DODGE";
+    }
+
+    public static String[] getMotivations() {
+        return new String[]{"FOOD", "SURVIVAL"};
+    }
+
+    public String getGeneralBodyShape() {
+        return BodyShape.selectRandomBodyShape();
+    }
+
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
-    public int hitDie(Systems system){
+    public int getHitDie(Systems system){
 
         switch(system){
             case ASSH:
@@ -43,9 +70,5 @@ public class RandomizeAttributeService {
                 return ThreadLocalRandom.current().nextInt(1, 5);
 
         }
-    }
-
-    public String generalBodyShape() {
-        return BodyShape.selectRandomBodyShape();
     }
 }

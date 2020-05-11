@@ -1,6 +1,9 @@
 package osr.monsterGenerator.npc;
 
 import osr.monsterGenerator.npcAttributes.PhysicalAttack;
+import osr.monsterGenerator.service.RandomizeAttributeService;
+
+import java.util.Random;
 
 // A basic monster or NPC
 public class BaseNPC {
@@ -21,11 +24,18 @@ public class BaseNPC {
     private String[] specialAbilities;
     private String combatStrategyPrimary;
     private String combatStrategySecondary;
-
     private String[] motivations;
 
     public BaseNPC(){
-
+        this.size = RandomizeAttributeService.getRandomSize();
+        this.generalBodyShape = RandomizeAttributeService.getRandomSize();
+        this.bodyCharacteristics = RandomizeAttributeService.getRandomBodyCharacteristics();
+        this.movementStyle = RandomizeAttributeService.getRandomMovementStyle();
+        this.movementSpeed = RandomizeAttributeService.getRandomMovementSpeed();
+        this.distinctiveFeatures = RandomizeAttributeService.getDistinctiveFeatures();
+        this.combatStrategyPrimary = RandomizeAttributeService.getCombatStrategy();
+        this.combatStrategySecondary = RandomizeAttributeService.getCombatStrategy();
+        this.motivations = RandomizeAttributeService.getMotivations();
     }
 
     public String getName() {
