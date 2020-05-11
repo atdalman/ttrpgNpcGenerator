@@ -1,9 +1,7 @@
 package osr.monsterGenerator.npc;
 
 import osr.monsterGenerator.npcAttributes.PhysicalAttack;
-import osr.monsterGenerator.service.RandomizeAttributeService;
-
-import java.util.Random;
+import osr.monsterGenerator.service.AttributeService;
 
 // A basic monster or NPC
 public class BaseNPC {
@@ -27,15 +25,15 @@ public class BaseNPC {
     private String[] motivations;
 
     public BaseNPC(){
-        this.size = RandomizeAttributeService.getRandomSize();
-        this.generalBodyShape = RandomizeAttributeService.getRandomSize();
-        this.bodyCharacteristics = RandomizeAttributeService.getRandomBodyCharacteristics();
-        this.movementStyle = RandomizeAttributeService.getRandomMovementStyle();
-        this.movementSpeed = RandomizeAttributeService.getRandomMovementSpeed();
-        this.distinctiveFeatures = RandomizeAttributeService.getDistinctiveFeatures();
-        this.combatStrategyPrimary = RandomizeAttributeService.getCombatStrategy();
-        this.combatStrategySecondary = RandomizeAttributeService.getCombatStrategy();
-        this.motivations = RandomizeAttributeService.getMotivations();
+        this.size = AttributeService.getSize();
+        this.generalBodyShape = AttributeService.getSize();
+        this.bodyCharacteristics = AttributeService.getBodyCharacteristics();
+        this.movementStyle = AttributeService.getMovementStyle();
+        this.movementSpeed = AttributeService.getMovementSpeed();
+        this.distinctiveFeatures = AttributeService.getDistinctiveFeatures();
+        this.combatStrategyPrimary = AttributeService.getCombatStrategy();
+        this.combatStrategySecondary = AttributeService.getCombatStrategy();
+        this.motivations = AttributeService.getMotivations();
     }
 
     public String getName() {

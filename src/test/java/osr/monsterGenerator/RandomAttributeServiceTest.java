@@ -3,7 +3,7 @@ package osr.monsterGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import osr.monsterGenerator.service.RandomizeAttributeService;
+import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.npcAttributes.Sizes;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class RandomAttributeServiceTest {
 
     @Autowired
-    private RandomizeAttributeService ras;
+    private AttributeService ras;
 
     /*
         Roughly tests if sizes of different weights are chosen at greater frequencies than others.  Hard to test for
@@ -26,7 +26,7 @@ public class RandomAttributeServiceTest {
         boolean passed = false;
 
         for(int i = 0; i < 1000; i++){
-            currSize = ras.getRandomSize();
+            currSize = ras.getSize();
             System.out.println(currSize);
             if(sizeCounts.containsKey(currSize)) sizeCounts.replace(currSize, sizeCounts.get(currSize)+1);
             else sizeCounts.put(currSize, 1);

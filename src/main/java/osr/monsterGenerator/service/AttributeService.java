@@ -8,38 +8,37 @@ import osr.monsterGenerator.utilities.*;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-@Service
-public class RandomizeAttributeService {
+public class AttributeService {
 
-    public String getRandomAlignment() {
+    public static String getAlignment() {
         return Alignments.selectRandomAlignment();
     }
 
-    public String getRandomProperName(int speciesType) {
+    public static String getProperName(int speciesType) {
         return "PHILBERT PENNYBOTTOMS";
     }
 
-    public String getRandomName() {
+    public static String getName() {
         return "THE NEW GUY";
     }
 
-    public String healthPoints() {
+    public static String healthPoints() {
         return "666";
     }
 
-    public static String getRandomSize() {
+    public static String getSize() {
         return Sizes.getRandomSize();
     }
 
-    public static String getRandomBodyCharacteristics() {
+    public static String getBodyCharacteristics() {
         return "BODY CHARACTERISTIC";
     }
 
-    public static String getRandomMovementStyle() {
+    public static String getMovementStyle() {
         return "MOVEMENTS";
     }
 
-    public static String getRandomMovementSpeed() {
+    public static String getMovementSpeed() {
         return "SO FAST";
     }
 
@@ -55,12 +54,12 @@ public class RandomizeAttributeService {
         return new String[]{"FOOD", "SURVIVAL"};
     }
 
-    public String getGeneralBodyShape() {
+    public static String getGeneralBodyShape() {
         return BodyShape.selectRandomBodyShape();
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
-    public int getHitDie(Systems system) {
+    public static int getHitDie(Systems system) {
 
         switch (system) {
             case ASSH:
