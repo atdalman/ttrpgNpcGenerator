@@ -21,6 +21,7 @@ public class BaseNPC {
     private String[] specialAbilities;
     private String combatStrategyPrimary;
     private String combatStrategySecondary;
+
     private String[] motivations;
 
     public BaseNPC(){
@@ -137,6 +138,14 @@ public class BaseNPC {
 
     public void setCombatStrategySecondary(String combatStrategySecondary) {
         this.combatStrategySecondary = combatStrategySecondary;
+    }
+
+    public String[] getMotivations() {
+        return motivations;
+    }
+
+    public void setMotivations(String[] motivations) {
+        this.motivations = motivations;
     }
 
 }
