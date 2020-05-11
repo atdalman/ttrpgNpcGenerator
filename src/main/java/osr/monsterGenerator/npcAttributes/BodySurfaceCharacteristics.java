@@ -13,7 +13,14 @@ public enum BodySurfaceCharacteristics {
     GELATINOUS,
     SCALED,
     EXOSKELETON,
-    FEATHERED;
+    FEATHERED,
+    HUMANESQUE,
+    BONY,
+    FURRY,
+    FUZZY,
+    CITRUSPEELESQUE,
+    METALLIC,
+    CRYSTAL;
 
     public static String selectRandomBodyCharacteristic() {
         int randNum = AttributeService.getRandomNum(BodySurfaceCharacteristics.values().length);;

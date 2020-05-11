@@ -47,6 +47,8 @@ public class AttributeService {
         return "SO FAST";
     }
 
+    public static int getNumLimbs(){ return 6;}
+
     public static String getDistinctiveFeatures() {
         return "MOVEMENTS";
     }
@@ -62,8 +64,6 @@ public class AttributeService {
     public static String getGeneralBodyShape() {
         return BodyShape.selectRandomBodyShape();
     }
-
-    public static int getNumLimbs(){ return 6;}
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
     public static int getHitDie(Systems system) {
