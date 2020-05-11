@@ -1,4 +1,4 @@
-package osr.monsterGenerator.utilities;
+package osr.monsterGenerator.npcAttributes;
 
 import java.util.concurrent.ThreadLocalRandom;
 

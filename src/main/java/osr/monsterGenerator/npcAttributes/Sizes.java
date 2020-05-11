@@ -1,7 +1,8 @@
-package osr.monsterGenerator.utilities;
+package osr.monsterGenerator.npcAttributes;
+
+import osr.monsterGenerator.utilities.WeightedItemList;
 
 import javax.annotation.PostConstruct;
-import java.io.OutputStream;
 
 // TO-DO Remove and put random functionality in attribute service
 public enum Sizes {

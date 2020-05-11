@@ -1,6 +1,9 @@
 package osr.monsterGenerator.service;
 
 import org.springframework.stereotype.Service;
+import osr.monsterGenerator.npcAttributes.Alignments;
+import osr.monsterGenerator.npcAttributes.BodyShape;
+import osr.monsterGenerator.npcAttributes.Sizes;
 import osr.monsterGenerator.utilities.*;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -16,35 +19,35 @@ public class RandomizeAttributeService {
         return "PHILBERT PENNYBOTTOMS";
     }
 
-    public String getRandomName(){
+    public String getRandomName() {
         return "THE NEW GUY";
     }
 
-    public String healthPoints(){
+    public String healthPoints() {
         return "666";
     }
 
-    public static String getRandomSize(){
+    public static String getRandomSize() {
         return Sizes.getRandomSize();
     }
 
-    public static String getRandomBodyCharacteristics(){
+    public static String getRandomBodyCharacteristics() {
         return "BODY CHARACTERISTIC";
     }
 
-    public static String getRandomMovementStyle(){
+    public static String getRandomMovementStyle() {
         return "MOVEMENTS";
     }
 
-    public static String getRandomMovementSpeed(){
+    public static String getRandomMovementSpeed() {
         return "SO FAST";
     }
 
-    public static String getDistinctiveFeatures(){
+    public static String getDistinctiveFeatures() {
         return "MOVEMENTS";
     }
 
-    public static String getCombatStrategy(){
+    public static String getCombatStrategy() {
         return "DODGE, DUCK, DIP, DIVE, and DODGE";
     }
 
@@ -57,9 +60,9 @@ public class RandomizeAttributeService {
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
-    public int getHitDie(Systems system){
+    public int getHitDie(Systems system) {
 
-        switch(system){
+        switch (system) {
             case ASSH:
                 return ThreadLocalRandom.current().nextInt(1, 5);
             case DND5E:

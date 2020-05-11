@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.service.RandomizeAttributeService;
-import osr.monsterGenerator.utilities.Sizes;
+import osr.monsterGenerator.npcAttributes.Sizes;
 
 import java.util.HashMap;
 import java.util.Map;
