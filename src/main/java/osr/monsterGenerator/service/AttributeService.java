@@ -58,6 +58,8 @@ public class AttributeService {
         return BodyShape.selectRandomBodyShape();
     }
 
+    public static int getNumLimbs(){ return 6;}
+
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
     public static int getHitDie(Systems system) {
 

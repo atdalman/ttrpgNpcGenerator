@@ -14,8 +14,9 @@ public class BaseNPC {
     private String size;
     private int experienceGiven;
     private String generalBodyShape;
-    private String bodyCharacteristics;
+    private String bodySurfaceCharacteristics;
     private String movementStyle;
+    private int numLimbs;
     private String movementSpeed;
     private String distinctiveFeatures;
     private PhysicalAttack[] physicalAttacks;
@@ -27,13 +28,14 @@ public class BaseNPC {
     public BaseNPC(){
         this.size = AttributeService.getSize();
         this.generalBodyShape = AttributeService.getSize();
-        this.bodyCharacteristics = AttributeService.getBodyCharacteristics();
+        this.bodySurfaceCharacteristics = AttributeService.getBodyCharacteristics();
         this.movementStyle = AttributeService.getMovementStyle();
         this.movementSpeed = AttributeService.getMovementSpeed();
         this.distinctiveFeatures = AttributeService.getDistinctiveFeatures();
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
         this.combatStrategySecondary = AttributeService.getCombatStrategy();
         this.motivations = AttributeService.getMotivations();
+        this.numLimbs = AttributeService.getNumLimbs();
     }
 
     public String getName() {
@@ -84,12 +86,12 @@ public class BaseNPC {
         this.generalBodyShape = generalBodyShape;
     }
 
-    public String getBodyCharacteristics() {
-        return bodyCharacteristics;
+    public String getBodySurfaceCharacteristics() {
+        return bodySurfaceCharacteristics;
     }
 
-    public void setBodyCharacteristics(String bodyCharacteristics) {
-        this.bodyCharacteristics = bodyCharacteristics;
+    public void setBodySurfaceCharacteristics(String bodySurfaceCharacteristics) {
+        this.bodySurfaceCharacteristics = bodySurfaceCharacteristics;
     }
 
     public String getMovementStyle() {
@@ -154,6 +156,14 @@ public class BaseNPC {
 
     public void setMotivations(String[] motivations) {
         this.motivations = motivations;
+    }
+    
+    public int getNumLimbs() {
+        return numLimbs;
+    }
+
+    public void setNumLimbs(int numLimbs) {
+        this.numLimbs = numLimbs;
     }
 
 }

@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.DndNPC;
 import osr.monsterGenerator.npc.MothershipNPC;
 import osr.monsterGenerator.npc.BaseNPC;
-import osr.monsterGenerator.npcAttributes.PhysicalAttack;
-import osr.monsterGenerator.npcAttributes.SavingThrow;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.StringUtils;
 import osr.monsterGenerator.utilities.Systems;
@@ -42,7 +40,7 @@ public class BaseNPCFactoryTest {
                 && !StringUtils.isStringNullOrBlank(testMon.getSize())
                 && testMon.getExperienceGiven() >= 0
                 && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape())
-                && StringUtils.isStringNullOrBlank(testMon.getBodyCharacteristics())
+                && StringUtils.isStringNullOrBlank(testMon.getBodySurfaceCharacteristics())
                 && StringUtils.isStringNullOrBlank(testMon.getMovementStyle())
                 && StringUtils.isStringNullOrBlank(testMon.getMovementSpeed())
                 && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeatures())
