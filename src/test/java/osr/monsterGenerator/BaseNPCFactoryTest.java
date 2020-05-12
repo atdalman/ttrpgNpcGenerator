@@ -1,16 +1,23 @@
 package osr.monsterGenerator;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.npc.DndNPC;
 import osr.monsterGenerator.npc.MothershipNPC;
+import osr.monsterGenerator.npcAttributes.Sizes;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.StringUtils;
 import osr.monsterGenerator.utilities.Systems;
 
 public class BaseNPCFactoryTest {
+
+    @BeforeClass
+    public static void testSetup() {
+        Sizes.createSizeList();
+    }
 
     @Autowired
     private NPCFactory NPCFactory;
@@ -36,16 +43,12 @@ public class BaseNPCFactoryTest {
         BaseNPC testMon = NPCFactory.generateMonster(Systems.BASENPC);
         boolean passed = false;
         if(!StringUtils.isStringNullOrBlank(testMon.getName())
-                && !StringUtils.isStringNullOrBlank(testMon.getHealthPoints())
                 && !StringUtils.isStringNullOrBlank(testMon.getSize())
-                && testMon.getExperienceGiven() >= 0
                 && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape())
                 && StringUtils.isStringNullOrBlank(testMon.getBodySurfaceCharacteristics())
                 && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeatures())
                 // TODO Write a better test
                 && testMon.getMovement() != null
-                && testMon.getPhysicalAttacks().length > 0
-                && testMon.getSpecialAbilities().length > 0
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategyPrimary())
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategySecondary())
                 && testMon.getMotivations().length > 0
