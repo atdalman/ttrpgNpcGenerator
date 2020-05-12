@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import osr.monsterGenerator.dao.MovementRepository;
+import osr.monsterGenerator.repository.MovementRepository;
 import osr.monsterGenerator.service.NPCFactory;
 
 @SpringBootApplication

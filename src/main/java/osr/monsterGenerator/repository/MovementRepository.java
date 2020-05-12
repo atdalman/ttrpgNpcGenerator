@@ -1,4 +1,4 @@
-package osr.monsterGenerator.dao;
+package osr.monsterGenerator.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import osr.monsterGenerator.npc.npcAttributes.Movement;
