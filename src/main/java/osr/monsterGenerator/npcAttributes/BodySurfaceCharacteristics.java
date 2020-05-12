@@ -2,6 +2,7 @@ package osr.monsterGenerator.npcAttributes;
 
 import osr.monsterGenerator.service.AttributeService;
 
+//TODO Move to Mongo
 public enum BodySurfaceCharacteristics {
     SLIMY,
     SMOOTH,
@@ -21,7 +22,7 @@ public enum BodySurfaceCharacteristics {
     CRYSTAL;
 
     public static String selectRandomBodyCharacteristic() {
-        int randNum = AttributeService.getRandomNum(BodySurfaceCharacteristics.values().length);;
+        int randNum = AttributeService.getRandomNum(BodySurfaceCharacteristics.values().length);
 
         return BodySurfaceCharacteristics.values()[randNum].toString();
 

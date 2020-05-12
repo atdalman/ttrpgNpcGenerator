@@ -4,7 +4,7 @@ import osr.monsterGenerator.utilities.WeightedItemList;
 
 import javax.annotation.PostConstruct;
 
-// TO-DO Remove and put random functionality in attribute service
+// TODO Move to mongo
 public enum Sizes {
     MEDIUM(30),
     LARGE(30),

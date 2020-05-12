@@ -2,6 +2,7 @@ package osr.monsterGenerator.npcAttributes;
 
 import osr.monsterGenerator.service.AttributeService;
 
+// TODO Move to Mongo
 public enum BodyShape {
     CIRCULAR,
     SQUARE,
