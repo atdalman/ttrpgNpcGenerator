@@ -7,5 +7,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class Init  {
-    Logger logger = LoggerFactory.getLogger(InitializingBean.class);
+    //TODO Mark for removal.  Boot does everything...
 }
