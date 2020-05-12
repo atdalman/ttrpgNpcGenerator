@@ -1,6 +1,6 @@
 package osr.monsterGenerator.service;
 
-import osr.monsterGenerator.npcAttributes.*;
+import osr.monsterGenerator.npc.npcAttributes.*;
 import osr.monsterGenerator.utilities.Systems;
 
 import java.util.concurrent.ThreadLocalRandom;

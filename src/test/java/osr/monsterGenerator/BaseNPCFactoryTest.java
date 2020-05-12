@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.npc.DndNPC;
 import osr.monsterGenerator.npc.MothershipNPC;
-import osr.monsterGenerator.npcAttributes.Sizes;
+import osr.monsterGenerator.npc.npcAttributes.Sizes;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.StringUtils;
 import osr.monsterGenerator.utilities.Systems;

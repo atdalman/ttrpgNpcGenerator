@@ -1,7 +1,7 @@
 package osr.monsterGenerator.npc;
 
-import osr.monsterGenerator.npcAttributes.Alignments;
-import osr.monsterGenerator.npcAttributes.SavingThrow;
+import osr.monsterGenerator.npc.npcAttributes.Alignments;
+import osr.monsterGenerator.npc.npcAttributes.SavingThrow;
 
 public class DndNPC extends BaseNPC {
     private String alignment;

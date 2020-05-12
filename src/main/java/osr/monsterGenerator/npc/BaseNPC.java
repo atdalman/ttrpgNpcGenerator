@@ -1,7 +1,7 @@
 package osr.monsterGenerator.npc;
 
-import osr.monsterGenerator.npcAttributes.Movement;
-import osr.monsterGenerator.npcAttributes.PhysicalAttack;
+import osr.monsterGenerator.npc.npcAttributes.Movement;
+import osr.monsterGenerator.npc.npcAttributes.PhysicalAttack;
 import osr.monsterGenerator.service.AttributeService;
 
 // A basic monster or NPC

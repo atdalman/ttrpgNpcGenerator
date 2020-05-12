@@ -2,7 +2,7 @@ package osr.monsterGenerator;
 
 import org.junit.Assert;
 import org.junit.Test;
-import osr.monsterGenerator.npcAttributes.Sizes;
+import osr.monsterGenerator.npc.npcAttributes.Sizes;
 import osr.monsterGenerator.service.AttributeService;
 
 import java.util.HashMap;
