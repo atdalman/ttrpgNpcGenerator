@@ -2,10 +2,8 @@ package osr.monsterGenerator;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.npcAttributes.Sizes;
-import osr.monsterGenerator.utilities.Systems;
+import osr.monsterGenerator.service.AttributeService;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,7 @@
 package osr.monsterGenerator.service;
 
-import org.springframework.stereotype.Service;
 import osr.monsterGenerator.npcAttributes.*;
-import osr.monsterGenerator.utilities.*;
+import osr.monsterGenerator.utilities.Systems;
 
 import java.util.concurrent.ThreadLocalRandom;
 

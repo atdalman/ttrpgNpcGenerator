@@ -1,9 +1,9 @@
 package osr.monsterGenerator.service;
 
 import org.springframework.stereotype.Service;
+import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.npc.DndNPC;
 import osr.monsterGenerator.npc.MothershipNPC;
-import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.npc.OtherOSRNPC;
 import osr.monsterGenerator.utilities.Systems;
 

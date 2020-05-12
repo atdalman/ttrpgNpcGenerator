@@ -2,8 +2,6 @@ package osr.monsterGenerator.npcAttributes;
 
 import osr.monsterGenerator.service.AttributeService;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public enum Alignments {
 
     CHAOTIC("Chaotic"),
