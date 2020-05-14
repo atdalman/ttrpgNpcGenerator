@@ -4,18 +4,9 @@ import org.springframework.data.annotation.Id;
 
 public class Movement {
     @Id
-    private String _id;
     private String movementStyle;
     private int movementSpeed;
     private int numLimbs;
-
-    public String get_id() {
-        return _id;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
-    }
 
     public String getMovementStyle() {
         return movementStyle;
@@ -44,7 +35,6 @@ public class Movement {
     @Override
     public String toString() {
         return "Movement{" +
-                "_id='" + _id + '\'' +
                 ", movementStyle='" + movementStyle + '\'' +
                 ", movementSpeed=" + movementSpeed +
                 ", numLimbs=" + numLimbs +
