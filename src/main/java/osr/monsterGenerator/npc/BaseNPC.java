@@ -1,11 +1,17 @@
 package osr.monsterGenerator.npc;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import osr.monsterGenerator.npc.npcAttributes.DistinctiveFeature;
 import osr.monsterGenerator.npc.npcAttributes.Movement;
 import osr.monsterGenerator.npc.npcAttributes.PhysicalAttack;
 import osr.monsterGenerator.service.AttributeService;
 
 // A basic monster or NPC
 public class BaseNPC {
+
+    @Autowired
+    AttributeService attributeService;
+
     // Perhaps tied to body shape or distinct features?  For example, a reptilian creature could use a latin name
     // from that part of the animal kingdom
     private String name;
@@ -17,7 +23,7 @@ public class BaseNPC {
     private String generalBodyShape;
     private String bodySurfaceCharacteristics;
     private Movement movement;
-    private String distinctiveFeatures;
+    private DistinctiveFeature distinctiveFeature;
     private PhysicalAttack[] physicalAttacks;
     private String[] specialAbilities;
     private String combatStrategyPrimary;
@@ -28,7 +34,7 @@ public class BaseNPC {
         this.size = AttributeService.getSize();
         this.generalBodyShape = AttributeService.getGeneralBodyShape();
         this.bodySurfaceCharacteristics = AttributeService.getBodySurfaceCharacteristics();
-        this.distinctiveFeatures = AttributeService.getDistinctiveFeatures();
+        this.distinctiveFeature = attributeService.getDistinctiveFeature();
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
         this.combatStrategySecondary = AttributeService.getCombatStrategy();
         this.motivations = AttributeService.getMotivations();
@@ -99,12 +105,12 @@ public class BaseNPC {
         this.bodySurfaceCharacteristics = bodySurfaceCharacteristics;
     }
 
-    public String getDistinctiveFeatures() {
-        return distinctiveFeatures;
+    public DistinctiveFeature getDistinctiveFeature() {
+        return distinctiveFeature;
     }
 
-    public void setDistinctiveFeatures(String distinctiveFeatures) {
-        this.distinctiveFeatures = distinctiveFeatures;
+    public void setDistinctiveFeature(DistinctiveFeature distinctiveFeature) {
+        this.distinctiveFeature = distinctiveFeature;
     }
 
     public PhysicalAttack[] getPhysicalAttacks() {

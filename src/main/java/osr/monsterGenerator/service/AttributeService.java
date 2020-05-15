@@ -1,16 +1,13 @@
 package osr.monsterGenerator.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import osr.monsterGenerator.npc.npcAttributes.*;
-import osr.monsterGenerator.repository.DistinctiveFeatureRepository;
 import osr.monsterGenerator.utilities.Systems;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+@Service
 public class AttributeService {
-
-    @Autowired
-    DistinctiveFeatureRepository disFeatRepo;
 
     public static int getRandomNum(int size) {
         return ThreadLocalRandom.current().nextInt(0, size + 1);
@@ -44,9 +41,8 @@ public class AttributeService {
         return new Movement();
     }
 
-    public String getDistinctiveFeatures() {
-        disFeatRepo.findAll().get(getRandomNum(disFeatRepo.size()));
-        return disFeatRepo.findDistinctiveFeatureByName();
+    public DistinctiveFeature getDistinctiveFeature() {
+        return new DistinctiveFeature();
     }
 
     public static String getCombatStrategy() {
