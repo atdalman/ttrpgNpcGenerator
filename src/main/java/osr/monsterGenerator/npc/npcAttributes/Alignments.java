@@ -19,7 +19,6 @@ public enum Alignments {
         return this.alignment;
     }
 
-    // TODO Update to use random num method in AttributeService
     public static String selectRandomAlignment() {
         int randNum = AttributeService.getRandomNum(Alignments.values().length);
 
