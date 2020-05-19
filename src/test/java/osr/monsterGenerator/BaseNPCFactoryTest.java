@@ -45,7 +45,7 @@ public class BaseNPCFactoryTest {
         if(!StringUtils.isStringNullOrBlank(testMon.getName())
                 && !StringUtils.isStringNullOrBlank(testMon.getSize())
                 && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape())
-                && StringUtils.isStringNullOrBlank(testMon.getBodySurfaceCharacteristics())
+                && StringUtils.isStringNullOrBlank(testMon.getBodySurface().getName())
                 && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeature().getDescription())
                 // TODO Write a better test
                 && testMon.getMovement() != null

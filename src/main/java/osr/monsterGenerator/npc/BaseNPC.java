@@ -1,6 +1,7 @@
 package osr.monsterGenerator.npc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import osr.monsterGenerator.npc.npcAttributes.BodySurface;
 import osr.monsterGenerator.npc.npcAttributes.DistinctiveFeature;
 import osr.monsterGenerator.npc.npcAttributes.Movement;
 import osr.monsterGenerator.npc.npcAttributes.PhysicalAttack;
@@ -21,7 +22,7 @@ public class BaseNPC {
     private String size;
     private int experienceGiven;
     private String generalBodyShape;
-    private String bodySurfaceCharacteristics;
+    private BodySurface bodySurface;
     private Movement movement;
     private DistinctiveFeature distinctiveFeature;
     private PhysicalAttack[] physicalAttacks;
@@ -33,7 +34,7 @@ public class BaseNPC {
     public BaseNPC(){
         this.size = AttributeService.getSize();
         this.generalBodyShape = AttributeService.getGeneralBodyShape();
-        this.bodySurfaceCharacteristics = AttributeService.getBodySurfaceCharacteristics();
+        this.bodySurface = attributeService.getBodySurface();
         this.distinctiveFeature = attributeService.getDistinctiveFeature();
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
         this.combatStrategySecondary = AttributeService.getCombatStrategy();
@@ -89,20 +90,20 @@ public class BaseNPC {
         this.experienceGiven = experienceGiven;
     }
 
-    public String getGeneralBodyShape() {
-        return generalBodyShape;
-    }
-
     public void setGeneralBodyShape(String generalBodyShape) {
         this.generalBodyShape = generalBodyShape;
     }
 
-    public String getBodySurfaceCharacteristics() {
-        return bodySurfaceCharacteristics;
+    public String getGeneralBodyShape() {
+        return generalBodyShape;
     }
 
-    public void setBodySurfaceCharacteristics(String bodySurfaceCharacteristics) {
-        this.bodySurfaceCharacteristics = bodySurfaceCharacteristics;
+    public BodySurface getBodySurface() {
+        return bodySurface;
+    }
+
+    public void setBodySurface(BodySurface bodySurface) {
+        this.bodySurface = bodySurface;
     }
 
     public DistinctiveFeature getDistinctiveFeature() {

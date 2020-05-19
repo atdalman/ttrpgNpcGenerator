@@ -38,8 +38,8 @@ public class AttributeService {
         return Sizes.getRandomSize();
     }
 
-    public static String getBodySurfaceCharacteristics() {
-        return BodySurfaceCharacteristics.selectRandomBodyCharacteristic();
+    public BodySurface getBodySurface() {
+        return (BodySurface) attributeDAO.getSingleRandomAttribute(BodySurface.class);
     }
 
     public Movement getMovement() {

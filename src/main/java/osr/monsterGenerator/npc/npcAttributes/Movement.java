@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 public class Movement {
 
     @Id
-    private String _id;
+    private String id;
     private String movementStyle;
     private int movementSpeed;
     private int numLimbs;
