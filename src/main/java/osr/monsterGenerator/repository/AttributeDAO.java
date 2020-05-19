@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
 import org.springframework.stereotype.Repository;
+import osr.monsterGenerator.npc.npcAttributes.Motivation;
 
 import java.util.List;
 
@@ -27,6 +28,14 @@ public class AttributeDAO {
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
         AggregationResults<Object> output = mongoTemplate.aggregate(aggregation,
                 mongoTemplate.getCollectionName(desiredClass), desiredClass);
+        return output.getMappedResults();
+    }
+
+    public List<Motivation> getNPCMotivations(int numResults) {
+        SampleOperation sampleStage = Aggregation.sample(numResults);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        AggregationResults<Motivation> output = mongoTemplate.aggregate(aggregation,
+                mongoTemplate.getCollectionName(Motivation.class), Motivation.class);
         return output.getMappedResults();
     }
 }

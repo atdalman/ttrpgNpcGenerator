@@ -6,6 +6,7 @@ import osr.monsterGenerator.npc.npcAttributes.*;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.utilities.Systems;
 
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -54,9 +55,10 @@ public class AttributeService {
         return "DODGE, DUCK, DIP, DIVE, and DODGE";
     }
 
-    public static String[] getMotivations() {
-        return new String[]{"FOOD", "SURVIVAL"};
+    public List<Motivation> getMotivations() {
+        return attributeDAO.getNPCMotivations(2);
     }
+
 
     public BodyShape getBodyShape() {
         return (BodyShape) attributeDAO.getSingleRandomAttribute(BodyShape.class);

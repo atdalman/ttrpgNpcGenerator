@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.npcAttributes.*;
 import osr.monsterGenerator.service.AttributeService;
 
+import java.util.List;
+
 // A basic monster or NPC
 public class BaseNPC {
 
     @Autowired
-    AttributeService attributeService;
+    private AttributeService attributeService;
 
     // Perhaps tied to body shape or distinct features?  For example, a reptilian creature could use a latin name
     // from that part of the animal kingdom
@@ -26,17 +28,24 @@ public class BaseNPC {
     private String[] specialAbilities;
     private String combatStrategyPrimary;
     private String combatStrategySecondary;
-    private String[] motivations;
+    private List<Motivation> motivations;
 
-    public BaseNPC(){
+    public BaseNPC() {
         this.size = attributeService.getSize();
         this.generalBodyShape = attributeService.getBodyShape();
         this.bodySurface = attributeService.getBodySurface();
         this.distinctiveFeature = attributeService.getDistinctiveFeature();
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
         this.combatStrategySecondary = AttributeService.getCombatStrategy();
-        this.motivations = AttributeService.getMotivations();
+        this.motivations = attributeService.getMotivations();
         this.movement = attributeService.getMovement();
+    }
+
+    public static BaseNPC createNPC() {
+        BaseNPC npc = new BaseNPC();
+        npc.setSize(attributeService.getSize());
+        npc.setGeneralBodyShape(attributeService.getBodyShape());
+        return npc;
     }
 
     public Movement getMovement() {
@@ -143,12 +152,21 @@ public class BaseNPC {
         this.combatStrategySecondary = combatStrategySecondary;
     }
 
-    public String[] getMotivations() {
+    public List<Motivation> getMotivations() {
         return motivations;
     }
 
-    public void setMotivations(String[] motivations) {
+    public void setMotivations(List<Motivation> motivations) {
         this.motivations = motivations;
     }
 
+    @Override
+    public String toString() {
+        return "BaseNPC{" +
+                "size=" + size +
+                ", generalBodyShape=" + generalBodyShape +
+                ", bodySurface=" + bodySurface +
+                ", movement=" + movement +
+                '}';
+    }
 }

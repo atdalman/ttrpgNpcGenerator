@@ -5,8 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.service.NPCFactory;
+import osr.monsterGenerator.utilities.Systems;
 
 @SpringBootApplication
 public class MonsterGeneratorApplication implements CommandLineRunner {
@@ -26,9 +28,8 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		//DndNPC firstDndNPC = (DndNPC) npcFactory.generateMonster(Systems.BASENPC);
-		//mongoTemplate.insert(new DistinctiveFeature());
-		//mongoTemplate.remove(new Query(), "distinctiveFeature");
+		BaseNPC firstDndNPC = npcFactory.generateMonster(Systems.BASENPC);
+		firstDndNPC.toString();
 //		mongoTemplate.remove(new Query(), "size");
 //		Size surface = new Size();
 //		for (Sizes curr : Sizes.values()) {

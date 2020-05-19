@@ -42,15 +42,14 @@ public class BaseNPCFactoryTest {
         BaseNPC testMon = NPCFactory.generateMonster(Systems.BASENPC);
         boolean passed = false;
         if(!StringUtils.isStringNullOrBlank(testMon.getName())
-                && !StringUtils.isStringNullOrBlank(testMon.getSize().getName())
-                && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape().getName())
-                && StringUtils.isStringNullOrBlank(testMon.getBodySurface().getName())
-                && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeature().getDescription())
-                // TODO Write a better test
+                && testMon.getSize() != null
+                && testMon.getGeneralBodyShape() != null
+                && testMon.getBodySurface() != null
+                && testMon.getDistinctiveFeature() != null
                 && testMon.getMovement() != null
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategyPrimary())
                 && StringUtils.isStringNullOrBlank(testMon.getCombatStrategySecondary())
-                && testMon.getMotivations().length > 0
+                && testMon.getMotivations().size() > 0
         ){
             passed = true;
         }

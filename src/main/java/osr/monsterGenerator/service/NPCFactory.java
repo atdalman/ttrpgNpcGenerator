@@ -1,5 +1,6 @@
 package osr.monsterGenerator.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.npc.BaseNPC;
 import osr.monsterGenerator.npc.DndNPC;
@@ -10,8 +11,11 @@ import osr.monsterGenerator.utilities.Systems;
 @Service
 public class NPCFactory {
 
-    public static BaseNPC generateMonster(Systems npcType){
-        switch(npcType){
+    @Autowired
+    private AttributeService attributeService;
+
+    public BaseNPC generateMonster(Systems npcType) {
+        switch (npcType) {
             case DND5E:
                 return new DndNPC();
             case MOTHERSHIP:
@@ -19,7 +23,7 @@ public class NPCFactory {
             case OSROTHER:
                 return new OtherOSRNPC();
             default:
-                return new BaseNPC();
+                return;
         }
 
     }
