@@ -12,5 +12,6 @@ public class StringUtilTest {
         Assert.assertEquals("fangorn", StringUtils.toCamelCaseFromTitleCase("Fangorn"));
         Assert.assertEquals("", StringUtils.toCamelCaseFromTitleCase(""));
         Assert.assertEquals("1", StringUtils.toCamelCaseFromTitleCase("1"));
+        Assert.assertEquals("string", StringUtils.toCamelCaseFromTitleCase(new String().getClass().getSimpleName()));
     }
 }

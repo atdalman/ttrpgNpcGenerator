@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.npc.npcAttributes.DistinctiveFeature;
-import osr.monsterGenerator.utilities.StringUtils;
 
 import java.util.List;
 
@@ -17,11 +16,11 @@ public class AttributeDAO {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    public Object getSingleRandomAttribute(Class desiredObject) {
+    public Object getSingleRandomAttribute(Class desiredClass) {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-        Object result = mongoTemplate.aggregate(aggregation, StringUtils.toCamelCaseFromTitleCase(desiredObject.getName()),
-                desiredObject).getUniqueMappedResult();
+        Object result = mongoTemplate.aggregate(aggregation, mongoTemplate.getCollectionName(desiredClass),
+                desiredClass).getUniqueMappedResult();
         return result;
     }
 
