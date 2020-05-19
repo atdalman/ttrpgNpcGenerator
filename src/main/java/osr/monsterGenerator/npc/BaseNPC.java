@@ -30,13 +30,12 @@ public class BaseNPC {
     private String combatStrategySecondary;
     private List<Motivation> motivations;
 
-    //
-
     public Movement getMovement() {
         return movement;
     }
 
     public void setMovement(Movement movement) {
+        movement.setNumLimbsFromPossible();
         this.movement = movement;
     }
 
@@ -146,11 +145,15 @@ public class BaseNPC {
 
     @Override
     public String toString() {
-        return "Size: " + size.getName() + "\n" +
+        StringBuilder sb = new StringBuilder();
+        sb.append("Size: " + size.getName() + "\n" +
                 "General Body Shape: " + generalBodyShape.getName() + "\n" +
                 "Body Texture: " + bodySurface.getName() + "\n" +
                 "Movement Style: " + movement.getMovementStyle() + "\n" +
                 "Speed: " + movement.getMovementSpeed() + "\n" +
-                "Limbs: " + movement.getNumLimbs();
+                "Limbs: " + movement.getNumLimbs() + "\n");
+        sb.append("Motivations: ");
+        motivations.forEach(motivation -> sb.append("\t" + motivation.getDescription() + "\n"));
+        return sb.toString();
     }
 }
