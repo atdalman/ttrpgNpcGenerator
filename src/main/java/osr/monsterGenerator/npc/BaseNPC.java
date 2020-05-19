@@ -16,7 +16,7 @@ public class BaseNPC {
     private String properName;
     // Generic flat health points, if desired
     private String healthPoints;
-    private String size;
+    private Size size;
     private int experienceGiven;
     private BodyShape generalBodyShape;
     private BodySurface bodySurface;
@@ -29,7 +29,7 @@ public class BaseNPC {
     private String[] motivations;
 
     public BaseNPC(){
-        this.size = AttributeService.getSize();
+        this.size = attributeService.getSize();
         this.generalBodyShape = attributeService.getBodyShape();
         this.bodySurface = attributeService.getBodySurface();
         this.distinctiveFeature = attributeService.getDistinctiveFeature();
@@ -71,11 +71,11 @@ public class BaseNPC {
         this.healthPoints = healthPoints;
     }
 
-    public String getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(Size size) {
         this.size = size;
     }
 

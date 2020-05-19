@@ -1,7 +1,6 @@
 package osr.monsterGenerator;
 
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.npc.BaseNPC;
@@ -13,18 +12,19 @@ import osr.monsterGenerator.utilities.Systems;
 
 public class BaseNPCFactoryTest {
 
-    @BeforeClass
-    public static void testSetup() {
-        Sizes.createSizeList();
-    }
+    // TODO Figure out how to do a weighted list for this
+//    @BeforeClass
+//    public static void testSetup() {
+//        Sizes.createSizeList();
+//    }
 
     @Autowired
     private NPCFactory NPCFactory;
 
     // TODO Write
     @Test
-    public void generateDNDNPCTest(){
-        DndNPC testMon = (DndNPC)NPCFactory.generateMonster(Systems.DND5E);
+    public void generateDNDNPCTest() {
+        DndNPC testMon = (DndNPC) NPCFactory.generateMonster(Systems.DND5E);
         boolean passed = false;
         Assert.assertTrue(passed);
 
@@ -42,7 +42,7 @@ public class BaseNPCFactoryTest {
         BaseNPC testMon = NPCFactory.generateMonster(Systems.BASENPC);
         boolean passed = false;
         if(!StringUtils.isStringNullOrBlank(testMon.getName())
-                && !StringUtils.isStringNullOrBlank(testMon.getSize())
+                && !StringUtils.isStringNullOrBlank(testMon.getSize().getName())
                 && StringUtils.isStringNullOrBlank(testMon.getGeneralBodyShape().getName())
                 && StringUtils.isStringNullOrBlank(testMon.getBodySurface().getName())
                 && StringUtils.isStringNullOrBlank(testMon.getDistinctiveFeature().getDescription())

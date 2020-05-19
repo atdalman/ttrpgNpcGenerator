@@ -34,8 +34,8 @@ public class AttributeService {
         return "666";
     }
 
-    public static String getSize() {
-        return Sizes.getRandomSize();
+    public Size getSize() {
+        return (Size) attributeDAO.getSingleRandomAttribute(Size.class);
     }
 
     public BodySurface getBodySurface() {
