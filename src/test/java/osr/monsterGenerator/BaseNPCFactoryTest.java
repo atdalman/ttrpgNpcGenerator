@@ -24,7 +24,7 @@ public class BaseNPCFactoryTest {
     // TODO Write
     @Test
     public void generateDNDNPCTest() {
-        DndNPC testMon = (DndNPC) NPCFactory.generateMonster(Systems.DND5E);
+        DndNPC testMon = (DndNPC) NPCFactory.generateNPC(Systems.DND5E);
         boolean passed = false;
         Assert.assertTrue(passed);
 
@@ -32,14 +32,14 @@ public class BaseNPCFactoryTest {
 
     @Test
     public void generateMothershipNPCTest(){
-        MothershipNPC npc = (MothershipNPC)NPCFactory.generateMonster(Systems.MOTHERSHIP);
+        MothershipNPC npc = (MothershipNPC) NPCFactory.generateNPC(Systems.MOTHERSHIP);
         boolean passed = false;
 
     }
 
     @Test
     public void generateBaseNPCTest(){
-        BaseNPC testMon = NPCFactory.generateMonster(Systems.BASENPC);
+        BaseNPC testMon = NPCFactory.generateNPC(Systems.BASENPC);
         boolean passed = false;
         if(!StringUtils.isStringNullOrBlank(testMon.getName())
                 && testMon.getSize() != null

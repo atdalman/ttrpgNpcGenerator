@@ -14,7 +14,7 @@ public class NPCFactory {
     @Autowired
     private AttributeService attributeService;
 
-    public BaseNPC generateMonster(Systems npcType) {
+    public BaseNPC generateNPC(Systems npcType) {
         switch (npcType) {
             case DND5E:
                 return new DndNPC();
@@ -23,8 +23,19 @@ public class NPCFactory {
             case OSROTHER:
                 return new OtherOSRNPC();
             default:
-                return;
+                return generateBaseNPC();
         }
 
+    }
+
+    public BaseNPC generateBaseNPC() {
+        BaseNPC npc = new BaseNPC();
+        npc.setSize(attributeService.getSize());
+        npc.setBodySurface(attributeService.getBodySurface());
+        npc.setGeneralBodyShape(attributeService.getBodyShape());
+        npc.setMotivations(attributeService.getMotivations());
+        npc.setMovement(attributeService.getMovement());
+
+        return npc;
     }
 }

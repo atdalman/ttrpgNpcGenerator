@@ -30,23 +30,7 @@ public class BaseNPC {
     private String combatStrategySecondary;
     private List<Motivation> motivations;
 
-    public BaseNPC() {
-        this.size = attributeService.getSize();
-        this.generalBodyShape = attributeService.getBodyShape();
-        this.bodySurface = attributeService.getBodySurface();
-        this.distinctiveFeature = attributeService.getDistinctiveFeature();
-        this.combatStrategyPrimary = AttributeService.getCombatStrategy();
-        this.combatStrategySecondary = AttributeService.getCombatStrategy();
-        this.motivations = attributeService.getMotivations();
-        this.movement = attributeService.getMovement();
-    }
-
-    public static BaseNPC createNPC() {
-        BaseNPC npc = new BaseNPC();
-        npc.setSize(attributeService.getSize());
-        npc.setGeneralBodyShape(attributeService.getBodyShape());
-        return npc;
-    }
+    //
 
     public Movement getMovement() {
         return movement;
@@ -162,11 +146,11 @@ public class BaseNPC {
 
     @Override
     public String toString() {
-        return "BaseNPC{" +
-                "size=" + size +
-                ", generalBodyShape=" + generalBodyShape +
-                ", bodySurface=" + bodySurface +
-                ", movement=" + movement +
-                '}';
+        return "Size: " + size.getName() + "\n" +
+                "General Body Shape: " + generalBodyShape.getName() + "\n" +
+                "Body Texture: " + bodySurface.getName() + "\n" +
+                "Movement Style: " + movement.getMovementStyle() + "\n" +
+                "Speed: " + movement.getMovementSpeed() + "\n" +
+                "Limbs: " + movement.getNumLimbs();
     }
 }

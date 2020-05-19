@@ -28,8 +28,8 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		BaseNPC firstDndNPC = npcFactory.generateMonster(Systems.BASENPC);
-		firstDndNPC.toString();
+		BaseNPC firstDndNPC = npcFactory.generateNPC(Systems.BASENPC);
+		System.out.println(firstDndNPC.toString());
 //		mongoTemplate.remove(new Query(), "size");
 //		Size surface = new Size();
 //		for (Sizes curr : Sizes.values()) {
