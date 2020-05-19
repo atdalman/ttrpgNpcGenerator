@@ -2,8 +2,6 @@ package osr.monsterGenerator;
 
 import org.junit.Assert;
 import org.junit.Test;
-import osr.monsterGenerator.npc.npcAttributes.BodySurface;
-import osr.monsterGenerator.npc.npcAttributes.Sizes;
 import osr.monsterGenerator.service.AttributeService;
 
 import java.util.HashMap;
@@ -33,8 +31,8 @@ public class RandomAttributeServiceTest {
     @Test
     public void randomSizeTest() {
         Sizes.createSizeList();
-        Map<BodySurface, Integer> sizeCounts = new HashMap<>();
-        BodySurface currSize;
+        Map<String, Integer> sizeCounts = new HashMap<>();
+        String currSize;
         boolean passed = false;
 
         for (int i = 0; i < 1000; i++) {

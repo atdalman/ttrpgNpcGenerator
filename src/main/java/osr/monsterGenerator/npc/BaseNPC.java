@@ -1,10 +1,7 @@
 package osr.monsterGenerator.npc;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import osr.monsterGenerator.npc.npcAttributes.BodySurface;
-import osr.monsterGenerator.npc.npcAttributes.DistinctiveFeature;
-import osr.monsterGenerator.npc.npcAttributes.Movement;
-import osr.monsterGenerator.npc.npcAttributes.PhysicalAttack;
+import osr.monsterGenerator.npc.npcAttributes.*;
 import osr.monsterGenerator.service.AttributeService;
 
 // A basic monster or NPC
@@ -21,7 +18,7 @@ public class BaseNPC {
     private String healthPoints;
     private String size;
     private int experienceGiven;
-    private String generalBodyShape;
+    private BodyShape generalBodyShape;
     private BodySurface bodySurface;
     private Movement movement;
     private DistinctiveFeature distinctiveFeature;
@@ -33,7 +30,7 @@ public class BaseNPC {
 
     public BaseNPC(){
         this.size = AttributeService.getSize();
-        this.generalBodyShape = AttributeService.getGeneralBodyShape();
+        this.generalBodyShape = attributeService.getBodyShape();
         this.bodySurface = attributeService.getBodySurface();
         this.distinctiveFeature = attributeService.getDistinctiveFeature();
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
@@ -90,11 +87,11 @@ public class BaseNPC {
         this.experienceGiven = experienceGiven;
     }
 
-    public void setGeneralBodyShape(String generalBodyShape) {
+    public void setGeneralBodyShape(BodyShape generalBodyShape) {
         this.generalBodyShape = generalBodyShape;
     }
 
-    public String getGeneralBodyShape() {
+    public BodyShape getGeneralBodyShape() {
         return generalBodyShape;
     }
 

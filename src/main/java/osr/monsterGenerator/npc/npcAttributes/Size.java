@@ -2,11 +2,11 @@ package osr.monsterGenerator.npc.npcAttributes;
 
 import org.springframework.data.annotation.Id;
 
-public class BodyShape {
+public class Size {
     @Id
     private String id;
     private String name;
-    private String description;
+    private double chance;
 
     public String getName() {
         return name;
@@ -16,11 +16,11 @@ public class BodyShape {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public double getChance() {
+        return chance;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setChance(double chance) {
+        this.chance = chance;
     }
 }

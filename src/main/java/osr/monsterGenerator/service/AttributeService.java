@@ -58,8 +58,8 @@ public class AttributeService {
         return new String[]{"FOOD", "SURVIVAL"};
     }
 
-    public static String getGeneralBodyShape() {
-        return BodyShape.selectRandomBodyShape();
+    public BodyShape getBodyShape() {
+        return (BodyShape) attributeDAO.getSingleRandomAttribute(BodyShape.class);
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
