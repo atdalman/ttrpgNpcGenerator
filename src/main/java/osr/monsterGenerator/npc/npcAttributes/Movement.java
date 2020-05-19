@@ -3,6 +3,7 @@ package osr.monsterGenerator.npc.npcAttributes;
 import org.springframework.data.annotation.Id;
 
 public class Movement {
+
     @Id
     private String movementStyle;
     private int movementSpeed;

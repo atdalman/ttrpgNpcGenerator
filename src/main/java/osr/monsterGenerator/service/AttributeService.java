@@ -1,13 +1,18 @@
 package osr.monsterGenerator.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.npc.npcAttributes.*;
+import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.utilities.Systems;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class AttributeService {
+
+    @Autowired
+    AttributeDAO attributeDAO;
 
     public static int getRandomNum(int size) {
         return ThreadLocalRandom.current().nextInt(0, size + 1);
@@ -37,8 +42,8 @@ public class AttributeService {
         return BodySurfaceCharacteristics.selectRandomBodyCharacteristic();
     }
 
-    public static Movement getMovement() {
-        return new Movement();
+    public Movement getMovement() {
+        return (Movement) attributeDAO.getSingleRandomAttribute(Movement.class);
     }
 
     public DistinctiveFeature getDistinctiveFeature() {

@@ -1,10 +1,35 @@
 package osr.monsterGenerator.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.aggregation.SampleOperation;
+import org.springframework.stereotype.Repository;
+import osr.monsterGenerator.npc.npcAttributes.DistinctiveFeature;
+import osr.monsterGenerator.utilities.StringUtils;
+
+import java.util.List;
+
+@Repository
 public class AttributeDAO {
 
-//    public DistinctiveFeature getRandomDistinctiveFeature(){
-//        SampleOperation sampleStage = Aggregation.sample(5);
-//        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-//        AggregationResults<OutType> output = mongoTemplate.aggregate(aggregation, "collectionName", OutType.class);
-//    }
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    public Object getSingleRandomAttribute(Class desiredObject) {
+        SampleOperation sampleStage = Aggregation.sample(1);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        Object result = mongoTemplate.aggregate(aggregation, StringUtils.toCamelCaseFromTitleCase(desiredObject.getName()),
+                desiredObject).getUniqueMappedResult();
+        return result;
+    }
+
+    public List<Object> getMultipleRandomAttributes(Object collectionName, int numResults) {
+        SampleOperation sampleStage = Aggregation.sample(numResults);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        AggregationResults<DistinctiveFeature> output = mongoTemplate.aggregate(aggregation, "distinctiveFeature",
+                DistinctiveFeature.class);
+        return null;
+    }
 }

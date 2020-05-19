@@ -38,7 +38,7 @@ public class BaseNPC {
         this.combatStrategyPrimary = AttributeService.getCombatStrategy();
         this.combatStrategySecondary = AttributeService.getCombatStrategy();
         this.motivations = AttributeService.getMotivations();
-        this.movement = AttributeService.getMovement();
+        this.movement = attributeService.getMovement();
     }
 
     public Movement getMovement() {
