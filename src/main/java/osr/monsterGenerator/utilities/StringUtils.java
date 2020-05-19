@@ -13,6 +13,7 @@ public class StringUtils {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
+    // TODO May not be needed, as MongoTemplate.getCollectionName() fulfills the same function
     public static String toCamelCaseFromTitleCase(String word) {
         if (word == null || word.length() == 0) return "";
 

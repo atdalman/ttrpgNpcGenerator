@@ -29,7 +29,7 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 		//DndNPC firstDndNPC = (DndNPC) npcFactory.generateMonster(Systems.BASENPC);
 		//mongoTemplate.insert(new DistinctiveFeature());
 		//mongoTemplate.remove(new Query(), "distinctiveFeature");
-		System.out.println(attributeService.getMovement().toString());
+		System.out.println(attributeService.getMovement());
 	}
 
 }
