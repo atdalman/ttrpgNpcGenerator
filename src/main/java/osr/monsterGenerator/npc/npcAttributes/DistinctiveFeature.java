@@ -5,21 +5,8 @@ import org.springframework.data.annotation.Id;
 public class DistinctiveFeature {
 
     @Id
-    private String name;
+    private String id;
     private String description;
-
-    public DistinctiveFeature() {
-        name = "test3";
-        description = "test4";
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getDescription() {
         return description;
@@ -32,7 +19,6 @@ public class DistinctiveFeature {
     @Override
     public String toString() {
         return "DistinctiveFeature{" +
-                "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

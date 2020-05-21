@@ -45,7 +45,7 @@ public class Movement {
     }
 
     public void setNumLimbsFromPossible() {
-        this.numLimbs = possibleNumLimbs[AttributeService.getRandomNum(possibleNumLimbs.length)];
+        this.numLimbs = possibleNumLimbs[AttributeService.getRandomNum(possibleNumLimbs.length - 1)];
     }
 
     public int[] getPossibleNumLimbs() {

@@ -151,7 +151,8 @@ public class BaseNPC {
                 "Body Texture: " + bodySurface.getName() + "\n" +
                 "Movement Style: " + movement.getMovementStyle() + "\n" +
                 "Speed: " + movement.getMovementSpeed() + "\n" +
-                "Limbs: " + movement.getNumLimbs() + "\n");
+                "Limbs: " + movement.getNumLimbs() + "\n" +
+                "Distinctive Feature: " + distinctiveFeature.getDescription() + "\n");
         sb.append("Motivations: ");
         motivations.forEach(motivation -> sb.append("\t" + motivation.getDescription() + "\n"));
         return sb.toString();

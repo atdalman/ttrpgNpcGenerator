@@ -48,7 +48,7 @@ public class AttributeService {
     }
 
     public DistinctiveFeature getDistinctiveFeature() {
-        return new DistinctiveFeature();
+        return (DistinctiveFeature) attributeDAO.getSingleRandomAttribute(DistinctiveFeature.class);
     }
 
     public static String getCombatStrategy() {
@@ -58,7 +58,6 @@ public class AttributeService {
     public List<Motivation> getMotivations() {
         return attributeDAO.getNPCMotivations(2);
     }
-
 
     public BodyShape getBodyShape() {
         return (BodyShape) attributeDAO.getSingleRandomAttribute(BodyShape.class);

@@ -25,7 +25,6 @@ public class NPCFactory {
             default:
                 return generateBaseNPC();
         }
-
     }
 
     public BaseNPC generateBaseNPC() {
@@ -35,6 +34,7 @@ public class NPCFactory {
         npc.setGeneralBodyShape(attributeService.getBodyShape());
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
+        npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
 
         return npc;
     }
