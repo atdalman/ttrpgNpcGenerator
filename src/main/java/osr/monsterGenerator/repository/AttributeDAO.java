@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
 import org.springframework.stereotype.Repository;
+import osr.monsterGenerator.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.npc.npcAttributes.Motivation;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class AttributeDAO {
                 desiredClass).getUniqueMappedResult();
     }
 
+    // TODO Candidate for removal
     public List<Object> getMultipleRandomAttributes(Class desiredClass, int numResults) {
         SampleOperation sampleStage = Aggregation.sample(numResults);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
@@ -36,6 +38,14 @@ public class AttributeDAO {
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
         AggregationResults<Motivation> output = mongoTemplate.aggregate(aggregation,
                 mongoTemplate.getCollectionName(Motivation.class), Motivation.class);
+        return output.getMappedResults();
+    }
+
+    public List<CombatStrategy> getCombatStrategies(int numResults) {
+        SampleOperation sampleStage = Aggregation.sample(numResults);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        AggregationResults<CombatStrategy> output = mongoTemplate.aggregate(aggregation,
+                mongoTemplate.getCollectionName(CombatStrategy.class), CombatStrategy.class);
         return output.getMappedResults();
     }
 }

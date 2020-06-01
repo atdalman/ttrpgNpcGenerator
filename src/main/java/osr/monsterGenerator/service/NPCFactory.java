@@ -35,6 +35,7 @@ public class NPCFactory {
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
+        npc.setCombatStrategies(attributeService.getCombatStrategies());
 
         return npc;
     }

@@ -26,8 +26,7 @@ public class BaseNPC {
     private DistinctiveFeature distinctiveFeature;
     private PhysicalAttack[] physicalAttacks;
     private String[] specialAbilities;
-    private String combatStrategyPrimary;
-    private String combatStrategySecondary;
+    private List<CombatStrategy> combatStrategies;
     private List<Motivation> motivations;
 
     public Movement getMovement() {
@@ -119,20 +118,12 @@ public class BaseNPC {
         this.specialAbilities = specialAbilities;
     }
 
-    public String getCombatStrategyPrimary() {
-        return combatStrategyPrimary;
+    public List<CombatStrategy> getCombatStrategies() {
+        return combatStrategies;
     }
 
-    public void setCombatStrategyPrimary(String combatStrategyPrimary) {
-        this.combatStrategyPrimary = combatStrategyPrimary;
-    }
-
-    public String getCombatStrategySecondary() {
-        return combatStrategySecondary;
-    }
-
-    public void setCombatStrategySecondary(String combatStrategySecondary) {
-        this.combatStrategySecondary = combatStrategySecondary;
+    public void setCombatStrategies(List<CombatStrategy> combatStrategies) {
+        this.combatStrategies = combatStrategies;
     }
 
     public List<Motivation> getMotivations() {
@@ -149,12 +140,14 @@ public class BaseNPC {
         sb.append("Size: " + size.getName() + "\n" +
                 "General Body Shape: " + generalBodyShape.getName() + "\n" +
                 "Body Texture: " + bodySurface.getName() + "\n" +
+                "Limbs: " + movement.getNumLimbs() + "\n" +
                 "Movement Style: " + movement.getMovementStyle() + "\n" +
                 "Speed: " + movement.getMovementSpeed() + "\n" +
-                "Limbs: " + movement.getNumLimbs() + "\n" +
                 "Distinctive Feature: " + distinctiveFeature.getDescription() + "\n");
         sb.append("Motivations: ");
         motivations.forEach(motivation -> sb.append("\t" + motivation.getDescription() + "\n"));
+        sb.append("Combat stategies: ");
+        combatStrategies.forEach(strategy -> sb.append("\t" + strategy.getDescription() + "\n"));
         return sb.toString();
     }
 }

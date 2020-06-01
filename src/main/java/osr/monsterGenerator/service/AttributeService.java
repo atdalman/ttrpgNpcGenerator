@@ -51,8 +51,8 @@ public class AttributeService {
         return (DistinctiveFeature) attributeDAO.getSingleRandomAttribute(DistinctiveFeature.class);
     }
 
-    public static String getCombatStrategy() {
-        return "DODGE, DUCK, DIP, DIVE, and DODGE";
+    public List<CombatStrategy> getCombatStrategies() {
+        return attributeDAO.getCombatStrategies(2);
     }
 
     public List<Motivation> getMotivations() {

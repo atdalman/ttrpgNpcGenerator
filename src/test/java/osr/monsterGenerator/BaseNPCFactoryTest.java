@@ -47,8 +47,7 @@ public class BaseNPCFactoryTest {
                 && testMon.getBodySurface() != null
                 && testMon.getDistinctiveFeature() != null
                 && testMon.getMovement() != null
-                && StringUtils.isStringNullOrBlank(testMon.getCombatStrategyPrimary())
-                && StringUtils.isStringNullOrBlank(testMon.getCombatStrategySecondary())
+                && testMon.getCombatStrategies().size() > 0
                 && testMon.getMotivations().size() > 0
         ){
             passed = true;
