@@ -1,8 +1,10 @@
 package osr.monsterGenerator.npc;
 
+import lombok.Data;
 import osr.monsterGenerator.npc.npcAttributes.Alignments;
 import osr.monsterGenerator.npc.npcAttributes.SavingThrow;
 
+@Data
 public class DndNPC extends BaseNPC {
     private String alignment;
     private int armorClass;
@@ -14,45 +16,5 @@ public class DndNPC extends BaseNPC {
         alignment = Alignments.NEUTRAL.name();
         armorClass = 10;
         hitDie = "2";
-    }
-
-    public String getAlignment() {
-        return alignment;
-    }
-
-    public void setAlignment(String alignment) {
-        this.alignment = alignment;
-    }
-
-    public int getArmorClass() {
-        return armorClass;
-    }
-
-    public void setArmorClass(int armorClass) {
-        this.armorClass = armorClass;
-    }
-
-    public String getHitDie() {
-        return hitDie;
-    }
-
-    public void setHitDie(String hitDie) {
-        this.hitDie = hitDie;
-    }
-
-    public SavingThrow[] getSavingThrows() {
-        return savingThrows;
-    }
-
-    public void setSavingThrows(SavingThrow[] savingThrows) {
-        this.savingThrows = savingThrows;
-    }
-
-    public String getMorale() {
-        return morale;
-    }
-
-    public void setMorale(String morale) {
-        this.morale = morale;
     }
 }
