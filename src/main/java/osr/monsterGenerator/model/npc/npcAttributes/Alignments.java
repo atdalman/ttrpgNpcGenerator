@@ -1,4 +1,4 @@
-package osr.monsterGenerator.npc.npcAttributes;
+package osr.monsterGenerator.model.npc.npcAttributes;
 
 import osr.monsterGenerator.service.AttributeService;
 

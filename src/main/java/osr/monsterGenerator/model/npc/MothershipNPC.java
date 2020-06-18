@@ -1,4 +1,4 @@
-package osr.monsterGenerator.npc;
+package osr.monsterGenerator.model.npc;
 
 import lombok.Data;
 

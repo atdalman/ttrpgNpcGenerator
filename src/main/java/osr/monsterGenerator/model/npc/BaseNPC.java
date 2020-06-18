@@ -1,9 +1,9 @@
-package osr.monsterGenerator.npc;
+package osr.monsterGenerator.model.npc;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import osr.monsterGenerator.npc.npcAttributes.*;
+import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.service.AttributeService;
 
 import java.util.List;

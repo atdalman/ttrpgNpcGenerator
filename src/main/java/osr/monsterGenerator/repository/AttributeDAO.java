@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
 import org.springframework.stereotype.Repository;
-import osr.monsterGenerator.npc.npcAttributes.CombatStrategy;
-import osr.monsterGenerator.npc.npcAttributes.Motivation;
+import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
+import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
 
 import java.util.List;
 

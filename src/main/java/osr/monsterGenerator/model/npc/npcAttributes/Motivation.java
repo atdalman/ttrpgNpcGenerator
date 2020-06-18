@@ -1,13 +1,11 @@
-package osr.monsterGenerator.npc.npcAttributes;
+package osr.monsterGenerator.model.npc.npcAttributes;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-public class CombatStrategy {
-
+public class Motivation {
     @Id
     private String id;
     private String description;
-
 }

@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import osr.monsterGenerator.npc.BaseNPC;
+import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.Systems;

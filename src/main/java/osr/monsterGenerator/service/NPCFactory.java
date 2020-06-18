@@ -2,10 +2,10 @@ package osr.monsterGenerator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import osr.monsterGenerator.npc.BaseNPC;
-import osr.monsterGenerator.npc.DndNPC;
-import osr.monsterGenerator.npc.MothershipNPC;
-import osr.monsterGenerator.npc.OtherOSRNPC;
+import osr.monsterGenerator.model.npc.BaseNPC;
+import osr.monsterGenerator.model.npc.DndNPC;
+import osr.monsterGenerator.model.npc.MothershipNPC;
+import osr.monsterGenerator.model.npc.OtherOSRNPC;
 import osr.monsterGenerator.utilities.Systems;
 
 @Service

@@ -1,8 +1,8 @@
-package osr.monsterGenerator.npc;
+package osr.monsterGenerator.model.npc;
 
 import lombok.Data;
-import osr.monsterGenerator.npc.npcAttributes.Alignments;
-import osr.monsterGenerator.npc.npcAttributes.SavingThrow;
+import osr.monsterGenerator.model.npc.npcAttributes.Alignments;
+import osr.monsterGenerator.model.npc.npcAttributes.SavingThrow;
 
 @Data
 public class DndNPC extends BaseNPC {

@@ -2,7 +2,7 @@ package osr.monsterGenerator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import osr.monsterGenerator.npc.npcAttributes.*;
+import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.utilities.Systems;
 
