@@ -18,6 +18,14 @@ public class AttributeDAO {
     private MongoTemplate mongoTemplate;
 
     public Object getSingleRandomAttribute(Class desiredClass) {
+        // TODO Need to fix weighted selections
+        /*
+            Options for weighted results
+            1. Get all possible documents.  Select by one "weight" value embedded in the document
+            2. Store total weight across all documents in collection, and randomly choose a number in that range,
+            which can then be used to pick a document
+
+         */
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
         return mongoTemplate.aggregate(aggregation, mongoTemplate.getCollectionName(desiredClass),
