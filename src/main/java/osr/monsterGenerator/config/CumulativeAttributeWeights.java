@@ -9,7 +9,7 @@ public class CumulativeAttributeWeights {
 
     @Autowired
     private AttributeDAO attributeDAO;
-    
+
     @Scheduled(fixedRate = 36000L)
     private void UpdateWeights() {
         SizeWeights = attributeDAO.getWeightByCollection("size");
