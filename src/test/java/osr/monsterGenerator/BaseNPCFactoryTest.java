@@ -12,12 +12,6 @@ import osr.monsterGenerator.utilities.Systems;
 
 public class BaseNPCFactoryTest {
 
-    // TODO Figure out how to do a weighted list for this
-//    @BeforeClass
-//    public static void testSetup() {
-//        Sizes.createSizeList();
-//    }
-
     @Autowired
     private NPCFactory NPCFactory;
 

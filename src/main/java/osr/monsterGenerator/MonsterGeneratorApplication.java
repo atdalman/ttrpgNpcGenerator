@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import osr.monsterGenerator.model.npc.BaseNPC;
+import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.Systems;
@@ -22,6 +23,9 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 	@Autowired
 	private AttributeService attributeService;
 
+	@Autowired
+	private AttributeDAO attributeDAO;
+
 	public static void main(String[] args) {
 		SpringApplication.run(MonsterGeneratorApplication.class, args);
 	}
@@ -30,14 +34,7 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 	public void run(String... args) {
 		BaseNPC firstDndNPC = npcFactory.generateNPC(Systems.BASENPC);
 		System.out.println(firstDndNPC.toString());
-//		mongoTemplate.remove(new Query(), "size");
-//		Size surface = new Size();
-//		for (Sizes curr : Sizes.values()) {
-//			surface = new Size();
-//			surface.setName(curr.name().toLowerCase());
-//			surface.setChance(curr.weight);
-//			mongoTemplate.insert(surface);
-//		}
+		attributeDAO.updateCumulativeByCollection("size");
 	}
 
 }

@@ -2,6 +2,8 @@ package osr.monsterGenerator;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.utilities.WeightedItemList;
 
@@ -10,11 +12,14 @@ import java.util.Map;
 
 public class RandomAttributeServiceTest {
 
+    @Autowired
+    AttributeDAO attributeDAO;
+
     @Test
-    public void randomNumTest(){
+    public void randomNumTest() {
         int cur, testLen = 1000;
 
-        for(int i = 0; i < testLen; i++) {
+        for (int i = 0; i < testLen; i++) {
             cur = AttributeService.getRandomNum(20);
             System.out.println(cur);
             if (cur < 0 || cur > testLen) {
