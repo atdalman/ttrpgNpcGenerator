@@ -34,7 +34,6 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 	public void run(String... args) {
 		BaseNPC firstDndNPC = npcFactory.generateNPC(Systems.BASENPC);
 		System.out.println(firstDndNPC.toString());
-		attributeDAO.updateCumulativeByCollection("size");
 	}
 
 }

@@ -6,10 +6,14 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
@@ -29,12 +33,19 @@ public class AttributeDAO {
                 desiredClass).getUniqueMappedResult();
     }
 
-    public void updateCumulativeByCollection(String name) {
-        Aggregation agg = newAggregation(group().sum("chance").as("cumulativeChance"),
-                project("cumulativeChance"));
-        AggregationResults<Document> results = mongoTemplate.aggregate(agg, name, Document.class);
-        Double result = results.getUniqueMappedResult().getDouble(new String("cumulativeChance"));
+    public void updateCumulativeChanceByCollection(String collectionName) {
+        String cumulativeChance = "cumulativeChance";
+        Aggregation agg = newAggregation(group().sum("chance").as(cumulativeChance),
+                project(cumulativeChance));
+        AggregationResults<Document> results = mongoTemplate.aggregate(agg, collectionName, Document.class);
+        Double result = results.getUniqueMappedResult().getDouble(cumulativeChance);
 
+        Query query = new Query();
+        query.addCriteria(Criteria.where(cumulativeChance).exists(true));
+        Update update = new Update();
+        update.set(cumulativeChance, result);
+        update.set("updateDate", LocalDateTime.now());
+        mongoTemplate.upsert(query, update, collectionName);
     }
 
     // TODO Candidate for removal
