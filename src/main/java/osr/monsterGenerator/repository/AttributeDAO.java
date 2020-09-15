@@ -48,6 +48,10 @@ public class AttributeDAO {
         mongoTemplate.upsert(query, update, collectionName);
     }
 
+    public void getRandomAttributeByChanceScore(String collectionName, Class desiredClass) {
+        List<desiredClass . class>
+    }
+
     // TODO Candidate for removal
     public List<Object> getMultipleRandomAttributes(Class desiredClass, int numResults) {
         SampleOperation sampleStage = Aggregation.sample(numResults);
