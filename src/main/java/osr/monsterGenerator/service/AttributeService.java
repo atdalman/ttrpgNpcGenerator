@@ -2,9 +2,9 @@ package osr.monsterGenerator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import osr.monsterGenerator.model.npc.Systems;
 import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.repository.AttributeDAO;
-import osr.monsterGenerator.utilities.Systems;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,8 +15,12 @@ public class AttributeService {
     @Autowired
     AttributeDAO attributeDAO;
 
-    public static int getRandomNum(int size) {
+    public static int getRandomInt(int size) {
         return ThreadLocalRandom.current().nextInt(0, size + 1);
+    }
+
+    public static double getRandomDouble(int size) {
+        return ThreadLocalRandom.current().nextDouble();
     }
 
     public static String getAlignment() {

@@ -8,9 +8,10 @@ import org.springframework.data.mongodb.core.aggregation.SampleOperation;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
-import osr.monsterGenerator.model.npc.npcAttributes.Size;
+import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
 
 import java.util.List;
+import java.util.Random;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
 
@@ -19,6 +20,8 @@ public class AttributeDAO {
 
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    private Random random = new Random();
 
     public Object getSingleRandomAttribute(Class desiredClass) {
         // TODO Need to fix weighted selections
@@ -45,11 +48,17 @@ public class AttributeDAO {
 //        mongoTemplate.upsert(query, update, collectionName);
 //    }
 
+    public Object getSingleRandomAttributeByChance(String collectionName) {
+        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
+
+
+    }
+
     public void updateCumulativeChancesBYCollection(String collectionName) {
-        List<Size> results = mongoTemplate.findAll(Size.class, collectionName);
+        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
 
         double chanceSum = 0;
-        for (Size curr : results) {
+        for (WeightedAttribute curr : results) {
             chanceSum += curr.getChance();
             curr.setChanceSum(chanceSum);
             mongoTemplate.save(curr, collectionName);

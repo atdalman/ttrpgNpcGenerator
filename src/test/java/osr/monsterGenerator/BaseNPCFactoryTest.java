@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.model.npc.DndNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
+import osr.monsterGenerator.model.npc.Systems;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.StringUtils;
-import osr.monsterGenerator.utilities.Systems;
 
 public class BaseNPCFactoryTest {
 

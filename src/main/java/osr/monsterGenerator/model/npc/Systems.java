@@ -1,4 +1,4 @@
-package osr.monsterGenerator.utilities;
+package osr.monsterGenerator.model.npc;
 
 public enum Systems {
 

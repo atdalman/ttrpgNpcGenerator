@@ -20,7 +20,7 @@ public class RandomWeightedAttributeServiceTest {
         int cur, testLen = 1000;
 
         for (int i = 0; i < testLen; i++) {
-            cur = AttributeService.getRandomNum(20);
+            cur = AttributeService.getRandomInt(20);
             System.out.println(cur);
             if (cur < 0 || cur > testLen) {
                 Assert.assertTrue(false);

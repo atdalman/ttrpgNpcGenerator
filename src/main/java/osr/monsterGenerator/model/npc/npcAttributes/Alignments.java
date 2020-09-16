@@ -20,7 +20,7 @@ public enum Alignments {
     }
 
     public static String selectRandomAlignment() {
-        int randNum = AttributeService.getRandomNum(Alignments.values().length);
+        int randNum = AttributeService.getRandomInt(Alignments.values().length);
 
         return Alignments.values()[randNum].toString();
     }
