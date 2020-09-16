@@ -1,22 +1,18 @@
 package osr.monsterGenerator.repository;
 
-import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
+import osr.monsterGenerator.model.npc.npcAttributes.Size;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
 
 @Repository
 public class AttributeDAO {
@@ -33,23 +29,31 @@ public class AttributeDAO {
                 desiredClass).getUniqueMappedResult();
     }
 
-    public void updateCumulativeChanceByCollection(String collectionName) {
-        String cumulativeChance = "cumulativeChance";
-        Aggregation agg = newAggregation(group().sum("chance").as(cumulativeChance),
-                project(cumulativeChance));
-        AggregationResults<Document> results = mongoTemplate.aggregate(agg, collectionName, Document.class);
-        Double result = results.getUniqueMappedResult().getDouble(cumulativeChance);
+    // TODO Candidate for removal
+//    public void updateCumulativeChanceByCollection(String collectionName) {
+//        String cumulativeChance = "cumulativeChance";
+//        Aggregation agg = newAggregation(group().sum("chance").as(cumulativeChance),
+//                project(cumulativeChance));
+//        AggregationResults<Document> results = mongoTemplate.aggregate(agg, collectionName, Document.class);
+//        Double result = results.getUniqueMappedResult().getDouble(cumulativeChance);
+//
+//        Query query = new Query();
+//        query.addCriteria(Criteria.where(cumulativeChance).exists(true));
+//        Update update = new Update();
+//        update.set(cumulativeChance, result);
+//        update.set("updateDate", LocalDateTime.now());
+//        mongoTemplate.upsert(query, update, collectionName);
+//    }
 
-        Query query = new Query();
-        query.addCriteria(Criteria.where(cumulativeChance).exists(true));
-        Update update = new Update();
-        update.set(cumulativeChance, result);
-        update.set("updateDate", LocalDateTime.now());
-        mongoTemplate.upsert(query, update, collectionName);
-    }
+    public void updateCumulativeChancesBYCollection(String collectionName) {
+        List<Size> results = mongoTemplate.findAll(Size.class, collectionName);
 
-    public void getRandomAttributeByChanceScore(String collectionName, Class desiredClass) {
-        List<desiredClass . class>
+        double chanceSum = 0;
+        for (Size curr : results) {
+            chanceSum += curr.getChance();
+            curr.setChanceSum(chanceSum);
+            mongoTemplate.save(curr, collectionName);
+        }
     }
 
     // TODO Candidate for removal

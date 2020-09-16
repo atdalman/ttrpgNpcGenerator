@@ -10,7 +10,7 @@ import osr.monsterGenerator.utilities.WeightedItemList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RandomAttributeServiceTest {
+public class RandomWeightedAttributeServiceTest {
 
     @Autowired
     AttributeDAO attributeDAO;
