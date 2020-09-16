@@ -15,14 +15,6 @@ public class AttributeService {
     @Autowired
     AttributeDAO attributeDAO;
 
-    public static int getRandomInt(int size) {
-        return ThreadLocalRandom.current().nextInt(0, size + 1);
-    }
-
-    public static double getRandomDouble(int size) {
-        return ThreadLocalRandom.current().nextDouble();
-    }
-
     public static String getAlignment() {
         return Alignments.selectRandomAlignment();
     }

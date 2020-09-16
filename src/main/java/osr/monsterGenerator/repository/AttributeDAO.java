@@ -5,11 +5,16 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
 import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
+import osr.monsterGenerator.utilities.RandomUtils;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
@@ -24,15 +29,30 @@ public class AttributeDAO {
     private Random random = new Random();
 
     public Object getSingleRandomAttribute(Class desiredClass) {
-        // TODO Need to fix weighted selections
-
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
         return mongoTemplate.aggregate(aggregation, mongoTemplate.getCollectionName(desiredClass),
                 desiredClass).getUniqueMappedResult();
     }
 
-    // TODO Candidate for removal
+    public WeightedAttribute getSingleRandomAttributeByChance(String collectionName) {
+        double chanceSum
+        double rand = RandomUtils.getRandomDouble();
+        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
+
+        for (WeightedAttribute curr : results) {
+            if (curr.getChanceSum() >= rand) {
+                return curr;
+            }
+        }
+
+        return null;
+    }
+
+    public double getCumulativeChanceByCollection(String collectionName) {
+
+    }
+
 //    public void updateCumulativeChanceByCollection(String collectionName) {
 //        String cumulativeChance = "cumulativeChance";
 //        Aggregation agg = newAggregation(group().sum("chance").as(cumulativeChance),
@@ -45,16 +65,10 @@ public class AttributeDAO {
 //        Update update = new Update();
 //        update.set(cumulativeChance, result);
 //        update.set("updateDate", LocalDateTime.now());
-//        mongoTemplate.upsert(query, update, collectionName);
+//        mongoTemplate.upsert(query, update, "cumulativeChance");
 //    }
 
-    public Object getSingleRandomAttributeByChance(String collectionName) {
-        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
-
-
-    }
-
-    public void updateCumulativeChancesBYCollection(String collectionName) {
+    public void updateChancesByCollection(String collectionName) {
         List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
 
         double chanceSum = 0;
@@ -63,6 +77,18 @@ public class AttributeDAO {
             curr.setChanceSum(chanceSum);
             mongoTemplate.save(curr, collectionName);
         }
+
+        updateCumulativeChanceByCollection(collectionName, chanceSum);
+    }
+
+    public void updateCumulativeChanceByCollection(String collectionName, double chanceSum) {
+        String cumulativeChance = "cumulativeChance";
+        Query query = new Query();
+        query.addCriteria(Criteria.where(collectionName).is(collectionName));
+        Update update = new Update();
+        update.set(cumulativeChance, chanceSum);
+        update.set("updateDate", LocalDateTime.now());
+        mongoTemplate.upsert(query, update, collectionName);
     }
 
     // TODO Candidate for removal

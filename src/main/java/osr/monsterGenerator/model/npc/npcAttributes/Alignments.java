@@ -1,6 +1,6 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
-import osr.monsterGenerator.service.AttributeService;
+import osr.monsterGenerator.utilities.RandomUtils;
 
 public enum Alignments {
 
@@ -20,7 +20,7 @@ public enum Alignments {
     }
 
     public static String selectRandomAlignment() {
-        int randNum = AttributeService.getRandomInt(Alignments.values().length);
+        int randNum = RandomUtils.getRandomIntWithUpperBound(Alignments.values().length);
 
         return Alignments.values()[randNum].toString();
     }

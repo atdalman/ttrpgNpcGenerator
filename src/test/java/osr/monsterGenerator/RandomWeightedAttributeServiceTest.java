@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.repository.AttributeDAO;
-import osr.monsterGenerator.service.AttributeService;
+import osr.monsterGenerator.utilities.RandomUtils;
 import osr.monsterGenerator.utilities.WeightedItemList;
 
 import java.util.HashMap;
@@ -20,7 +20,7 @@ public class RandomWeightedAttributeServiceTest {
         int cur, testLen = 1000;
 
         for (int i = 0; i < testLen; i++) {
-            cur = AttributeService.getRandomInt(20);
+            cur = RandomUtils.getRandomIntWithUpperBound(20);
             System.out.println(cur);
             if (cur < 0 || cur > testLen) {
                 Assert.assertTrue(false);

@@ -3,7 +3,7 @@ package osr.monsterGenerator.model.npc.npcAttributes;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
-import osr.monsterGenerator.service.AttributeService;
+import osr.monsterGenerator.utilities.RandomUtils;
 
 @Data
 public class Movement {
@@ -23,7 +23,7 @@ public class Movement {
     private int[] possibleNumLimbs;
 
     public void setNumLimbsFromPossible() {
-        this.numLimbs = possibleNumLimbs[AttributeService.getRandomInt(possibleNumLimbs.length - 1)];
+        this.numLimbs = possibleNumLimbs[RandomUtils.getRandomIntWithUpperBound(possibleNumLimbs.length - 1)];
     }
 
     public String toString() {
