@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.repository.AttributeDAO;
-import osr.monsterGenerator.utilities.RandomUtils;
 import osr.monsterGenerator.utilities.WeightedItemList;
 
 import java.util.HashMap;
@@ -15,23 +14,9 @@ public class RandomWeightedAttributeServiceTest {
     @Autowired
     AttributeDAO attributeDAO;
 
+    // TODO Don't think I'll be using this structure anymore, but keeping for the time being.
     @Test
-    public void randomNumTest() {
-        int cur, testLen = 1000;
-
-        for (int i = 0; i < testLen; i++) {
-            cur = RandomUtils.getRandomIntWithUpperBound(20);
-            System.out.println(cur);
-            if (cur < 0 || cur > testLen) {
-                Assert.assertTrue(false);
-            }
-        }
-
-        Assert.assertTrue(true);
-    }
-
-    @Test
-    public void randomWeightedAttributeTest() {
+    public void randomWeightedItemListAttributeTest() {
         WeightedItemList list = new WeightedItemList();
         list.addEntry("Medium", 1);
         list.addEntry("Large", 1);
@@ -58,5 +43,10 @@ public class RandomWeightedAttributeServiceTest {
 
         Assert.assertTrue(passed);
 
+    }
+
+    @Test
+    public void randomWeightedAttributeList() {
+        // Size result = (Size)attributeDAO.getSingleRandomAttributeUsingChance("size");
     }
 }

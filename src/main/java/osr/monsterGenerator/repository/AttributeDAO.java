@@ -9,14 +9,15 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
+import osr.monsterGenerator.model.npc.CumulativeChance;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
+import osr.monsterGenerator.model.npc.npcAttributes.Size;
 import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
 import osr.monsterGenerator.utilities.RandomUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Random;
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
 
@@ -26,8 +27,6 @@ public class AttributeDAO {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    private Random random = new Random();
-
     public Object getSingleRandomAttribute(Class desiredClass) {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
@@ -35,18 +34,23 @@ public class AttributeDAO {
                 desiredClass).getUniqueMappedResult();
     }
 
-    public WeightedAttribute getSingleRandomAttributeUsingChance(String collectionName) {
-        //double chanceSum
-        double rand = RandomUtils.getRandomDouble();
-        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
+    public Size getSingleRandomAttributeUsingChance(String collectionName) {
+        double chanceSum = getChanceByAttributeName(collectionName);
+        double rand = RandomUtils.getRandomDouble() * chanceSum;
+        List<Size> results = mongoTemplate.findAll(Size.class, collectionName);
 
-        for (WeightedAttribute curr : results) {
+        for (Size curr : results) {
             if (curr.getChanceSum() >= rand) {
                 return curr;
             }
         }
 
         return null;
+    }
+
+    private double getChanceByAttributeName(String attributeName) {
+        return mongoTemplate.findOne(new Query().addCriteria(Criteria.where("attribute").is(attributeName)),
+                CumulativeChance.class, "cumulativeChance").getCumulativeChance();
     }
 
     // Updates chances within each document within a given attribute collection
