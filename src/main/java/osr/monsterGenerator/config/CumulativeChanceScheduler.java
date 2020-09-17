@@ -17,6 +17,6 @@ public class CumulativeChanceScheduler {
 
     @Scheduled(fixedRate = 600000L)
     private void updateCumulativeChances() {
-        attributeDAO.updateChancesByCollection("size");
+        attributeDAO.updateChances("size");
     }
 }

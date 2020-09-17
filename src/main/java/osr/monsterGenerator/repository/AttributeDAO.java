@@ -35,8 +35,8 @@ public class AttributeDAO {
                 desiredClass).getUniqueMappedResult();
     }
 
-    public WeightedAttribute getSingleRandomAttributeByChance(String collectionName) {
-        double chanceSum
+    public WeightedAttribute getSingleRandomAttributeUsingChance(String collectionName) {
+        //double chanceSum
         double rand = RandomUtils.getRandomDouble();
         List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
 
@@ -49,26 +49,8 @@ public class AttributeDAO {
         return null;
     }
 
-    public double getCumulativeChanceByCollection(String collectionName) {
-
-    }
-
-//    public void updateCumulativeChanceByCollection(String collectionName) {
-//        String cumulativeChance = "cumulativeChance";
-//        Aggregation agg = newAggregation(group().sum("chance").as(cumulativeChance),
-//                project(cumulativeChance));
-//        AggregationResults<Document> results = mongoTemplate.aggregate(agg, collectionName, Document.class);
-//        Double result = results.getUniqueMappedResult().getDouble(cumulativeChance);
-//
-//        Query query = new Query();
-//        query.addCriteria(Criteria.where(cumulativeChance).exists(true));
-//        Update update = new Update();
-//        update.set(cumulativeChance, result);
-//        update.set("updateDate", LocalDateTime.now());
-//        mongoTemplate.upsert(query, update, "cumulativeChance");
-//    }
-
-    public void updateChancesByCollection(String collectionName) {
+    // Updates chances within each document within a given attribute collection
+    public void updateChances(String collectionName) {
         List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
 
         double chanceSum = 0;
@@ -78,17 +60,18 @@ public class AttributeDAO {
             mongoTemplate.save(curr, collectionName);
         }
 
-        updateCumulativeChanceByCollection(collectionName, chanceSum);
+        updateCumulativeChanceCollection(collectionName, chanceSum);
     }
 
-    public void updateCumulativeChanceByCollection(String collectionName, double chanceSum) {
+    // Updates sum of chances for a given collection
+    private void updateCumulativeChanceCollection(String collectionName, double chanceSum) {
         String cumulativeChance = "cumulativeChance";
         Query query = new Query();
-        query.addCriteria(Criteria.where(collectionName).is(collectionName));
+        query.addCriteria(Criteria.where("attribute").is(collectionName));
         Update update = new Update();
-        update.set(cumulativeChance, chanceSum);
+        update.set("cumulativeChance", chanceSum);
         update.set("updateDate", LocalDateTime.now());
-        mongoTemplate.upsert(query, update, collectionName);
+        mongoTemplate.upsert(query, update, cumulativeChance);
     }
 
     // TODO Candidate for removal
