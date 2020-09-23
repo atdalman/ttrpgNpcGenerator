@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.npc.CumulativeChance;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
-import osr.monsterGenerator.model.npc.npcAttributes.Size;
 import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
 import osr.monsterGenerator.utilities.RandomUtils;
 
@@ -27,6 +26,7 @@ public class AttributeDAO {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    // Equally weighted attributes
     public Object getSingleRandomAttribute(Class desiredClass) {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
@@ -34,12 +34,13 @@ public class AttributeDAO {
                 desiredClass).getUniqueMappedResult();
     }
 
-    public Size getSingleRandomAttributeUsingChance(String collectionName) {
+    // Unequally weighted attributes
+    public WeightedAttribute getSingleRandomAttributeUsingChance(String collectionName) {
         double chanceSum = getChanceByAttributeName(collectionName);
         double rand = RandomUtils.getRandomDouble() * chanceSum;
-        List<Size> results = mongoTemplate.findAll(Size.class, collectionName);
+        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
 
-        for (Size curr : results) {
+        for (WeightedAttribute curr : results) {
             if (curr.getChanceSum() >= rand) {
                 return curr;
             }
@@ -53,7 +54,7 @@ public class AttributeDAO {
                 CumulativeChance.class, "cumulativeChance").getCumulativeChance();
     }
 
-    // Updates chances within each document within a given attribute collection
+    // Updates chances within each document within a given collection of attributes
     public void updateChances(String collectionName) {
         List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
 
@@ -76,15 +77,6 @@ public class AttributeDAO {
         update.set("cumulativeChance", chanceSum);
         update.set("updateDate", LocalDateTime.now());
         mongoTemplate.upsert(query, update, cumulativeChance);
-    }
-
-    // TODO Candidate for removal
-    public List<Object> getMultipleRandomAttributes(Class desiredClass, int numResults) {
-        SampleOperation sampleStage = Aggregation.sample(numResults);
-        Aggregation aggregation = newAggregation(sampleStage);
-        AggregationResults<Object> output = mongoTemplate.aggregate(aggregation,
-                mongoTemplate.getCollectionName(desiredClass), desiredClass);
-        return output.getMappedResults();
     }
 
     public List<Motivation> getNPCMotivations(int numResults) {

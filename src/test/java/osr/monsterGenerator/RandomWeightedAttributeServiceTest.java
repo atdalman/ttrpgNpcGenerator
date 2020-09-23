@@ -3,7 +3,8 @@ package osr.monsterGenerator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import osr.monsterGenerator.repository.AttributeDAO;
+import osr.monsterGenerator.model.npc.npcAttributes.Size;
+import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.utilities.WeightedItemList;
 
 import java.util.HashMap;
@@ -12,7 +13,22 @@ import java.util.Map;
 public class RandomWeightedAttributeServiceTest {
 
     @Autowired
-    AttributeDAO attributeDAO;
+    AttributeService attributeService;
+
+    // TODO Create mock db to use this properly
+    private void tempRandomWeightedAttributeTest() {
+        HashMap<String, Integer> totals = new HashMap<>();
+        for (int i = 0; i < 100; i++) {
+            Size curr = attributeService.getSize();
+            if (totals.containsKey(curr.getName())) {
+                totals.put(curr.getName(), totals.get(curr.getName()) + 1);
+            } else {
+                totals.put(curr.getName(), 1);
+            }
+        }
+
+        System.out.println("Totals: " + totals.toString());
+    }
 
     // TODO Don't think I'll be using this structure anymore, but keeping for the time being.
     @Test
@@ -43,10 +59,5 @@ public class RandomWeightedAttributeServiceTest {
 
         Assert.assertTrue(passed);
 
-    }
-
-    @Test
-    public void randomWeightedAttributeList() {
-        // Size result = (Size)attributeDAO.getSingleRandomAttributeUsingChance("size");
     }
 }

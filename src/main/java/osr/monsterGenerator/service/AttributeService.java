@@ -32,7 +32,7 @@ public class AttributeService {
     }
 
     public Size getSize() {
-        return attributeDAO.getSingleRandomAttributeUsingChance(Size.class.getSimpleName().toLowerCase());
+        return (Size) attributeDAO.getSingleRandomAttributeUsingChance(Size.class.getSimpleName().toLowerCase());
     }
 
     public BodySurface getBodySurface() {
