@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
-import osr.monsterGenerator.model.npc.Systems;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.service.NPCFactory;
 
