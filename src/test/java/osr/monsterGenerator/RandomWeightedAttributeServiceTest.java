@@ -16,7 +16,7 @@ public class RandomWeightedAttributeServiceTest {
     AttributeService attributeService;
 
     // TODO Create mock db to use this properly
-    private void tempRandomWeightedAttributeTest() {
+    public void tempRandomWeightedAttributeTest() {
         HashMap<String, Integer> totals = new HashMap<>();
         for (int i = 0; i < 100; i++) {
             Size curr = attributeService.getSize();
