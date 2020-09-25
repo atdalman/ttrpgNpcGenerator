@@ -17,6 +17,7 @@ public class BaseNPC {
     // Perhaps tied to body shape or distinct features?  For example, a reptilian creature could use a latin name
     // from that part of the animal kingdom
     private String name;
+    private String npcId;
     private String properName;
     // Generic flat health points, if desired
     private String healthPoints;
