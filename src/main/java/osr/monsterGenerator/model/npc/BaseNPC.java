@@ -1,15 +1,13 @@
 package osr.monsterGenerator.model.npc;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.service.AttributeService;
 
 import java.util.List;
 
-@Setter
-@Getter
+@Data
 // A basic monster or NPC
 public class BaseNPC {
 
