@@ -24,7 +24,7 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		BaseNPC firstDndNPC = npcFactory.generateNPC(Systems.BASENPC);
+		BaseNPC firstDndNPC = npcFactory.generateNPC(Systems.BASE);
 		System.out.println(firstDndNPC.toString());
 	}
 

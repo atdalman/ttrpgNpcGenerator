@@ -22,6 +22,8 @@ public class NPCFactory {
                 return new MothershipNPC();
             case OSROTHER:
                 return new OtherOSRNPC();
+            case BASE:
+                return new BaseNPC();
             default:
                 return generateBaseNPC();
         }

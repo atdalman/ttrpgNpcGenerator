@@ -33,7 +33,7 @@ public class BaseNPCFactoryTest {
 
     @Test
     public void generateBaseNPCTest(){
-        BaseNPC testMon = NPCFactory.generateNPC(Systems.BASENPC);
+        BaseNPC testMon = NPCFactory.generateNPC(Systems.BASE);
         boolean passed = false;
         if(!StringUtils.isStringNullOrBlank(testMon.getName())
                 && testMon.getSize() != null
