@@ -22,7 +22,7 @@ public class MonsterGeneratorApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-        System.out.println("Running...");
+        System.out.println("Application running... Further configuration is done by scheduler.");
     }
 
 }

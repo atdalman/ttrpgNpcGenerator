@@ -15,6 +15,8 @@ public class CumulativeChanceScheduler {
 
     @Scheduled(fixedRate = 600000L)
     private void updateCumulativeChances() {
+
+        System.out.println("Running chance scheduler...");
         attributeDAO.updateChances("size");
     }
 }
