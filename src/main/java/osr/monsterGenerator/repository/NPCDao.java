@@ -14,8 +14,12 @@ public class NPCDao {
     MongoTemplate mongoTemplate;
 
     public BaseNPC getNPCById(String id) {
-        return mongoTemplate.findOne(new Query().addCriteria(Criteria.where("npcId").is(id)),
+        return mongoTemplate.findOne(new Query().addCriteria(Criteria.where("_id").is(id)),
                 BaseNPC.class, "npc");
+    }
+
+    public String saveNPC(BaseNPC npc) {
+        return mongoTemplate.save(npc, "npc").getId();
     }
 
 }

@@ -8,6 +8,8 @@ import osr.monsterGenerator.model.npc.DndNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
 import osr.monsterGenerator.model.npc.OtherOSRNPC;
 
+import java.time.LocalDateTime;
+
 @Service
 public class NPCFactory {
 
@@ -36,6 +38,7 @@ public class NPCFactory {
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
         npc.setCombatStrategies(attributeService.getCombatStrategies());
+        npc.setInsertDate(LocalDateTime.now());
 
         return npc;
     }

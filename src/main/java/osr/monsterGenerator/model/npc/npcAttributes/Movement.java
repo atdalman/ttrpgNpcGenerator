@@ -1,15 +1,12 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import osr.monsterGenerator.utilities.RandomUtils;
 
 @Data
 public class Movement {
 
-    @Id
-    private String id;
     private String movementStyle;
 
     /*

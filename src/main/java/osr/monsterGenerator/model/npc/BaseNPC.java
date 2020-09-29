@@ -2,9 +2,11 @@ package osr.monsterGenerator.model.npc;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
 import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.service.AttributeService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -16,9 +18,11 @@ public class BaseNPC {
 
     // Perhaps tied to body shape or distinct features?  For example, a reptilian creature could use a latin name
     // from that part of the animal kingdom
+    @Id
+    private String id;
     private String name;
-    private String npcId;
     private String properName;
+    private LocalDateTime insertDate;
     // Generic flat health points, if desired
     private String healthPoints;
     private Size size;

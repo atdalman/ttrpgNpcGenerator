@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import osr.monsterGenerator.model.Systems;
+import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.service.NPCService;
 
 @RestController
@@ -21,10 +22,10 @@ public class NPCController {
     }
 
     @GetMapping("/{systemName}")
-    public String generateSystemNPC(@PathVariable String systemName) {
+    public BaseNPC generateSystemNPC(@PathVariable String systemName) {
         for (Systems system : Systems.values()) {
             if (systemName.equalsIgnoreCase(system.name())) {
-                return npcService.generateNPC(system).toString();
+                return npcService.generateNPC(system);
             }
         }
 
@@ -33,8 +34,8 @@ public class NPCController {
     }
 
     @GetMapping("/saved/{npcId}")
-    public String getNPCById(@PathVariable String npcId) {
+    public BaseNPC getNPCById(@PathVariable String npcId) {
         // TODO Return error if(StringUtils.isStringNullOrBlank(npcId))
-        return npcService.getNPCById(npcId).toString();
+        return npcService.getNPCById(npcId);
     }
 }
