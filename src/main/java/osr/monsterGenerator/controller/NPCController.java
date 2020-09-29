@@ -20,16 +20,21 @@ public class NPCController {
         return npcService.generateBaseNPC().toString();
     }
 
-    @GetMapping("/{system}")
-    public String generateSystemNPC(@PathVariable String system) {
-        return npcService.generateNPC(Systems.valueOf(system)).toString();
+    @GetMapping("/{systemName}")
+    public String generateSystemNPC(@PathVariable String systemName) {
+        for (Systems system : Systems.values()) {
+            if (systemName.equalsIgnoreCase(system.name())) {
+                return npcService.generateNPC(system).toString();
+            }
+        }
+
+        //TODO Write exception
+        return null;
     }
 
-    @GetMapping("/{npcId}")
+    @GetMapping("/saved/{npcId}")
     public String getNPCById(@PathVariable String npcId) {
-        // Return error if(StringUtils.isStringNullOrBlank(npcId))
+        // TODO Return error if(StringUtils.isStringNullOrBlank(npcId))
         return npcService.getNPCById(npcId).toString();
     }
-
-
 }

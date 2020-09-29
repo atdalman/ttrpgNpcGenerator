@@ -10,7 +10,7 @@ public enum Systems {
 
     public final String label;
 
-    private Systems(String label) {
+    Systems(String label) {
         this.label = label;
     }
 
