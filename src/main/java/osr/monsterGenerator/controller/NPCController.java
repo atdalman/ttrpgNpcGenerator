@@ -31,7 +31,8 @@ public class NPCController {
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND,
-            reason = "The requested is currently not supported.  Please check your spelling, and try again if you believe this to be in error.")
+            reason = "The requested system is currently not supported.  Please check your spelling, and try again if " +
+                    "you believe this to be in error.")
     @ExceptionHandler(SystemNotSupportedException.class)
     public void generateSystemNPC_SystemNotFound() {
     }
