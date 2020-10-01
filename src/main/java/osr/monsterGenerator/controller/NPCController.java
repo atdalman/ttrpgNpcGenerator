@@ -31,6 +31,7 @@ public class NPCController {
                     "you believe this to be in error.")
     @ExceptionHandler(SystemNotSupportedException.class)
     public void systemNotSupportedError() {
+        //TODO Logging
     }
 
     @GetMapping("/saved/{npcId}")
@@ -46,5 +47,6 @@ public class NPCController {
                     "check your entry and try again. ")
     @ExceptionHandler(NPCNotFoundException.class)
     public void savedNPCNotFoundError() {
+        //TODO Logging
     }
 }

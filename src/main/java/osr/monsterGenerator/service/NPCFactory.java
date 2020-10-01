@@ -21,7 +21,7 @@ public class NPCFactory {
             case DND5E:
                 return new DndNPC();
             case MOTHERSHIP:
-                return new MothershipNPC();
+                return generateMoshNPC();
             case OSROTHER:
                 return new OtherOSRNPC();
             default:
@@ -38,6 +38,23 @@ public class NPCFactory {
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
         npc.setCombatStrategies(attributeService.getCombatStrategies());
+        npc.setInsertDate(LocalDateTime.now());
+
+        return npc;
+    }
+
+    public MothershipNPC generateMoshNPC() {
+        MothershipNPC npc = new MothershipNPC();
+        npc.setSize(attributeService.getSize());
+        npc.setBodySurface(attributeService.getBodySurface());
+        npc.setGeneralBodyShape(attributeService.getBodyShape());
+        npc.setMotivations(attributeService.getMotivations());
+        npc.setMovement(attributeService.getMovement());
+        npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
+        npc.setCombatStrategies(attributeService.getCombatStrategies());
+        npc.setInstinct(attributeService.generateInstinct());
+        npc.setCombat(attributeService.generateInstinct());
+        npc.setLoyalty(attributeService.generateInstinct());
         npc.setInsertDate(LocalDateTime.now());
 
         return npc;

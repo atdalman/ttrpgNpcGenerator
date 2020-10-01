@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.repository.AttributeDAO;
+import osr.monsterGenerator.utilities.RandomUtils;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -78,8 +79,6 @@ public class AttributeService {
     /***********Mothership**********/
 
     public int generateInstinct() {
-        // 6d10
-        // 6d10 +/- based on creature size
-        return 0;
+        return RandomUtils.rollDice(6, 10);
     }
 }
