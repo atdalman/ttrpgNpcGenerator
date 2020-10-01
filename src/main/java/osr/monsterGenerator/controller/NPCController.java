@@ -1,10 +1,9 @@
 package osr.monsterGenerator.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import osr.monsterGenerator.Exceptions.SystemNotSupportedException;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.service.NPCService;
@@ -28,8 +27,13 @@ public class NPCController {
                 return npcService.generateNPC(system);
         }
 
-        //TODO Write system not found exception
-        return null;
+        throw new SystemNotSupportedException(systemName);
+    }
+
+    @ResponseStatus(value = HttpStatus.NOT_FOUND,
+            reason = "The requested is currently not supported.  Please check your spelling, and try again if you believe this to be in error.")
+    @ExceptionHandler(SystemNotSupportedException.class)
+    public void generateSystemNPC_SystemNotFound() {
     }
 
     @GetMapping("/saved/{npcId}")
