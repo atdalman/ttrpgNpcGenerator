@@ -76,7 +76,7 @@ public class AttributeService {
         }
     }
 
-    /***********Mothership**********/
+    /**********Mothership**********/
 
     public int generateInstinct() {
         return RandomUtils.rollDice(6, 10);
