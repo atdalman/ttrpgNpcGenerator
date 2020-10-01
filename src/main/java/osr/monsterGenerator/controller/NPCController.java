@@ -23,14 +23,12 @@ public class NPCController {
 
     @GetMapping("/{systemName}")
     public BaseNPC generateSystemNPC(@PathVariable String systemName) {
-
         for (Systems system : Systems.values()) {
-            if (systemName.equalsIgnoreCase(system.name())) {
+            if (systemName.equalsIgnoreCase(system.name()))
                 return npcService.generateNPC(system);
-            }
         }
 
-        //TODO Write exception
+        //TODO Write system not found exception
         return null;
     }
 
