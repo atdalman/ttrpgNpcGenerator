@@ -74,4 +74,12 @@ public class AttributeService {
 
         }
     }
+
+    /***********Mothership**********/
+
+    public int generateInstinct() {
+        // 6d10
+        // 6d10 +/- based on creature size
+        return 0;
+    }
 }
