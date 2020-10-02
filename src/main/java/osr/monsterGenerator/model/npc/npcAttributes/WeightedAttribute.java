@@ -10,9 +10,9 @@ public abstract class WeightedAttribute {
     @JsonIgnore
     private String _id;
     @JsonIgnore
-    private Double chance;
+    private double chance;
     @JsonIgnore
-    private Double chanceSum;
+    private double chanceSum;
 
     public WeightedAttribute() {
         this.chance = 1.0;
