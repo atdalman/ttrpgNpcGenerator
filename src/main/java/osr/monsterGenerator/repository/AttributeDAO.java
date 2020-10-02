@@ -38,10 +38,8 @@ public class AttributeDAO {
     public WeightedAttribute getSingleRandomAttributeUsingChance(String collectionName) {
         double chanceSum = getChanceByAttributeName(collectionName);
         double rand = RandomUtils.getRandomDouble() * chanceSum;
+
         Query find = new Query();
-
-
-        find.fields().exclude("_id");
         List<WeightedAttribute> results = mongoTemplate.find(find, WeightedAttribute.class, collectionName);
 
         for (WeightedAttribute curr : results) {
