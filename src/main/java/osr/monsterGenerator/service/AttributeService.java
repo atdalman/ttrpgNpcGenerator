@@ -78,7 +78,13 @@ public class AttributeService {
 
     /**********Mothership**********/
 
-    public int generateInstinct() {
+    public static int generateInstinctAttr() {
         return RandomUtils.rollDice(6, 10);
+    }
+
+    public static int generateCombatAttr(int moshCombatMultiplier) {
+        int res = RandomUtils.rollDice(6, 10) * moshCombatMultiplier;
+        if (res > 100) res = 100;
+        return res;
     }
 }

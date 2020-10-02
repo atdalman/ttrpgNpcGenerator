@@ -6,7 +6,6 @@ import lombok.Data;
 public class MothershipNPC extends BaseNPC {
     public int instinct;
     public int combat;
-    // Used for mercenaries
-    public int loyalty;
+    public int loyalty; // Used for mercenaries
 
 }

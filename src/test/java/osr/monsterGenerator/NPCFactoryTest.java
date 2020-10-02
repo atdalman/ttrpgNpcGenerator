@@ -10,7 +10,7 @@ import osr.monsterGenerator.model.npc.MothershipNPC;
 import osr.monsterGenerator.service.NPCFactory;
 import osr.monsterGenerator.utilities.StringUtils;
 
-public class BaseNPCFactoryTest {
+public class NPCFactoryTest {
 
     @Autowired
     private NPCFactory NPCFactory;

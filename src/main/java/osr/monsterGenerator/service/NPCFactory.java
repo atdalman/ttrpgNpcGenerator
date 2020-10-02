@@ -52,9 +52,9 @@ public class NPCFactory {
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
         npc.setCombatStrategies(attributeService.getCombatStrategies());
-        npc.setInstinct(attributeService.generateInstinct());
-        npc.setCombat(attributeService.generateInstinct());
-        npc.setLoyalty(attributeService.generateInstinct());
+        npc.setInstinct(attributeService.generateInstinctAttr());
+        npc.setCombat(attributeService.generateInstinctAttr());
+        npc.setLoyalty(attributeService.generateInstinctAttr());
         npc.setInsertDate(LocalDateTime.now());
 
         return npc;

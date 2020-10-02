@@ -10,7 +10,7 @@ import osr.monsterGenerator.utilities.WeightedItemList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RandomWeightedAttributeServiceTest {
+public class AttributeServiceTest {
 
     @Autowired
     AttributeService attributeService;
@@ -59,5 +59,10 @@ public class RandomWeightedAttributeServiceTest {
 
         Assert.assertTrue(passed);
 
+    }
+
+    @Test
+    public void generateCombatAttr_combatOver100_return_100() {
+        Assert.assertEquals(100, AttributeService.generateCombatAttr(100));
     }
 }
