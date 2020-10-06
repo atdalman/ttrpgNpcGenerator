@@ -82,9 +82,13 @@ public class AttributeService {
         return RandomUtils.rollDice(6, 10);
     }
 
+    public static int generateLoyaltyAttr() {
+        return RandomUtils.rollDice(6, 10);
+    }
+
     public static int generateCombatAttr(int moshCombatMod) {
         int res = RandomUtils.rollDice(6, 10) + moshCombatMod;
-        if (res > 100) res = 100;
+        if (res > 99) res = 99;
         else if (res < 0) res = 0;
         return res;
     }
