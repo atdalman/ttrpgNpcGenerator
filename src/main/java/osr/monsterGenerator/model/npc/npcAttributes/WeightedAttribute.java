@@ -1,15 +1,16 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 @Data
-@JsonIgnoreProperties({"_id", "chance", "chanceSum"})
 public abstract class WeightedAttribute {
     @Id
     private String _id;
+    @JsonIgnore
     private double chance;
+    @JsonIgnore
     private double chanceSum;
 
     public WeightedAttribute() {

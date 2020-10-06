@@ -52,10 +52,13 @@ public class NPCFactory {
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
         npc.setCombatStrategies(attributeService.getCombatStrategies());
-        npc.setInstinct(attributeService.generateInstinctAttr());
-        npc.setCombat(attributeService.generateCombatAttr(npc.getSize().getMoshCombatMod()));
-        npc.setLoyalty(attributeService.generateInstinctAttr());
         npc.setInsertDate(LocalDateTime.now());
+
+        // Mothership-specific Stuff
+        npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshCombatMod()));
+        npc.setLoyalty(AttributeService.generateInstinctAttr());
+        npc.setInstinct(AttributeService.generateInstinctAttr());
+        npc.setHits(AttributeService.generateHitsAttr(npc.getSize().getMoshHitDie()));
 
         return npc;
     }

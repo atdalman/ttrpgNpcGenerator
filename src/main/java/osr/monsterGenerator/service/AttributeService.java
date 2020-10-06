@@ -92,4 +92,8 @@ public class AttributeService {
         else if (res < 0) res = 0;
         return res;
     }
+
+    public static int generateHitsAttr(int diceSize) {
+        return RandomUtils.rollDice(1, diceSize);
+    }
 }

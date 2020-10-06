@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class MothershipNPC extends BaseNPC {
-    public int instinct; //0-100
-    public int combat;
-    public int loyalty; // Used for mercenaries
+    public int instinct; // 0-99
+    public int combat; // 0-99
+    public int loyalty; // 0-99. Used for mercenaries
+    public int hits;
 
 }
