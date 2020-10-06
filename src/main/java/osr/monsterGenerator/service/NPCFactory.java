@@ -53,7 +53,7 @@ public class NPCFactory {
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInstinct(attributeService.generateInstinctAttr());
-        npc.setCombat(attributeService.generateInstinctAttr());
+        npc.setCombat(attributeService.generateCombatAttr(npc.getSize().getMoshCombatMod()));
         npc.setLoyalty(attributeService.generateInstinctAttr());
         npc.setInsertDate(LocalDateTime.now());
 
