@@ -1,4 +1,4 @@
-package osr.monsterGenerator.Exceptions;
+package osr.monsterGenerator.exceptions;
 
 public class NPCNotFoundException extends RuntimeException {
     public NPCNotFoundException(String message) {

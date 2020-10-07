@@ -1,4 +1,4 @@
-package osr.monsterGenerator.Exceptions;
+package osr.monsterGenerator.exceptions;
 
 public class SystemNotSupportedException extends RuntimeException {
     public SystemNotSupportedException(String message) {

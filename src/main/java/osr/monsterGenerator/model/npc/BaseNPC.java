@@ -1,14 +1,17 @@
 package osr.monsterGenerator.model.npc;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import osr.monsterGenerator.model.npc.npcAttributes.*;
+import osr.monsterGenerator.serializers.BaseNPCSerializer;
 import osr.monsterGenerator.service.AttributeService;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@JsonSerialize(using = BaseNPCSerializer.class)
 @Data
 // A basic monster or NPC
 public class BaseNPC {

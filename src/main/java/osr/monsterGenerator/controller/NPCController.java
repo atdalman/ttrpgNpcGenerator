@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import osr.monsterGenerator.Exceptions.NPCNotFoundException;
-import osr.monsterGenerator.Exceptions.SystemNotSupportedException;
+import osr.monsterGenerator.exceptions.NPCNotFoundException;
+import osr.monsterGenerator.exceptions.SystemNotSupportedException;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.service.NPCService;
@@ -24,10 +24,10 @@ public class NPCController {
     NPCService npcService;
 
     @GetMapping("/{systemName}")
-    public HashMap<String, String> generateSystemNPC(@PathVariable String systemName) {
+    public BaseNPC generateSystemNPC(@PathVariable String systemName) {
         for (Systems system : Systems.values()) {
             if (systemName.equalsIgnoreCase(system.name()))
-                return npcPojoToCleanMap(npcService.generateNPC(system));
+                return npcService.generateNPC(system);
         }
 
         LOGGER.error("Unsupported system requested: " + systemName);
