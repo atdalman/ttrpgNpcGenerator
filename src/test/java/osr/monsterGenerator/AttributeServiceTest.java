@@ -30,7 +30,7 @@ public class AttributeServiceTest {
         System.out.println("Totals: " + totals.toString());
     }
 
-    // TODO Don't think I'll be using this structure anymore, but keeping for the time being.
+    // TODO Don't think I'll be using this structure anymore, but keeping for demo purpose.
     @Test
     public void randomWeightedItemListAttributeTest() {
         WeightedItemList list = new WeightedItemList();
