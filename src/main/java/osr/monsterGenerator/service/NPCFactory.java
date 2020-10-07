@@ -55,10 +55,12 @@ public class NPCFactory {
         npc.setInsertDate(LocalDateTime.now());
 
         // Mothership-specific Stuff
-        npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshCombatMod()));
-        npc.setLoyalty(AttributeService.generateInstinctAttr());
+        npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshMod()));
+        npc.setLoyalty(AttributeService.generateLoyaltyAttr());
         npc.setInstinct(AttributeService.generateInstinctAttr());
-        npc.setHits(AttributeService.generateHitsAttr(npc.getSize().getMoshHitDie()));
+        npc.setHealthPoints(AttributeService.generateHealthPoints(6, 10, npc.getSize().getMoshMod()));
+        npc.setHits(AttributeService.generateHitsAttr(npc.getSize().getMoshHitDie()) + "(" + npc.getHealthPoints() +
+                ")");
 
         return npc;
     }

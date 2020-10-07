@@ -28,8 +28,8 @@ public class AttributeService {
         return "THE NEW GUY";
     }
 
-    public static String healthPoints() {
-        return "666";
+    public static int generateHealthPoints(int numDice, int diceSize, int mod) {
+        return RandomUtils.rollDice(numDice, diceSize) + mod;
     }
 
     public Size getSize() {

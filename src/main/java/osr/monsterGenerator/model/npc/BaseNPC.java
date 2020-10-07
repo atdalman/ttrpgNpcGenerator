@@ -24,7 +24,7 @@ public class BaseNPC {
     private String properName;
     private LocalDateTime insertDate;
     // Generic flat health points, if desired
-    private String healthPoints;
+    private int healthPoints;
     private Size size;
     private int experienceGiven;
     private BodyShape generalBodyShape;

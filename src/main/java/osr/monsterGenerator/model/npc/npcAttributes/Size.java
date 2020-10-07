@@ -7,7 +7,7 @@ import lombok.Data;
 public class Size extends WeightedAttribute {
     private String name;
     @JsonIgnore
-    private int moshCombatMod;  // Used for shifting combat capabilities up or down based on size
+    private int moshMod;  // Used for shifting combat capabilities up or down based on size
     @JsonIgnore
     private int moshHitDie;
 }
