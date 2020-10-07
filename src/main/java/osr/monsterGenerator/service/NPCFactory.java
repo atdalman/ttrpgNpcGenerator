@@ -58,9 +58,8 @@ public class NPCFactory {
         npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshMod()));
         npc.setLoyalty(AttributeService.generateLoyaltyAttr());
         npc.setInstinct(AttributeService.generateInstinctAttr());
-        npc.setHealthPoints(AttributeService.generateHealthPoints(6, 10, npc.getSize().getMoshMod()));
-        npc.setHits(AttributeService.generateHitsAttr(npc.getSize().getMoshHitDie()) + "(" + npc.getHealthPoints() +
-                ")");
+        npc.setHits(AttributeService.generateHitsAttr(npc.getSize().getMoshHitDie())
+                + "(" + AttributeService.generateHealthPoints(6, 10, npc.getSize().getMoshMod()) + ")");
 
         return npc;
     }
