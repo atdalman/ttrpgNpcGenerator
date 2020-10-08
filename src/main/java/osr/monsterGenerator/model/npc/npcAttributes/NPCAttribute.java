@@ -1,5 +1,6 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import osr.monsterGenerator.utilities.StringUtils;
 
@@ -10,6 +11,7 @@ public class NPCAttribute {
     private String verboseDescription;
     private int value;
 
+    @JsonIgnore
     public String getDescription() {
         if (!StringUtils.isStringNullOrBlank(briefDescription))
             return briefDescription;
