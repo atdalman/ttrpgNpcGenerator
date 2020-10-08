@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.npcAttributes.*;
+import osr.monsterGenerator.repository.AttributeCollections;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.utilities.RandomUtils;
 
@@ -57,7 +58,7 @@ public class AttributeService {
     }
 
     public NPCAttribute getBodyShape() {
-        return attributeDAO.getSingleRandomAttribute("bodyShape");
+        return attributeDAO.getSingleRandomAttribute(AttributeCollections.BODY_SHAPE.label);
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
