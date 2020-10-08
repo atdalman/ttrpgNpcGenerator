@@ -2,14 +2,14 @@ package osr.monsterGenerator.model.npc;
 
 import lombok.Data;
 import osr.monsterGenerator.model.npc.npcAttributes.Alignments;
-import osr.monsterGenerator.model.npc.npcAttributes.SavingThrow;
+import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 
 @Data
 public class DndNPC extends BaseNPC {
     private String alignment;
     private int armorClass;
     private String hitDie;
-    private SavingThrow[] savingThrows;
+    private NPCAttribute[] savingThrows;
     private String morale;
 
     public DndNPC() {

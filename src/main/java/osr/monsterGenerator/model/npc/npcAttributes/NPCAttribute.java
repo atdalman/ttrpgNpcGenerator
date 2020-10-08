@@ -8,6 +8,7 @@ public class NPCAttribute {
 
     private String briefDescription;
     private String verboseDescription;
+    private int value;
 
     public String getDescription() {
         if (!StringUtils.isStringNullOrBlank(briefDescription))
