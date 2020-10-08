@@ -12,9 +12,14 @@ public class BaseNPCSerializer extends JsonSerializer<BaseNPC> {
     public void serialize(BaseNPC npc, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
 
         jGen.writeStartObject();
-        jGen.writeStringField("Size", npc.getSize().getName());
-        jGen.writeStringField("Primary motivation", npc.getMotivations().get(0).getDescription());
-        jGen.writeStringField("Secondary motivation", npc.getMotivations().get(1).getDescription());
+        jGen.writeStringField("size", npc.getSize().getName());
+        jGen.writeStringField("species", npc.getSpecies());
+        jGen.writeStringField("properName", npc.getProperName());
+        jGen.writeStringField("bodyShape", npc.getGeneralBodyShape().getDescriptionByType());
+        jGen.writeStringField("primaryMotivation", npc.getMotivations().get(0).getDescription());
+        jGen.writeStringField("secondaryMotivation", npc.getMotivations().get(1).getDescription());
+
+
         jGen.writeEndObject();
     }
 }

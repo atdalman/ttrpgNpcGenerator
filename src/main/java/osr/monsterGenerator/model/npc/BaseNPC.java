@@ -23,13 +23,13 @@ public class BaseNPC {
     // from that part of the animal kingdom
     @Id
     private String id;
-    private String name;
+    private String species;
     private String properName;
     private LocalDateTime insertDate;
     // Generic flat health points, if desired
     private Size size;
     private int experienceGiven;
-    private BodyShape generalBodyShape;
+    private NPCAttribute generalBodyShape;
     private BodySurface bodySurface;
     private Movement movement;
     private DistinctiveFeature distinctiveFeature;
@@ -43,10 +43,11 @@ public class BaseNPC {
         this.movement = movement;
     }
 
+    // TODO Update
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Size: " + size.getName() + "\n" +
-                "General Body Shape: " + generalBodyShape.getName() + "\n" +
+                "General Body Shape: " + generalBodyShape.getVerboseDescription() + "\n" +
                 "Body Texture: " + bodySurface.getName() + "\n" +
                 "Limbs: " + movement.getNumLimbs() + "\n" +
                 "Movement Style: " + movement.getMovementStyle() + "\n" +

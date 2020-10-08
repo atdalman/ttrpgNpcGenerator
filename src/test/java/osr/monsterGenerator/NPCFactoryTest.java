@@ -35,7 +35,7 @@ public class NPCFactoryTest {
     public void generateBaseNPCTest(){
         BaseNPC testMon = NPCFactory.generateNPC(Systems.BASE);
         boolean passed = false;
-        if(!StringUtils.isStringNullOrBlank(testMon.getName())
+        if (!StringUtils.isStringNullOrBlank(testMon.getSpecies())
                 && testMon.getSize() != null
                 && testMon.getGeneralBodyShape() != null
                 && testMon.getBodySurface() != null
@@ -43,7 +43,7 @@ public class NPCFactoryTest {
                 && testMon.getMovement() != null
                 && testMon.getCombatStrategies().size() > 0
                 && testMon.getMotivations().size() > 0
-        ){
+        ) {
             passed = true;
         }
         Assert.assertTrue(passed);
