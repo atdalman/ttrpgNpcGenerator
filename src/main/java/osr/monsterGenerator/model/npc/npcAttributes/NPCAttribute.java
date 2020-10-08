@@ -1,6 +1,7 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
 import lombok.Data;
+import osr.monsterGenerator.utilities.StringUtils;
 
 @Data
 public class NPCAttribute {
@@ -9,7 +10,10 @@ public class NPCAttribute {
     private String verboseDescription;
 
     public String getDescription() {
-        return briefDescription;
+        if (!StringUtils.isStringNullOrBlank(briefDescription))
+            return briefDescription;
+        else
+            return verboseDescription;
     }
 
     public String getDescriptionByType(int descriptionType) {

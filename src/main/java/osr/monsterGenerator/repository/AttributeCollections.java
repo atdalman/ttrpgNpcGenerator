@@ -8,6 +8,7 @@ public enum AttributeCollections {
     MOTIVATION("motivation"),
     PHYSICAL_ATTACK("physicalAttack"),
     SAVING_THROW("savingThrow"),
+    MOVEMENT("movement"),
     SIZE("size");
 
     public final String label;

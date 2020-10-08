@@ -5,10 +5,7 @@ import org.springframework.data.annotation.Transient;
 import osr.monsterGenerator.utilities.RandomUtils;
 
 @Data
-public class Movement {
-
-    private String movementStyle;
-
+public class Movement extends NPCAttribute {
     /*
         Speed relative to the average speed of a human jogging, which is "1".  Take this speed, and multiply by a
         given system's multiplier.  Example:  D&D's will be 30ft, so the final outputted speed for D&D will be "30"
@@ -25,7 +22,7 @@ public class Movement {
 
     public String toString() {
         return "Movement{" +
-                ", movementStyle='" + movementStyle + '\'' +
+                ", movementStyle='" + getDescription() + '\'' +
                 ", movementSpeed=" + movementSpeed +
                 ", numLimbs=" + numLimbs +
                 '}';

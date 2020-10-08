@@ -3,7 +3,10 @@ package osr.monsterGenerator.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
-import osr.monsterGenerator.model.npc.npcAttributes.*;
+import osr.monsterGenerator.model.npc.npcAttributes.Alignments;
+import osr.monsterGenerator.model.npc.npcAttributes.Movement;
+import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
+import osr.monsterGenerator.model.npc.npcAttributes.Size;
 import osr.monsterGenerator.repository.AttributeCollections;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.utilities.RandomUtils;
@@ -25,8 +28,8 @@ public class AttributeService {
         return "PHILBERT PENNYBOTTOMS";
     }
 
-    public static String getName() {
-        return "THE NEW GUY";
+    public static String getSpecies() {
+        return "SEQUIA SEMPERVIRENS";
     }
 
     public static int generateHealthPoints(int numDice, int diceSize, int mod) {
@@ -34,27 +37,27 @@ public class AttributeService {
     }
 
     public Size getSize() {
-        return (Size) attributeDAO.getSingleRandomAttributeUsingChance(Size.class.getSimpleName().toLowerCase());
+        return (Size) attributeDAO.getSingleRandomAttributeUsingWeightedChance(Size.class.getSimpleName().toLowerCase());
     }
 
-    public BodySurface getBodySurface() {
-        return (BodySurface) attributeDAO.getSingleRandomAttribute(BodySurface.class);
+    public NPCAttribute getBodySurface() {
+        return attributeDAO.getSingleRandomAttribute(AttributeCollections.BODY_SURFACE.label);
     }
 
     public Movement getMovement() {
-        return (Movement) attributeDAO.getSingleRandomAttribute(Movement.class);
+        return attributeDAO.getRandomMovement();
     }
 
-    public DistinctiveFeature getDistinctiveFeature() {
-        return (DistinctiveFeature) attributeDAO.getSingleRandomAttribute(DistinctiveFeature.class);
+    public NPCAttribute getDistinctiveFeature() {
+        return attributeDAO.getSingleRandomAttribute(AttributeCollections.DISTINCTIVE_FEATURE.label);
     }
 
-    public List<CombatStrategy> getCombatStrategies() {
-        return attributeDAO.getCombatStrategies(2);
+    public List<NPCAttribute> getCombatStrategies() {
+        return attributeDAO.getMultipleAttributes(2, AttributeCollections.COMBAT_STRATEGY.label);
     }
 
-    public List<Motivation> getMotivations() {
-        return attributeDAO.getNPCMotivations(2);
+    public List<NPCAttribute> getMotivations() {
+        return attributeDAO.getMultipleAttributes(2, AttributeCollections.MOTIVATION.label);
     }
 
     public NPCAttribute getBodyShape() {

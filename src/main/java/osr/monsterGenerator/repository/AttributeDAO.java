@@ -10,8 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.CumulativeChance;
-import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
-import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
+import osr.monsterGenerator.model.npc.npcAttributes.Movement;
 import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
 import osr.monsterGenerator.utilities.RandomUtils;
@@ -28,13 +27,6 @@ public class AttributeDAO {
     private MongoTemplate mongoTemplate;
 
     // Equally weighted attributes
-    public Object getSingleRandomAttribute(Class desiredClass) {
-        SampleOperation sampleStage = Aggregation.sample(1);
-        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-        return mongoTemplate.aggregate(aggregation, mongoTemplate.getCollectionName(desiredClass),
-                desiredClass).getUniqueMappedResult();
-    }
-
     public NPCAttribute getSingleRandomAttribute(String collectionName) {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
@@ -42,8 +34,16 @@ public class AttributeDAO {
                 NPCAttribute.class).getUniqueMappedResult();
     }
 
-    // Unequally weighted attributes
-    public WeightedAttribute getSingleRandomAttributeUsingChance(String collectionName) {
+    // Figure out how to cast this in the general attribute method
+    public Movement getRandomMovement() {
+        SampleOperation sampleStage = Aggregation.sample(1);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        return mongoTemplate.aggregate(aggregation, AttributeCollections.MOVEMENT.label,
+                Movement.class).getUniqueMappedResult();
+    }
+
+    // Unequally weighted attributes.
+    public WeightedAttribute getSingleRandomAttributeUsingWeightedChance(String collectionName) {
         double chanceSum = getChanceByAttributeName(collectionName);
         double rand = RandomUtils.getRandomDouble() * chanceSum;
 
@@ -89,19 +89,11 @@ public class AttributeDAO {
         mongoTemplate.upsert(query, update, cumulativeChance);
     }
 
-    public List<Motivation> getNPCMotivations(int numResults) {
+    public List<NPCAttribute> getMultipleAttributes(int numResults, String collectionName) {
         SampleOperation sampleStage = Aggregation.sample(numResults);
         Aggregation aggregation = newAggregation(sampleStage);
-        AggregationResults<Motivation> output = mongoTemplate.aggregate(aggregation,
-                mongoTemplate.getCollectionName(Motivation.class), Motivation.class);
-        return output.getMappedResults();
-    }
-
-    public List<CombatStrategy> getCombatStrategies(int numResults) {
-        SampleOperation sampleStage = Aggregation.sample(numResults);
-        Aggregation aggregation = newAggregation(sampleStage);
-        AggregationResults<CombatStrategy> output = mongoTemplate.aggregate(aggregation,
-                mongoTemplate.getCollectionName(CombatStrategy.class), CombatStrategy.class);
+        AggregationResults<NPCAttribute> output = mongoTemplate.aggregate(aggregation,
+                collectionName, NPCAttribute.class);
         return output.getMappedResults();
     }
 }
