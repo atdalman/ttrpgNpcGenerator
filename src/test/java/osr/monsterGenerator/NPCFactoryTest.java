@@ -37,7 +37,7 @@ public class NPCFactoryTest {
         boolean passed = false;
         if (!StringUtils.isStringNullOrBlank(testMon.getSpecies())
                 && testMon.getSize() != null
-                && testMon.getGeneralBodyShape() != null
+                && testMon.getBodyShape() != null
                 && testMon.getBodySurface() != null
                 && testMon.getDistinctiveFeature() != null
                 && testMon.getMovement() != null

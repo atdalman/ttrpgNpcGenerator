@@ -3,7 +3,7 @@ package osr.monsterGenerator.model.npc.npcAttributes;
 import lombok.Data;
 
 @Data
-public abstract class NPCAttribute {
+public class NPCAttribute {
 
     private String briefDescription;
     private String verboseDescription;

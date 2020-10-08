@@ -29,7 +29,7 @@ public class BaseNPC {
     // Generic flat health points, if desired
     private Size size;
     private int experienceGiven;
-    private NPCAttribute generalBodyShape;
+    private NPCAttribute bodyShape;
     private BodySurface bodySurface;
     private Movement movement;
     private DistinctiveFeature distinctiveFeature;
@@ -47,7 +47,7 @@ public class BaseNPC {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Size: " + size.getName() + "\n" +
-                "General Body Shape: " + generalBodyShape.getVerboseDescription() + "\n" +
+                "General Body Shape: " + bodyShape.getDescription() + "\n" +
                 "Body Texture: " + bodySurface.getName() + "\n" +
                 "Limbs: " + movement.getNumLimbs() + "\n" +
                 "Movement Style: " + movement.getMovementStyle() + "\n" +

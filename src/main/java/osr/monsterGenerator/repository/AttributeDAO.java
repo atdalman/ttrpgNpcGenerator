@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.CumulativeChance;
 import osr.monsterGenerator.model.npc.npcAttributes.CombatStrategy;
 import osr.monsterGenerator.model.npc.npcAttributes.Motivation;
+import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
 import osr.monsterGenerator.utilities.RandomUtils;
 
@@ -32,6 +33,13 @@ public class AttributeDAO {
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
         return mongoTemplate.aggregate(aggregation, mongoTemplate.getCollectionName(desiredClass),
                 desiredClass).getUniqueMappedResult();
+    }
+
+    public NPCAttribute getSingleRandomAttribute(String collectionName) {
+        SampleOperation sampleStage = Aggregation.sample(1);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        return mongoTemplate.aggregate(aggregation, collectionName,
+                NPCAttribute.class).getUniqueMappedResult();
     }
 
     // Unequally weighted attributes

@@ -56,8 +56,8 @@ public class AttributeService {
         return attributeDAO.getNPCMotivations(2);
     }
 
-    public BodyShape getBodyShape() {
-        return (BodyShape) attributeDAO.getSingleRandomAttribute(BodyShape.class);
+    public NPCAttribute getBodyShape() {
+        return attributeDAO.getSingleRandomAttribute("bodyShape");
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?

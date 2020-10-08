@@ -33,7 +33,7 @@ public class NPCFactory {
         BaseNPC npc = new BaseNPC();
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.getBodySurface());
-        npc.setGeneralBodyShape(attributeService.getBodyShape());
+        npc.setBodyShape(attributeService.getBodyShape());
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
@@ -47,7 +47,7 @@ public class NPCFactory {
         MothershipNPC npc = new MothershipNPC();
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.getBodySurface());
-        npc.setGeneralBodyShape(attributeService.getBodyShape());
+        npc.setBodyShape(attributeService.getBodyShape());
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
         npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
