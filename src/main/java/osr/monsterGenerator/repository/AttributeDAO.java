@@ -27,7 +27,7 @@ public class AttributeDAO {
     private MongoTemplate mongoTemplate;
 
     // Equally weighted attributes
-    public NPCAttribute getSingleRandomAttribute(String collectionName) {
+    public NPCAttribute getSingleRandomAttribute(String collectionName, String... tags) {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
         return mongoTemplate.aggregate(aggregation, collectionName,

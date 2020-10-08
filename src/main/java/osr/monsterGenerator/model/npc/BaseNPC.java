@@ -1,6 +1,7 @@
 package osr.monsterGenerator.model.npc;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
@@ -37,6 +38,7 @@ public class BaseNPC {
     private List<NPCAttribute> combatStrategies;
     private List<NPCAttribute> motivations;
 
+    @JsonSetter("movement")
     public void setMovement(Movement movement) {
         movement.setNumLimbsFromPossible();
         this.movement = movement;

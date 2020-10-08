@@ -1,15 +1,18 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import osr.monsterGenerator.utilities.StringUtils;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NPCAttribute {
 
     private String briefDescription;
     private String verboseDescription;
     private int value;
+    private String[] tags;
 
     @JsonIgnore
     public String getDescription() {
@@ -25,3 +28,4 @@ public class NPCAttribute {
         else return getDescription();
     }
 }
+

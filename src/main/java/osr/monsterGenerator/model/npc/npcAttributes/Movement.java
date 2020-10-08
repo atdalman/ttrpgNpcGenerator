@@ -1,7 +1,6 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
 import lombok.Data;
-import org.springframework.data.annotation.Transient;
 import osr.monsterGenerator.utilities.RandomUtils;
 
 @Data
@@ -12,7 +11,6 @@ public class Movement extends NPCAttribute {
         for a jogger.
      */
     private double movementSpeed;
-    @Transient
     private int numLimbs;
     private int[] possibleNumLimbs;
 
