@@ -32,4 +32,4 @@ build/
 .vscode/
 
 ### Logging ###
-/temp/ttrpgGenLog.log
+/temp/logs/ttrpgGenLog.log
