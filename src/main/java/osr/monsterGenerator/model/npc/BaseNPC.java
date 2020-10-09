@@ -46,7 +46,7 @@ public class BaseNPC {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Size: " + size.getName() + "\n" +
+        sb.append("Size: " + size.getBriefDescription() + "\n" +
                 "General Body Shape: " + bodyShape.getDescription() + "\n" +
                 "Body Texture: " + bodySurface.getDescription() + "\n" +
                 "Limbs: " + movement.getNumLimbs() + "\n" +

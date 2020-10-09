@@ -20,10 +20,10 @@ public class AttributeServiceTest {
         HashMap<String, Integer> totals = new HashMap<>();
         for (int i = 0; i < 100; i++) {
             Size curr = attributeService.getSize();
-            if (totals.containsKey(curr.getName())) {
-                totals.put(curr.getName(), totals.get(curr.getName()) + 1);
+            if (totals.containsKey(curr.getBriefDescription())) {
+                totals.put(curr.getBriefDescription(), totals.get(curr.getBriefDescription()) + 1);
             } else {
-                totals.put(curr.getName(), 1);
+                totals.put(curr.getBriefDescription(), 1);
             }
         }
 
