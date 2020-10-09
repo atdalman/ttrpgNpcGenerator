@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
-import osr.monsterGenerator.model.npc.DndNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
-import osr.monsterGenerator.model.npc.OtherOSRNPC;
 
 import java.time.LocalDateTime;
 
@@ -16,20 +14,20 @@ public class NPCFactory {
     @Autowired
     private AttributeService attributeService;
 
-    public BaseNPC generateNPC(Systems npcType) {
+    public BaseNPC generateNPC(Systems npcType, String... tags) {
         switch (npcType) {
             case DND5E:
-                return new DndNPC();
+                return generateDndPC(tags);
             case MOTHERSHIP:
-                return generateMoshNPC();
+                return generateMoshNPC(tags);
             case OSROTHER:
-                return new OtherOSRNPC();
+                return generateOSRNPC(tags);
             default:
-                return generateBaseNPC();
+                return generateBaseNPC(tags);
         }
     }
 
-    public BaseNPC generateBaseNPC() {
+    public BaseNPC generateBaseNPC(String... tags) {
         BaseNPC npc = new BaseNPC();
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.getBodySurface());
@@ -43,7 +41,21 @@ public class NPCFactory {
         return npc;
     }
 
-    public MothershipNPC generateMoshNPC() {
+    // TODO Finish
+    public BaseNPC generateDndPC(String... tags) {
+        BaseNPC npc = new BaseNPC();
+
+        return npc;
+    }
+
+    // TODO Finish
+    public BaseNPC generateOSRNPC(String... tags) {
+        BaseNPC npc = new BaseNPC();
+
+        return npc;
+    }
+
+    public MothershipNPC generateMoshNPC(String... tags) {
         MothershipNPC npc = new MothershipNPC();
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.getBodySurface());
