@@ -1,6 +1,6 @@
 package osr.monsterGenerator.repository;
 
-public enum AttributeCollections {
+public enum AttributeCollection {
     BODY_SHAPE("bodyShape"),
     BODY_SURFACE("bodySurface"),
     COMBAT_STRATEGY("combatStrategy"),
@@ -13,7 +13,7 @@ public enum AttributeCollections {
 
     public final String label;
 
-    AttributeCollections(String label) {
+    AttributeCollection(String label) {
         this.label = label;
     }
 }

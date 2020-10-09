@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.aggregation.MatchOperation;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -29,7 +30,9 @@ public class AttributeDAO {
     // Equally weighted attributes
     public NPCAttribute getSingleRandomAttribute(String collectionName, String... tags) {
         SampleOperation sampleStage = Aggregation.sample(1);
-        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        MatchOperation matchStage = Aggregation.match(new Criteria().in(tags));
+        Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
+
         return mongoTemplate.aggregate(aggregation, collectionName,
                 NPCAttribute.class).getUniqueMappedResult();
     }
@@ -38,7 +41,7 @@ public class AttributeDAO {
     public Movement getRandomMovement() {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-        return mongoTemplate.aggregate(aggregation, AttributeCollections.MOVEMENT.label,
+        return mongoTemplate.aggregate(aggregation, AttributeCollection.MOVEMENT.label,
                 Movement.class).getUniqueMappedResult();
     }
 

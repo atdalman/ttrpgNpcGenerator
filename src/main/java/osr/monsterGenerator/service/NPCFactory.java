@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
+import osr.monsterGenerator.model.npc.Tags;
+import osr.monsterGenerator.repository.AttributeCollection;
 
 import java.time.LocalDateTime;
 
@@ -34,7 +36,8 @@ public class NPCFactory {
         npc.setBodyShape(attributeService.getBodyShape());
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
-        npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
+        npc.setDistinctiveFeature(attributeService.generateNPCAttribute(AttributeCollection.DISTINCTIVE_FEATURE,
+                Tags.GONZO.label));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInsertDate(LocalDateTime.now());
 

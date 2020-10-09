@@ -21,10 +21,6 @@ public class NPCService {
         return npc;
     }
 
-    public BaseNPC generateBaseNPC() {
-        return npcFactory.generateBaseNPC();
-    }
-
     public BaseNPC getNPCById(String id) {
         return npcDao.getNPCById(id);
     }

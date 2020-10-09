@@ -7,7 +7,7 @@ import osr.monsterGenerator.model.npc.npcAttributes.Alignments;
 import osr.monsterGenerator.model.npc.npcAttributes.Movement;
 import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 import osr.monsterGenerator.model.npc.npcAttributes.Size;
-import osr.monsterGenerator.repository.AttributeCollections;
+import osr.monsterGenerator.repository.AttributeCollection;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.utilities.RandomUtils;
 
@@ -40,8 +40,12 @@ public class AttributeService {
         return (Size) attributeDAO.getSingleRandomAttributeUsingWeightedChance(Size.class.getSimpleName().toLowerCase());
     }
 
+    public NPCAttribute generateNPCAttribute(AttributeCollection attributeCollection, String... tags) {
+        return attributeDAO.getSingleRandomAttribute(attributeCollection.label, tags);
+    }
+
     public NPCAttribute getBodySurface() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollections.BODY_SURFACE.label);
+        return attributeDAO.getSingleRandomAttribute(AttributeCollection.BODY_SURFACE.label);
     }
 
     public Movement getMovement() {
@@ -49,19 +53,19 @@ public class AttributeService {
     }
 
     public NPCAttribute getDistinctiveFeature() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollections.DISTINCTIVE_FEATURE.label);
+        return attributeDAO.getSingleRandomAttribute(AttributeCollection.DISTINCTIVE_FEATURE.label);
     }
 
     public List<NPCAttribute> getCombatStrategies() {
-        return attributeDAO.getMultipleAttributes(2, AttributeCollections.COMBAT_STRATEGY.label);
+        return attributeDAO.getMultipleAttributes(2, AttributeCollection.COMBAT_STRATEGY.label);
     }
 
     public List<NPCAttribute> getMotivations() {
-        return attributeDAO.getMultipleAttributes(2, AttributeCollections.MOTIVATION.label);
+        return attributeDAO.getMultipleAttributes(2, AttributeCollection.MOTIVATION.label);
     }
 
     public NPCAttribute getBodyShape() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollections.BODY_SHAPE.label);
+        return attributeDAO.getSingleRandomAttribute(AttributeCollection.BODY_SHAPE.label);
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
