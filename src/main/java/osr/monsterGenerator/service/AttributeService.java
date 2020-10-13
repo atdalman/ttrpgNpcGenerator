@@ -52,8 +52,8 @@ public class AttributeService {
         return attributeDAO.getRandomMovement();
     }
 
-    public NPCAttribute getDistinctiveFeature() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollection.DISTINCTIVE_FEATURE.label);
+    public NPCAttribute getPeculiarCharacteristic() {
+        return attributeDAO.getSingleRandomAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC.label);
     }
 
     public List<NPCAttribute> getCombatStrategies() {

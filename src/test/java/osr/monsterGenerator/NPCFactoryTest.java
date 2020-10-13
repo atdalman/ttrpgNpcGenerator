@@ -39,7 +39,7 @@ public class NPCFactoryTest {
                 && testMon.getSize() != null
                 && testMon.getBodyShape() != null
                 && testMon.getBodySurface() != null
-                && testMon.getDistinctiveFeature() != null
+                && testMon.getPeculiarCharacteristic() != null
                 && testMon.getMovement() != null
                 && testMon.getCombatStrategies().size() > 0
                 && testMon.getMotivations().size() > 0

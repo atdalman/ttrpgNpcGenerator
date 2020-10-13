@@ -4,7 +4,7 @@ public enum AttributeCollection {
     BODY_SHAPE("bodyShape"),
     BODY_SURFACE("bodySurface"),
     COMBAT_STRATEGY("combatStrategy"),
-    DISTINCTIVE_FEATURE("distinctiveFeature"),
+    PECULIAR_CHARACTERISTIC("peculiarCharacteristic"),
     MOTIVATION("motivation"),
     PHYSICAL_ATTACK("physicalAttack"),
     SAVING_THROW("savingThrow"),

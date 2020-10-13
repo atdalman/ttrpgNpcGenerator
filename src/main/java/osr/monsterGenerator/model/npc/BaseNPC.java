@@ -32,7 +32,7 @@ public class BaseNPC {
     private NPCAttribute bodyShape;
     private NPCAttribute bodySurface;
     private Movement movement;
-    private NPCAttribute distinctiveFeature;
+    private NPCAttribute peculiarCharacteristic; // Physical or behavioral
     private NPCAttribute[] physicalAttacks;
     private String[] specialAbilities;
     private List<NPCAttribute> combatStrategies;
@@ -52,7 +52,7 @@ public class BaseNPC {
                 "Limbs: " + movement.getNumLimbs() + "\n" +
                 "Movement Style: " + movement.getDescription() + "\n" +
                 "Speed: " + movement.getMovementSpeed() + "\n" +
-                "Distinctive Feature: " + distinctiveFeature.getDescription() + "\n");
+                "Distinctive Feature: " + peculiarCharacteristic.getDescription() + "\n");
         sb.append("Motivations: ");
         motivations.forEach(motivation -> sb.append("\t" + motivation.getDescription() + "\n"));
         sb.append("Combat stategies: ");

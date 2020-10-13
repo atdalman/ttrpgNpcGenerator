@@ -36,7 +36,7 @@ public class NPCFactory {
         npc.setBodyShape(attributeService.getBodyShape());
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
-        npc.setDistinctiveFeature(attributeService.generateNPCAttribute(AttributeCollection.DISTINCTIVE_FEATURE,
+        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC,
                 Tags.GONZO.label));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInsertDate(LocalDateTime.now());
@@ -65,7 +65,7 @@ public class NPCFactory {
         npc.setBodyShape(attributeService.getBodyShape());
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
-        npc.setDistinctiveFeature(attributeService.getDistinctiveFeature());
+        npc.setPeculiarCharacteristic(attributeService.getPeculiarCharacteristic());
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInsertDate(LocalDateTime.now());
 
