@@ -12,6 +12,8 @@ public class NPCAttribute {
     private String briefDescription;
     private String verboseDescription;
     private int value;
+    // TODO Test annotation
+    @JsonIgnore
     private String[] tags;
 
     @JsonIgnore
