@@ -33,11 +33,11 @@ public class NPCFactory {
         BaseNPC npc = new BaseNPC();
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.getBodySurface());
-        npc.setBodyShape(attributeService.getBodyShape());
+        npc.setBodyShape(attributeService.generateNPCAttribute(AttributeCollection.BODY_SHAPE));
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
         npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC,
-                Tags.GONZO.label));
+                Tags.GONZO.name()));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInsertDate(LocalDateTime.now());
 

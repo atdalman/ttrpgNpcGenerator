@@ -29,12 +29,20 @@ public class AttributeDAO {
 
     // Equally weighted attributes
     public NPCAttribute getSingleRandomAttribute(String collectionName, String... tags) {
-        SampleOperation sampleStage = Aggregation.sample(1);
-        MatchOperation matchStage = Aggregation.match(new Criteria().in(tags));
-        Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
+        if (tags.length > 0) {
+            MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
+            SampleOperation sampleStage = Aggregation.sample(1);
+            Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
 
-        return mongoTemplate.aggregate(aggregation, collectionName,
-                NPCAttribute.class).getUniqueMappedResult();
+            return mongoTemplate.aggregate(aggregation, collectionName,
+                    NPCAttribute.class).getUniqueMappedResult();
+        } else {
+            SampleOperation sampleStage = Aggregation.sample(1);
+            Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+
+            return mongoTemplate.aggregate(aggregation, collectionName,
+                    NPCAttribute.class).getUniqueMappedResult();
+        }
     }
 
     // Figure out how to cast this in the general attribute method
