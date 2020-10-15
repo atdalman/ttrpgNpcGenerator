@@ -44,16 +44,8 @@ public class AttributeService {
         return attributeDAO.getSingleRandomAttribute(attributeCollection.label, tags);
     }
 
-    public NPCAttribute getBodySurface() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollection.BODY_SURFACE.label);
-    }
-
     public Movement getMovement() {
         return attributeDAO.getRandomMovement();
-    }
-
-    public NPCAttribute getPeculiarCharacteristic() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC.label);
     }
 
     public List<NPCAttribute> getCombatStrategies() {
@@ -62,10 +54,6 @@ public class AttributeService {
 
     public List<NPCAttribute> getMotivations() {
         return attributeDAO.getMultipleAttributes(2, AttributeCollection.MOTIVATION.label);
-    }
-
-    public NPCAttribute getBodyShape() {
-        return attributeDAO.getSingleRandomAttribute(AttributeCollection.BODY_SHAPE.label);
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?

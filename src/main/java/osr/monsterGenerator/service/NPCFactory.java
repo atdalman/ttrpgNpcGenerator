@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
-import osr.monsterGenerator.model.npc.Tags;
 import osr.monsterGenerator.repository.AttributeCollection;
 
 import java.time.LocalDateTime;
@@ -32,12 +31,12 @@ public class NPCFactory {
     public BaseNPC generateBaseNPC(String... tags) {
         BaseNPC npc = new BaseNPC();
         npc.setSize(attributeService.getSize());
-        npc.setBodySurface(attributeService.getBodySurface());
-        npc.setBodyShape(attributeService.generateNPCAttribute(AttributeCollection.BODY_SHAPE));
+        npc.setBodySurface(attributeService.generateNPCAttribute(AttributeCollection.BODY_SURFACE, tags));
+        npc.setBodyShape(attributeService.generateNPCAttribute(AttributeCollection.BODY_SHAPE, tags));
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
         npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC,
-                Tags.GONZO.name()));
+                tags));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInsertDate(LocalDateTime.now());
 
@@ -61,11 +60,11 @@ public class NPCFactory {
     public MothershipNPC generateMoshNPC(String... tags) {
         MothershipNPC npc = new MothershipNPC();
         npc.setSize(attributeService.getSize());
-        npc.setBodySurface(attributeService.getBodySurface());
-        npc.setBodyShape(attributeService.getBodyShape());
+        npc.setBodySurface(attributeService.generateNPCAttribute(AttributeCollection.BODY_SURFACE, tags));
+        npc.setBodyShape(attributeService.generateNPCAttribute(AttributeCollection.BODY_SHAPE, tags));
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
-        npc.setPeculiarCharacteristic(attributeService.getPeculiarCharacteristic());
+        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC, tags));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
         npc.setInsertDate(LocalDateTime.now());
 
