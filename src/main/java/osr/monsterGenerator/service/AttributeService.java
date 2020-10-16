@@ -44,7 +44,7 @@ public class AttributeService {
         return attributeDAO.getSingleRandomAttribute(attributeCollection.label, tags);
     }
 
-    public Movement getMovement() {
+    public Movement getMovement(String... tags) {
         return attributeDAO.getRandomMovement();
     }
 
