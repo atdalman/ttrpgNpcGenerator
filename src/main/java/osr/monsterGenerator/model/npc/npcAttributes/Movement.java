@@ -1,5 +1,6 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import osr.monsterGenerator.utilities.RandomUtils;
 
@@ -12,6 +13,7 @@ public class Movement extends NPCAttribute {
      */
     private double movementSpeed;
     private int numLimbs;
+    @JsonIgnore
     private int[] possibleNumLimbs;
 
     public void setNumLimbsFromPossible() {
