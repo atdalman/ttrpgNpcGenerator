@@ -62,12 +62,12 @@ public class AttributeServiceTest {
     }
 
     @Test
-    public void generateCombatAttr_combatOver100_return_100() {
+    public void generateCombatAttr_combatOver100_return100() {
         Assert.assertEquals(100, AttributeService.generateCombatAttr(200));
     }
 
     @Test
-    public void generateCombatAttr_combatUnder0_return_0() {
+    public void generateCombatAttr_combatUnder0_return0() {
         Assert.assertEquals(0, AttributeService.generateCombatAttr(-200));
     }
 }
