@@ -16,7 +16,7 @@
     <description>Web app for quickly generating unique TTRPG npcs</description>
 
     <properties>
-        <java.version>10</java.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
