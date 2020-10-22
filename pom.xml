@@ -13,10 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>monsterGenerator</name>
-    <description>Web app for quickly generating unique TTRPG npcs.</description>
+    <description>Web app for quickly generating unique TTRPG npcs</description>
 
     <properties>
-        <java.version>15</java.version>
+        <java.version>10</java.version>
     </properties>
 
     <dependencies>
