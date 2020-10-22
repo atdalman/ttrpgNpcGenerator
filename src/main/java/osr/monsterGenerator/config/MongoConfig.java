@@ -19,7 +19,12 @@ public class MongoConfig {
 
     @Bean
     public MongoDbFactory mongoDbFactory() {
-        return new SimpleMongoClientDbFactory(new ConnectionString(System.getenv("mongoURI-prod")));
+        try {
+            return new SimpleMongoClientDbFactory(new ConnectionString(System.getenv("mongoURI-prod")));
+        } catch (NullPointerException e) {
+            // TODO Write actual environment detection
+            return new SimpleMongoClientDbFactory(new ConnectionString(env.getProperty("spring.data.mongodb.uri")));
+        }
 
     }
 
