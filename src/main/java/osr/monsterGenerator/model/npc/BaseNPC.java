@@ -10,7 +10,7 @@ import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 import osr.monsterGenerator.model.npc.npcAttributes.Size;
 import osr.monsterGenerator.service.AttributeService;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 //@JsonSerialize(using = BaseNPCSerializer.class)
@@ -26,7 +26,7 @@ public class BaseNPC {
     private String id;
     private String species;
     private String properName;
-    private LocalDateTime insertDate;
+    private LocalDate updateDate;
     private Size size;
     private int experienceGiven;
     private NPCAttribute bodyShape;

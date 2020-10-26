@@ -49,7 +49,7 @@ public class AttributeDAO {
     public Movement getRandomMovement() {
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-        return mongoTemplate.aggregate(aggregation, AttributeCollection.MOVEMENT.label,
+        return mongoTemplate.aggregate(aggregation, MongoCollection.MOVEMENT.label,
                 Movement.class).getUniqueMappedResult();
     }
 

@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
-import osr.monsterGenerator.repository.AttributeCollection;
+import osr.monsterGenerator.repository.MongoCollection;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 @Service
 public class NPCFactory {
@@ -31,14 +32,14 @@ public class NPCFactory {
     public BaseNPC generateBaseNPC(String... tags) {
         BaseNPC npc = new BaseNPC();
         npc.setSize(attributeService.getSize());
-        npc.setBodySurface(attributeService.generateNPCAttribute(AttributeCollection.BODY_SURFACE, tags));
-        npc.setBodyShape(attributeService.generateNPCAttribute(AttributeCollection.BODY_SHAPE, tags));
+        npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
+        npc.setBodyShape(attributeService.generateNPCAttribute(MongoCollection.BODY_SHAPE, tags));
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
-        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC,
+        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(MongoCollection.PECULIAR_CHARACTERISTIC,
                 tags));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
-        npc.setInsertDate(LocalDateTime.now());
+        npc.setUpdateDate(LocalDate.now(ZoneId.systemDefault()));
 
         return npc;
     }
@@ -60,13 +61,13 @@ public class NPCFactory {
     public MothershipNPC generateMoshNPC(String... tags) {
         MothershipNPC npc = new MothershipNPC();
         npc.setSize(attributeService.getSize());
-        npc.setBodySurface(attributeService.generateNPCAttribute(AttributeCollection.BODY_SURFACE, tags));
-        npc.setBodyShape(attributeService.generateNPCAttribute(AttributeCollection.BODY_SHAPE, tags));
+        npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
+        npc.setBodyShape(attributeService.generateNPCAttribute(MongoCollection.BODY_SHAPE, tags));
         npc.setMotivations(attributeService.getMotivations());
         npc.setMovement(attributeService.getMovement());
-        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(AttributeCollection.PECULIAR_CHARACTERISTIC, tags));
+        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(MongoCollection.PECULIAR_CHARACTERISTIC, tags));
         npc.setCombatStrategies(attributeService.getCombatStrategies());
-        npc.setInsertDate(LocalDateTime.now());
+        npc.setUpdateDate(LocalDate.now(ZoneId.systemDefault()));
 
         // Mothership-specific Stuff
         npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshMod()));

@@ -1,6 +1,6 @@
 package osr.monsterGenerator.repository;
 
-public enum AttributeCollection {
+public enum MongoCollection {
     BODY_SHAPE("bodyShape"),
     BODY_SURFACE("bodySurface"),
     COMBAT_STRATEGY("combatStrategy"),
@@ -9,11 +9,12 @@ public enum AttributeCollection {
     PHYSICAL_ATTACK("physicalAttack"),
     SAVING_THROW("savingThrow"),
     MOVEMENT("movement"),
-    SIZE("size");
+    SIZE("size"),
+    NPC("npc");
 
     public final String label;
 
-    AttributeCollection(String label) {
+    MongoCollection(String label) {
         this.label = label;
     }
 }

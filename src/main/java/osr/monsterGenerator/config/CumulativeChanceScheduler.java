@@ -10,12 +10,13 @@ import osr.monsterGenerator.repository.AttributeDAO;
 @EnableScheduling
 @Configuration
 public class CumulativeChanceScheduler {
-    @Autowired
-    private AttributeDAO attributeDAO;
 
+    @Autowired
+    AttributeDAO attributeDAO;
+
+    // 10 minutes
     @Scheduled(fixedRate = 600000L)
     private void updateCumulativeChances() {
-
         System.out.println("Running chance scheduler...");
         attributeDAO.updateChances("size");
     }

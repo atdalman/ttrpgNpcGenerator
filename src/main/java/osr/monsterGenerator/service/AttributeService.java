@@ -7,8 +7,8 @@ import osr.monsterGenerator.model.npc.npcAttributes.Alignments;
 import osr.monsterGenerator.model.npc.npcAttributes.Movement;
 import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 import osr.monsterGenerator.model.npc.npcAttributes.Size;
-import osr.monsterGenerator.repository.AttributeCollection;
 import osr.monsterGenerator.repository.AttributeDAO;
+import osr.monsterGenerator.repository.MongoCollection;
 import osr.monsterGenerator.utilities.RandomUtils;
 
 import java.util.List;
@@ -40,8 +40,8 @@ public class AttributeService {
         return (Size) attributeDAO.getSingleRandomAttributeUsingWeightedChance(Size.class.getSimpleName().toLowerCase());
     }
 
-    public NPCAttribute generateNPCAttribute(AttributeCollection attributeCollection, String... tags) {
-        return attributeDAO.getSingleRandomAttribute(attributeCollection.label, tags);
+    public NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, String... tags) {
+        return attributeDAO.getSingleRandomAttribute(mongoCollection.label, tags);
     }
 
     public Movement getMovement(String... tags) {
@@ -49,11 +49,11 @@ public class AttributeService {
     }
 
     public List<NPCAttribute> getCombatStrategies() {
-        return attributeDAO.getMultipleAttributes(2, AttributeCollection.COMBAT_STRATEGY.label);
+        return attributeDAO.getMultipleAttributes(2, MongoCollection.COMBAT_STRATEGY.label);
     }
 
     public List<NPCAttribute> getMotivations() {
-        return attributeDAO.getMultipleAttributes(2, AttributeCollection.MOTIVATION.label);
+        return attributeDAO.getMultipleAttributes(2, MongoCollection.MOTIVATION.label);
     }
 
     // TODO Determine good average ranges.  Weight ranges might be a good idea?
