@@ -15,8 +15,8 @@ public class NPCService {
     @Autowired
     NPCFactory npcFactory;
 
-    public BaseNPC generateNPC(Systems npcSystem) {
-        BaseNPC npc = npcFactory.generateNPC(npcSystem);
+    public BaseNPC generateNPC(Systems npcSystem, String... tags) {
+        BaseNPC npc = npcFactory.generateNPC(npcSystem, tags);
         npcDao.saveNPC(npc);
         return npc;
     }

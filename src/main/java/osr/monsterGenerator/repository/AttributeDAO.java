@@ -29,7 +29,7 @@ public class AttributeDAO {
 
     // Equally weighted attributes
     public NPCAttribute getSingleRandomAttribute(String collectionName, String... tags) {
-        if (tags.length > 0) {
+        if (tags != null) {
             MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
             SampleOperation sampleStage = Aggregation.sample(1);
             Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
@@ -37,20 +37,13 @@ public class AttributeDAO {
             return mongoTemplate.aggregate(aggregation, collectionName,
                     NPCAttribute.class).getUniqueMappedResult();
         } else {
+            MatchOperation matchStage = Aggregation.match(new Criteria("tags").exists(false));
             SampleOperation sampleStage = Aggregation.sample(1);
-            Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+            Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
 
             return mongoTemplate.aggregate(aggregation, collectionName,
                     NPCAttribute.class).getUniqueMappedResult();
         }
-    }
-
-    // Figure out how to cast this in the general attribute method
-    public Movement getRandomMovement() {
-        SampleOperation sampleStage = Aggregation.sample(1);
-        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-        return mongoTemplate.aggregate(aggregation, MongoCollection.MOVEMENT.label,
-                Movement.class).getUniqueMappedResult();
     }
 
     // Unequally weighted attributes.
@@ -70,6 +63,23 @@ public class AttributeDAO {
         return null;
     }
 
+    // TODO Figure out how to use the general attribute method
+    public Movement getRandomMovement() {
+        SampleOperation sampleStage = Aggregation.sample(1);
+        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
+        return mongoTemplate.aggregate(aggregation, MongoCollection.MOVEMENT.label,
+                Movement.class).getUniqueMappedResult();
+    }
+
+    public List<NPCAttribute> getMultipleAttributes(int numResults, String collectionName) {
+        SampleOperation sampleStage = Aggregation.sample(numResults);
+        Aggregation aggregation = newAggregation(sampleStage);
+        AggregationResults<NPCAttribute> output = mongoTemplate.aggregate(aggregation,
+                collectionName, NPCAttribute.class);
+        return output.getMappedResults();
+    }
+
+    // **** Chance Attribute Updates ****
     private double getChanceByAttributeName(String attributeName) {
         return mongoTemplate.findOne(new Query().addCriteria(Criteria.where("attribute").is(attributeName)),
                 CumulativeChance.class, "cumulativeChance").getCumulativeChance();
@@ -98,13 +108,5 @@ public class AttributeDAO {
         update.set("cumulativeChance", chanceSum);
         update.set("updateDate", LocalDateTime.now());
         mongoTemplate.upsert(query, update, cumulativeChance);
-    }
-
-    public List<NPCAttribute> getMultipleAttributes(int numResults, String collectionName) {
-        SampleOperation sampleStage = Aggregation.sample(numResults);
-        Aggregation aggregation = newAggregation(sampleStage);
-        AggregationResults<NPCAttribute> output = mongoTemplate.aggregate(aggregation,
-                collectionName, NPCAttribute.class);
-        return output.getMappedResults();
     }
 }

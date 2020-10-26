@@ -12,8 +12,6 @@ import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.service.NPCService;
 import osr.monsterGenerator.utilities.StringUtils;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/npc")
 public class NPCController {
@@ -25,11 +23,11 @@ public class NPCController {
 
     @GetMapping("/{systemName}")
     public BaseNPC generateSystemNPC(@PathVariable String systemName,
-                                     @RequestParam(required = false) List<String> tag) {
+                                     @RequestParam(required = false) String... tag) {
 
         for (Systems system : Systems.values()) {
             if (systemName.equalsIgnoreCase(system.name()))
-                return npcService.generateNPC(system);
+                return npcService.generateNPC(system, tag);
         }
 
         LOGGER.error("Unsupported system requested: " + systemName);
