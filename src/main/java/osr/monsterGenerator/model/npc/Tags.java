@@ -6,18 +6,19 @@ package osr.monsterGenerator.model.npc;
  * case, weird is good.  Weird is the goal.
  * */
 public enum Tags {
-    MACHINE("machine"),
-    GONZO("gonzo"),
-    COLD("cold"),
-    HEAT("heat"),
-    MARINE("marine"),
+    BASE("setting independent"),
+    MACHINE("related to machinery/technology"),
+    GONZO("over the top, pulpy"),
+    COLD("cold environments"),
+    HOT("hot environments"),
+    AQUATIC("aquatic environments"),
     AIRBORNE("airborne"),
     SPACEBORNE("spaceborne"),
-    ABSOLUTE_DARK("absolute dark");
+    ABSOLUTE_DARK("void, chaos, the absence of anything that makes sense");
 
-    public final String label;
+    public final String description;
 
-    Tags(String label) {
-        this.label = label;
+    Tags(String description) {
+        this.description = description;
     }
 }

@@ -40,7 +40,7 @@ public class AttributeService {
         return (Size) attributeDAO.getSingleRandomAttributeUsingWeightedChance(Size.class.getSimpleName().toLowerCase());
     }
 
-    public NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, String... tags) {
+    public NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, List<String> tags) {
         return attributeDAO.getSingleRandomAttribute(mongoCollection.label, tags);
     }
 

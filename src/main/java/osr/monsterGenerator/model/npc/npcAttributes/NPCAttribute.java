@@ -3,19 +3,23 @@ package osr.monsterGenerator.model.npc.npcAttributes;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import osr.monsterGenerator.utilities.StringUtils;
+
+import java.util.List;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NPCAttribute {
 
+    @Id
+    private String _id;
     private String briefDescription;
     private String verboseDescription;
     @JsonIgnore
     private int value;
-    // TODO Test annotation
     @JsonIgnore
-    private String[] tags;
+    private List<String> tags;
 
     @JsonIgnore
     public String getDescription() {
@@ -25,7 +29,7 @@ public class NPCAttribute {
             return verboseDescription;
     }
 
-    public String getDescriptionByType(int descriptionType) {
+    public String getDescription(int descriptionType) {
         if (descriptionType == 1) return briefDescription;
         else if (descriptionType == 2) return verboseDescription;
         else return getDescription();

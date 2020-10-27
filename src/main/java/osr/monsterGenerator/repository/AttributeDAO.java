@@ -28,22 +28,12 @@ public class AttributeDAO {
     private MongoTemplate mongoTemplate;
 
     // Equally weighted attributes
-    public NPCAttribute getSingleRandomAttribute(String collectionName, String... tags) {
-        if (tags != null) {
-            MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
-            SampleOperation sampleStage = Aggregation.sample(1);
-            Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
+    public NPCAttribute getSingleRandomAttribute(String collectionName, List<String> tags) {
+        MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
+        SampleOperation sampleStage = Aggregation.sample(1);
+        Aggregation aggOp = Aggregation.newAggregation(matchStage, sampleStage);
 
-            return mongoTemplate.aggregate(aggregation, collectionName,
-                    NPCAttribute.class).getUniqueMappedResult();
-        } else {
-            MatchOperation matchStage = Aggregation.match(new Criteria("tags").exists(false));
-            SampleOperation sampleStage = Aggregation.sample(1);
-            Aggregation aggregation = Aggregation.newAggregation(matchStage, sampleStage);
-
-            return mongoTemplate.aggregate(aggregation, collectionName,
-                    NPCAttribute.class).getUniqueMappedResult();
-        }
+        return mongoTemplate.aggregate(aggOp, collectionName, NPCAttribute.class).getUniqueMappedResult();
     }
 
     // Unequally weighted attributes.

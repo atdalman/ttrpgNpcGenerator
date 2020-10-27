@@ -5,10 +5,14 @@ import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
 import osr.monsterGenerator.model.npc.BaseNPC;
 import osr.monsterGenerator.model.npc.MothershipNPC;
+import osr.monsterGenerator.model.npc.Tags;
 import osr.monsterGenerator.repository.MongoCollection;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class NPCFactory {
@@ -16,7 +20,14 @@ public class NPCFactory {
     @Autowired
     private AttributeService attributeService;
 
-    public BaseNPC generateNPC(Systems npcType, String... tags) {
+    public BaseNPC generateNPC(Systems npcType, String... tagArr) {
+        List<String> tags;
+        if (tagArr != null) {
+            tags = Arrays.asList(tagArr);
+            if (!tags.contains(Tags.BASE.name())) tags.add(Tags.BASE.name());
+        } else tags = new ArrayList<>();
+        tags.add(Tags.BASE.name());
+
         switch (npcType) {
             case DND5E:
                 return generateDndPC(tags);
@@ -29,8 +40,15 @@ public class NPCFactory {
         }
     }
 
-    public BaseNPC generateBaseNPC(String... tags) {
+    public BaseNPC generateBaseNPC(List<String> tags) {
+        BaseNPC npc = generateBaseAttributes(tags);
+
+        return npc;
+    }
+
+    private BaseNPC generateBaseAttributes(List<String> tags) {
         BaseNPC npc = new BaseNPC();
+
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
         npc.setBodyShape(attributeService.generateNPCAttribute(MongoCollection.BODY_SHAPE, tags));
@@ -44,30 +62,9 @@ public class NPCFactory {
         return npc;
     }
 
-    // TODO Finish
-    public BaseNPC generateDndPC(String... tags) {
-        BaseNPC npc = new BaseNPC();
-
-        return npc;
-    }
-
-    // TODO Finish
-    public BaseNPC generateOSRNPC(String... tags) {
-        BaseNPC npc = new BaseNPC();
-
-        return npc;
-    }
-
-    public MothershipNPC generateMoshNPC(String... tags) {
-        MothershipNPC npc = new MothershipNPC();
-        npc.setSize(attributeService.getSize());
-        npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
-        npc.setBodyShape(attributeService.generateNPCAttribute(MongoCollection.BODY_SHAPE, tags));
-        npc.setMotivations(attributeService.getMotivations());
-        npc.setMovement(attributeService.getMovement());
-        npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(MongoCollection.PECULIAR_CHARACTERISTIC, tags));
-        npc.setCombatStrategies(attributeService.getCombatStrategies());
-        npc.setUpdateDate(LocalDate.now(ZoneId.systemDefault()));
+    public MothershipNPC generateMoshNPC(List<String> tags) {
+        tags.add(Systems.MOTHERSHIP.name());
+        MothershipNPC npc = (MothershipNPC) generateBaseAttributes(tags);
 
         // Mothership-specific Stuff
         npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshMod()));
@@ -75,6 +72,20 @@ public class NPCFactory {
         npc.setInstinct(AttributeService.generateInstinctAttr());
         npc.setHits(AttributeService.generateHitsAttr(npc.getSize().getMoshHitDie())
                 + "(" + AttributeService.generateHealthPoints(6, 10, npc.getSize().getMoshMod()) + ")");
+
+        return npc;
+    }
+
+    // TODO Finish
+    public BaseNPC generateDndPC(List<String> tags) {
+        BaseNPC npc = new BaseNPC();
+
+        return npc;
+    }
+
+    // TODO Finish
+    public BaseNPC generateOSRNPC(List<String> tags) {
+        BaseNPC npc = new BaseNPC();
 
         return npc;
     }

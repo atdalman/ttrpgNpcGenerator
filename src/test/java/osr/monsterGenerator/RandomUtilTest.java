@@ -42,5 +42,4 @@ public class RandomUtilTest {
         Assert.assertTrue(true);
     }
 
-
 }
