@@ -38,14 +38,7 @@ public class NPCFactory {
         }
     }
 
-    public BaseNPC generateBaseNPC(List<String> tags) {
-        BaseNPC npc = generateBaseAttributes(tags);
-
-        return npc;
-    }
-
-    private BaseNPC generateBaseAttributes(List<String> tags) {
-        BaseNPC npc = new BaseNPC();
+    private BaseNPC generateBaseAttributes(List<String> tags, BaseNPC npc) {
 
         npc.setSize(attributeService.getSize());
         npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
@@ -60,9 +53,14 @@ public class NPCFactory {
         return npc;
     }
 
+    public BaseNPC generateBaseNPC(List<String> tags) {
+        return generateBaseAttributes(tags, new BaseNPC());
+    }
+
     public MothershipNPC generateMoshNPC(List<String> tags) {
+        MothershipNPC npc = new MothershipNPC();
         tags.add(Systems.MOTHERSHIP.name());
-        MothershipNPC npc = (MothershipNPC) generateBaseAttributes(tags);
+        generateBaseAttributes(tags, npc);
 
         // Mothership-specific Stuff
         npc.setCombat(AttributeService.generateCombatAttr(npc.getSize().getMoshMod()));
