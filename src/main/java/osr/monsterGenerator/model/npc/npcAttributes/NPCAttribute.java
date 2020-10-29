@@ -1,6 +1,7 @@
 package osr.monsterGenerator.model.npc.npcAttributes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -10,15 +11,14 @@ import java.util.List;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonIgnoreProperties({"id", "value", "tags"})
 public class NPCAttribute {
 
     @Id
     private String _id;
     private String briefDescription;
     private String verboseDescription;
-    @JsonIgnore
     private int value;
-    @JsonIgnore
     private List<String> tags;
 
     @JsonIgnore

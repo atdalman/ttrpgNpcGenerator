@@ -1,5 +1,6 @@
 package osr.monsterGenerator.model.npc;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.Data;
@@ -16,6 +17,7 @@ import java.util.List;
 //@JsonSerialize(using = BaseNPCSerializer.class)
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonIgnoreProperties({"id", "updateDate"})
 // A basic monster or NPC
 public class BaseNPC {
 
