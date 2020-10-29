@@ -24,7 +24,6 @@ public class NPCController {
     @GetMapping("/{systemName}")
     public BaseNPC generateSystemNPC(@PathVariable String systemName,
                                      @RequestParam(required = false) String... tag) {
-
         for (Systems system : Systems.values()) {
             if (systemName.equalsIgnoreCase(system.name()))
                 return npcService.generateNPC(system, tag);

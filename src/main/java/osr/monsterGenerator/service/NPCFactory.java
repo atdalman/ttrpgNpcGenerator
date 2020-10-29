@@ -11,7 +11,7 @@ import osr.monsterGenerator.repository.MongoCollection;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -21,12 +21,10 @@ public class NPCFactory {
     private AttributeService attributeService;
 
     public BaseNPC generateNPC(Systems npcType, String... tagArr) {
-        List<String> tags;
-        if (tagArr != null) {
-            tags = Arrays.asList(tagArr);
-            if (!tags.contains(Tags.BASE.name())) tags.add(Tags.BASE.name());
-        } else tags = new ArrayList<>();
-        tags.add(Tags.BASE.name());
+        List<String> tags = new ArrayList<>();
+
+        if (tagArr != null) Collections.addAll(tags, tagArr);
+        if (!tags.contains(Tags.BASE.name())) tags.add(Tags.BASE.name());
 
         switch (npcType) {
             case DND5E:
