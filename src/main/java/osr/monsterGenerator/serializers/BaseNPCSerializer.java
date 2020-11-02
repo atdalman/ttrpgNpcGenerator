@@ -7,6 +7,7 @@ import osr.monsterGenerator.model.npc.BaseNPC;
 
 import java.io.IOException;
 
+// TODO Confirm still useful
 public class BaseNPCSerializer extends JsonSerializer<BaseNPC> {
 
     public void serialize(BaseNPC npc, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
