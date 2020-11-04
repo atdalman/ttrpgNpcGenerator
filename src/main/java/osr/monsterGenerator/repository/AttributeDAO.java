@@ -28,21 +28,22 @@ public class AttributeDAO {
 
     // Equally weighted attributes
     public Object getRandomNPCAttribute(String collectionName, List<String> tags,
-                                        Class desiredClass) {
+                                        Class attributeClass) {
         MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggOp = Aggregation.newAggregation(matchStage, sampleStage);
 
-        return mongoTemplate.aggregate(aggOp, collectionName, desiredClass).getUniqueMappedResult();
+        return mongoTemplate.aggregate(aggOp, collectionName, attributeClass).getUniqueMappedResult();
     }
 
     // Unequally weighted attributes.
-    public WeightedAttribute getSingleRandomAttributeUsingWeightedChance(String collectionName) {
+    public Object getRandomWeightedNPCAttribute(String collectionName,
+                                                List<String> tags, Class attributeClass) {
         double chanceSum = getChanceByAttributeName(collectionName);
         double rand = RandomUtils.getRandomDouble() * chanceSum;
 
         Query find = new Query();
-        List<WeightedAttribute> results = mongoTemplate.find(find, WeightedAttribute.class, collectionName);
+        List<WeightedAttribute> results = mongoTemplate.find(find, attributeClass, collectionName);
 
         for (WeightedAttribute curr : results) {
             if (curr.getChanceSum() >= rand) {

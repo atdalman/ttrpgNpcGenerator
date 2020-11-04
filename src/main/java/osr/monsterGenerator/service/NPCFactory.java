@@ -40,7 +40,7 @@ public class NPCFactory {
 
     private BaseNPC generateBaseAttributes(List<String> tags, BaseNPC npc) {
 
-        npc.setSize(attributeService.getSize());
+        npc.setSize(attributeService.getSize(tags));
         npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
         npc.setBodyShape(attributeService.generateNPCAttribute(MongoCollection.BODY_SHAPE, tags));
         npc.setMotivations(attributeService.getMotivations());

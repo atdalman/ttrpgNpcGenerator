@@ -2,8 +2,6 @@ package osr.monsterGenerator;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import osr.monsterGenerator.model.npc.npcAttributes.Size;
 import osr.monsterGenerator.service.AttributeService;
 import osr.monsterGenerator.utilities.WeightedItemList;
 
@@ -12,23 +10,50 @@ import java.util.Map;
 
 public class AttributeServiceTest {
 
-    @Autowired
-    AttributeService attributeService;
+//    @Autowired
+//    AttributeService attributeService;
+//
+//    @Mock
+//    private HelloRepository helloRepository;
+//
+//    @InjectMocks // auto inject helloRepository
+//    private HelloService helloService = new HelloServiceImpl();
+//
+//    @BeforeEach
+//    void setMockOutput() {
+//        when(helloRepository.get()).thenReturn("Hello Mockito From Repository");
+//    }
+//
+//    // TODO Create mock db to use this properly
+//    @Test
+//    public void tempRandomWeightedAttributeTest() {
+//        HashMap<String, Integer> totals = new HashMap<>();
+//        for (int i = 0; i < 100; i++) {
+//            Size curr = attributeService.getSize();
+//            if (totals.containsKey(curr.getBriefDescription())) {
+//                totals.put(curr.getBriefDescription(), totals.get(curr.getBriefDescription()) + 1);
+//            } else {
+//                totals.put(curr.getBriefDescription(), 1);
+//            }
+//        }
+//
+//        System.out.println("Totals: " + totals.toString());
+//    }
 
-    // TODO Create mock db to use this properly
-    public void tempRandomWeightedAttributeTest() {
-        HashMap<String, Integer> totals = new HashMap<>();
-        for (int i = 0; i < 100; i++) {
-            Size curr = attributeService.getSize();
-            if (totals.containsKey(curr.getBriefDescription())) {
-                totals.put(curr.getBriefDescription(), totals.get(curr.getBriefDescription()) + 1);
-            } else {
-                totals.put(curr.getBriefDescription(), 1);
-            }
-        }
-
-        System.out.println("Totals: " + totals.toString());
-    }
+//    @Test
+//    public void tempRandomWeightedAttributeTest() {
+//        HashMap<String, Integer> totals = new HashMap<>();
+//        for (int i = 0; i < 100; i++) {
+//            Size curr = attributeService.getSize();
+//            if (totals.containsKey(curr.getBriefDescription())) {
+//                totals.put(curr.getBriefDescription(), totals.get(curr.getBriefDescription()) + 1);
+//            } else {
+//                totals.put(curr.getBriefDescription(), 1);
+//            }
+//        }
+//
+//        System.out.println("Totals: " + totals.toString());
+//    }
 
     // TODO Don't think I'll be using this structure anymore, but keeping for demo purpose.
     @Test

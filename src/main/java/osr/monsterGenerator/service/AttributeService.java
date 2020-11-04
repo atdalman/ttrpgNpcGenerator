@@ -3,10 +3,7 @@ package osr.monsterGenerator.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import osr.monsterGenerator.model.Systems;
-import osr.monsterGenerator.model.npc.npcAttributes.Alignments;
-import osr.monsterGenerator.model.npc.npcAttributes.Movement;
-import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
-import osr.monsterGenerator.model.npc.npcAttributes.Size;
+import osr.monsterGenerator.model.npc.npcAttributes.*;
 import osr.monsterGenerator.repository.AttributeDAO;
 import osr.monsterGenerator.repository.MongoCollection;
 import osr.monsterGenerator.utilities.RandomUtils;
@@ -36,8 +33,14 @@ public class AttributeService {
         return RandomUtils.rollDice(numDice, diceSize) + mod;
     }
 
-    public Size getSize() {
-        return (Size) attributeDAO.getSingleRandomAttributeUsingWeightedChance(Size.class.getSimpleName().toLowerCase());
+    public WeightedAttribute generateWeightedNPCAttribute(MongoCollection mongoCollection, List<String> tags) {
+        return (WeightedAttribute) attributeDAO.getRandomWeightedNPCAttribute(mongoCollection.label, tags,
+                WeightedAttribute.class);
+    }
+
+    public Size getSize(List<String> tags) {
+        return (Size) attributeDAO.getRandomWeightedNPCAttribute(MongoCollection.SIZE.label, tags,
+                Size.class);
     }
 
     public NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, List<String> tags) {
