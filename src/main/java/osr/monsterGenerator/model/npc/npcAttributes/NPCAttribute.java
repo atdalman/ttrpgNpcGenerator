@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@JsonIgnoreProperties({"id", "value", "tags"})
+@JsonIgnoreProperties({"_id", "value", "tags"})
 public class NPCAttribute {
 
     @Id

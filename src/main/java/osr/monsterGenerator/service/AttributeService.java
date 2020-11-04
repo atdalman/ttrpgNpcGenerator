@@ -41,11 +41,12 @@ public class AttributeService {
     }
 
     public NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, List<String> tags) {
-        return attributeDAO.getSingleRandomAttribute(mongoCollection.label, tags);
+        return (NPCAttribute) attributeDAO.getRandomNPCAttribute(mongoCollection.label, tags, NPCAttribute.class);
     }
 
-    public Movement getMovement(String... tags) {
-        return attributeDAO.getRandomMovement();
+    public Movement getMovement(List<String> tags) {
+        return (Movement) attributeDAO.getRandomNPCAttribute(MongoCollection.MOVEMENT.label, tags, Movement.class);
+
     }
 
     public List<NPCAttribute> getCombatStrategies() {

@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import osr.monsterGenerator.model.CumulativeChance;
-import osr.monsterGenerator.model.npc.npcAttributes.Movement;
 import osr.monsterGenerator.model.npc.npcAttributes.NPCAttribute;
 import osr.monsterGenerator.model.npc.npcAttributes.WeightedAttribute;
 import osr.monsterGenerator.utilities.RandomUtils;
@@ -28,12 +27,13 @@ public class AttributeDAO {
     private MongoTemplate mongoTemplate;
 
     // Equally weighted attributes
-    public NPCAttribute getSingleRandomAttribute(String collectionName, List<String> tags) {
+    public Object getRandomNPCAttribute(String collectionName, List<String> tags,
+                                        Class desiredClass) {
         MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
         SampleOperation sampleStage = Aggregation.sample(1);
         Aggregation aggOp = Aggregation.newAggregation(matchStage, sampleStage);
 
-        return mongoTemplate.aggregate(aggOp, collectionName, NPCAttribute.class).getUniqueMappedResult();
+        return mongoTemplate.aggregate(aggOp, collectionName, desiredClass).getUniqueMappedResult();
     }
 
     // Unequally weighted attributes.
@@ -51,14 +51,6 @@ public class AttributeDAO {
         }
 
         return null;
-    }
-
-    // TODO Figure out how to use the general attribute method
-    public Movement getRandomMovement() {
-        SampleOperation sampleStage = Aggregation.sample(1);
-        Aggregation aggregation = Aggregation.newAggregation(sampleStage);
-        return mongoTemplate.aggregate(aggregation, MongoCollection.MOVEMENT.label,
-                Movement.class).getUniqueMappedResult();
     }
 
     public List<NPCAttribute> getMultipleAttributes(int numResults, String collectionName) {

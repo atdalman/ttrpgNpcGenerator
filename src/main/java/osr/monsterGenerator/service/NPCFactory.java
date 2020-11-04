@@ -44,7 +44,7 @@ public class NPCFactory {
         npc.setBodySurface(attributeService.generateNPCAttribute(MongoCollection.BODY_SURFACE, tags));
         npc.setBodyShape(attributeService.generateNPCAttribute(MongoCollection.BODY_SHAPE, tags));
         npc.setMotivations(attributeService.getMotivations());
-        npc.setMovement(attributeService.getMovement());
+        npc.setMovement(attributeService.getMovement(tags));
         npc.setPeculiarCharacteristic(attributeService.generateNPCAttribute(MongoCollection.PECULIAR_CHARACTERISTIC,
                 tags));
         npc.setCombatStrategies(attributeService.getCombatStrategies());

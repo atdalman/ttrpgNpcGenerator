@@ -17,7 +17,7 @@ import java.util.List;
 //@JsonSerialize(using = BaseNPCSerializer.class)
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-@JsonIgnoreProperties({"id", "updateDate"})
+@JsonIgnoreProperties({"_id", "updateDate"})
 // A basic monster or NPC
 public class BaseNPC {
 
@@ -25,7 +25,7 @@ public class BaseNPC {
     private AttributeService attributeService;
 
     @Id
-    private String id;
+    private String _id;
     private String species;
     private String properName;
     private LocalDate updateDate;

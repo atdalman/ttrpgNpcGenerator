@@ -24,7 +24,7 @@ public class NPCDao {
     }
 
     public String saveNPC(BaseNPC npc) {
-        return mongoTemplate.save(npc, "npc").getId();
+        return mongoTemplate.save(npc, "npc").get_id();
     }
 
     public void removeOldNpcs() {
