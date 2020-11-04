@@ -54,8 +54,7 @@ public class AttributeServiceTest {
 
         Boolean passed;
 
-        if (sizeCounts.get("Medium") > 200 && sizeCounts.get("Gargantuan") < 50) passed = true;
-        else passed = false;
+        passed = sizeCounts.get("Medium") > 200 && sizeCounts.get("Gargantuan") < 50;
 
         Assert.assertTrue(passed);
 
@@ -63,7 +62,7 @@ public class AttributeServiceTest {
 
     @Test
     public void generateCombatAttr_combatOver100_return100() {
-        Assert.assertEquals(100, AttributeService.generateCombatAttr(200));
+        Assert.assertEquals(99, AttributeService.generateCombatAttr(200));
     }
 
     @Test
