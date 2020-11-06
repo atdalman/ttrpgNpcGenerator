@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 @Data
 @JsonIgnoreProperties({"_id", "chance", "chanceSum"})
 public abstract class WeightedAttribute {
+
     @Id
     private String _id;
     private double chance;
