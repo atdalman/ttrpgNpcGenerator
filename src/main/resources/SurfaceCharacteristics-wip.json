@@ -1,0 +1,146 @@
+[
+  {
+    "briefDescription": "Slimy",
+    "verboseDescription": "Covered in a slimy, sticky wetness probably meant to protect fragile skin",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Smooth",
+    "verboseDescription": "Smooth, unusual in its lack of discernible texture",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Rubber-like",
+    "verboseDescription": "Rubber-like.  Smooth from afar, but has an elastic quality",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Gritty",
+    "verboseDescription": "Rough like the grit of sandpaper in one direction, smooth in the other. Beneficial in reducing drag",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Scaled",
+    "verboseDescription": "Millions of scales cover the surface, providing natural armor",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Chitinous",
+    "verboseDescription": "Interlocking chitinous plates, probably natural, provide armor and structure",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Feathered",
+    "verboseDescription": "Layers of feathers, or feather-like growths form complex plumages",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Wart-covered",
+    "verboseDescription": "Knobby, wart-like growths",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Reflective",
+    "verboseDescription": "Unnaturally reflective.  Never seems to dull",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Metallic",
+    "verboseDescription": "Near-impenetrable, and similar to metal.  May be prone to rust",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Decay",
+    "verboseDescription": "Tissue appears to be in perpetual decay",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Stone",
+    "verboseDescription": "Hard outer layer.  Generally smooth, but time, conditions, and slow healing provide uneven, craggy surfaces",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Bony",
+    "verboseDescription": "No perceivable skin, allowing full view of all internal hard structures",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Furry",
+    "verboseDescription": "Covered in coarse medium-long hairs",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Fuzzy",
+    "verboseDescription": "Covered in short, soft hairs",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Waxy",
+    "verboseDescription": "Soft, waxy, slightly malleable surface",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Crystalline",
+    "verboseDescription": "Hard, sharp, light-refracting crystals cover the exterior",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Bark",
+    "verboseDescription": "Fire-resistant bark ",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  }
+]
