@@ -137,7 +137,50 @@
   },
   {
     "briefDescription": "Bark",
-    "verboseDescription": "Fire-resistant bark ",
+    "verboseDescription": "Element-resistant bark",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Cybernetic",
+    "verboseDescription": "",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Bumpy",
+    "verboseDescription": "Covered in little bumps",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Plastic",
+    "verboseDescription": "Plastic coating.  Might be organic, but probably isn't",
+    "value": 0,
+    "tags": [
+      "MACHINE",
+      "MOTHERSHIP",
+      "GONZO",
+      "SPACEBORNE"
+    ]
+  },
+  {
+    "briefDescription": "Paper",
+    "verboseDescription": "Paper-like, seemingly made from plant matter.  Surprisingly loud when moving",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "",
+    "verboseDescription": "",
     "value": 0,
     "tags": [
       "BASE"
