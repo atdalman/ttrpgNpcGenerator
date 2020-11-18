@@ -1,0 +1,163 @@
+[
+  {
+    "briefDescription": "Family",
+    "verboseDescription": "Concern for their family unit consistently guides their actions",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Hunger",
+    "verboseDescription": "A gnawing hunger, for physical sustenance or otherwise",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Peace",
+    "verboseDescription": "Peace, at any cost",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Orders from elsewhere",
+    "verboseDescription": "There are orders which must be followed",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Adventure",
+    "verboseDescription": "The prospect of adventure excites this one more than anything",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "To kill",
+    "verboseDescription": "Death brings satisfaction",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Chaos",
+    "verboseDescription": "Unity is a weak facade.  Chaos is the natural way of things",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "To challenge themselves",
+    "verboseDescription": "Every obstacle is a challenge, and this one is very good at finding obstacles",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Renown",
+    "verboseDescription": "Renown brings this one immortality",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Future generations",
+    "verboseDescription": "Prosperity of future generations guide this one's actions",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Silence",
+    "verboseDescription": "Things are much too busy, too loud. This one wants silence",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "To release others from the toils of death",
+    "verboseDescription": "Wants everything else dead.  Then they will be safe",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "To return home",
+    "verboseDescription": "This one wants to return home. Literally or metaphorically",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Forgiveness",
+    "verboseDescription": "A heinous act stains this one's past.  They seek forgiveness",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Riches",
+    "verboseDescription": "Whether it be gold, gems, or a healthy food stockpile, this one wants more",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Friends",
+    "verboseDescription": "This one treasures close friends, and seeks to make new ones",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Knowledge",
+    "verboseDescription": "Literal or metaphorical hunger for knowledge and those who collect it",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Strength",
+    "verboseDescription": "The increase of strength guides this one",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Patriotism",
+    "verboseDescription": "This one is a patriot. Proud of their land, and their customs",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  },
+  {
+    "briefDescription": "Pride",
+    "verboseDescription": "This one defines themselves wholly by their accomplishments",
+    "value": 0,
+    "tags": [
+      "BASE"
+    ]
+  }
+]
+

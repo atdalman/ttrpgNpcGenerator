@@ -144,14 +144,6 @@
     ]
   },
   {
-    "briefDescription": "Cybernetic",
-    "verboseDescription": "",
-    "value": 0,
-    "tags": [
-      "BASE"
-    ]
-  },
-  {
     "briefDescription": "Bumpy",
     "verboseDescription": "Covered in little bumps",
     "value": 0,
@@ -172,15 +164,7 @@
   },
   {
     "briefDescription": "Paper",
-    "verboseDescription": "Paper-like, seemingly made from plant matter.  Surprisingly loud when moving",
-    "value": 0,
-    "tags": [
-      "BASE"
-    ]
-  },
-  {
-    "briefDescription": "",
-    "verboseDescription": "",
+    "verboseDescription": "Paper-like, seemingly made from plant matter. Movement is noisy",
     "value": 0,
     "tags": [
       "BASE"
