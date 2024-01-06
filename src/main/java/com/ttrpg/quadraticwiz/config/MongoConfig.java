@@ -6,9 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.SimpleMongoClientDbFactory;
+import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 
 @Configuration
 @PropertySource("classpath:application.properties")
@@ -18,12 +17,12 @@ public class MongoConfig {
     private Environment env;
 
     @Bean
-    public MongoDbFactory mongoDbFactory() {
+    public SimpleMongoClientDatabaseFactory mongoDbFactory() {
         try {
-            return new SimpleMongoClientDbFactory(new ConnectionString(System.getenv("mongoURI-prod")));
+            return new SimpleMongoClientDatabaseFactory(new ConnectionString(System.getenv("mongoURI-prod")));
         } catch (NullPointerException e) {
             // TODO Write actual environment detection
-            return new SimpleMongoClientDbFactory(new ConnectionString(env.getProperty("spring.data.mongodb.uri")));
+            return new SimpleMongoClientDatabaseFactory(new ConnectionString(env.getProperty("spring.data.mongodb.uri")));
         }
 
     }
