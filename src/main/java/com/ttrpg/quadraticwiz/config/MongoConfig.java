@@ -1,7 +1,7 @@
 package com.ttrpg.quadraticwiz.config;
 
 import com.mongodb.ConnectionString;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -11,10 +11,10 @@ import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 
 @Configuration
 @PropertySource("classpath:application.properties")
+@RequiredArgsConstructor
 public class MongoConfig {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
 
     @Bean
     public SimpleMongoClientDatabaseFactory mongoDbFactory() {

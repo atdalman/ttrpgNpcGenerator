@@ -1,10 +1,12 @@
 package com.ttrpg.quadraticwiz.service;
 
-import com.ttrpg.quadraticwiz.repository.MongoCollection;
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 import com.ttrpg.quadraticwiz.model.npc.MothershipNPC;
 import com.ttrpg.quadraticwiz.model.npc.Tags;
+import com.ttrpg.quadraticwiz.repository.MongoCollection;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -13,10 +15,10 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class NPCFactory {
 
-    @Autowired
-    private AttributeService attributeService;
+    private final AttributeService attributeService;
 
     public BaseNPC generateNPC(Systems npcType, String... tagArr) {
         List<String> tags = new ArrayList<>();

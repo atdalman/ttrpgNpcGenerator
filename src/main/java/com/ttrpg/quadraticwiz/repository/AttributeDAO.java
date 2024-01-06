@@ -1,6 +1,10 @@
 package com.ttrpg.quadraticwiz.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ttrpg.quadraticwiz.model.CumulativeChance;
+import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
+import com.ttrpg.quadraticwiz.model.npc.npcAttributes.WeightedAttribute;
+import com.ttrpg.quadraticwiz.utilities.RandomUtils;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
@@ -10,10 +14,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
-import com.ttrpg.quadraticwiz.model.CumulativeChance;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.WeightedAttribute;
-import com.ttrpg.quadraticwiz.utilities.RandomUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,10 +21,10 @@ import java.util.List;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
 
 @Repository
+@RequiredArgsConstructor
 public class AttributeDAO {
 
-    @Autowired
-    private MongoTemplate mongoTemplate;
+    private final MongoTemplate mongoTemplate;
 
     // Equally weighted attributes
     public Object getRandomNPCAttribute(String collectionName, List<String> tags,

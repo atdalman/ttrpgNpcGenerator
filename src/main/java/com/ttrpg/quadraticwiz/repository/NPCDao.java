@@ -1,21 +1,21 @@
 package com.ttrpg.quadraticwiz.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 
 @Repository
+@RequiredArgsConstructor
 public class NPCDao {
 
-    @Autowired
-    MongoTemplate mongoTemplate;
+    private final MongoTemplate mongoTemplate;
 
     public BaseNPC getNPCById(String id) {
         return mongoTemplate.findAndModify(new Query().addCriteria(Criteria.where("_id").is(id)),

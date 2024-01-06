@@ -1,15 +1,17 @@
 package com.ttrpg.quadraticwiz.controller;
 
+import com.ttrpg.quadraticwiz.model.Systems;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ttrpg.quadraticwiz.model.Systems;
 
 import java.util.ArrayList;
 
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class SystemsController {
 
     @GetMapping("/systems")

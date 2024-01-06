@@ -1,21 +1,21 @@
 package com.ttrpg.quadraticwiz.service;
 
+import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.*;
 import com.ttrpg.quadraticwiz.repository.AttributeDAO;
 import com.ttrpg.quadraticwiz.repository.MongoCollection;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.ttrpg.quadraticwiz.model.Systems;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
+@RequiredArgsConstructor
 public class AttributeService {
 
-    @Autowired
-    AttributeDAO attributeDAO;
+    private final AttributeDAO attributeDAO;
 
     public static String getAlignment() {
         return Alignments.selectRandomAlignment();
