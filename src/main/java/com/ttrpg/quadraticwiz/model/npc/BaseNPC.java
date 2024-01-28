@@ -6,9 +6,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.Movement;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.Size;
-import com.ttrpg.quadraticwiz.service.AttributeService;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
@@ -20,9 +18,6 @@ import java.util.List;
 @JsonIgnoreProperties({"_id", "updateDate"})
 // A basic monster or NPC
 public class BaseNPC {
-
-    @Autowired
-    private AttributeService attributeService;
 
     @Id
     private String _id;

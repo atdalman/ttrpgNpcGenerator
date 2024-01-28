@@ -1,10 +1,14 @@
-package com.ttrpg.quadraticwiz.service;
+package com.ttrpg.quadraticwiz.service.impl;
 
-import com.ttrpg.quadraticwiz.repository.MongoCollection;
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 import com.ttrpg.quadraticwiz.model.npc.MothershipNPC;
 import com.ttrpg.quadraticwiz.model.npc.Tags;
+import com.ttrpg.quadraticwiz.repository.MongoCollection;
+import com.ttrpg.quadraticwiz.service.api.AttributeService;
+import com.ttrpg.quadraticwiz.service.api.NPCFactory;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -13,12 +17,12 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class NPCFactory {
+@RequiredArgsConstructor
+public class NPCFactoryImpl implements NPCFactory {
 
-    @Autowired
-    private AttributeService attributeService;
+    private final AttributeService attributeService;
 
-    public BaseNPC generateNPC(Systems npcType, String... tagArr) {
+    @Override public BaseNPC generateNPC(Systems npcType, String... tagArr) {
         List<String> tags = new ArrayList<>();
 
         if (tagArr != null) Collections.addAll(tags, tagArr);
@@ -51,11 +55,11 @@ public class NPCFactory {
         return npc;
     }
 
-    public BaseNPC generateBaseNPC(List<String> tags) {
+    @Override public BaseNPC generateBaseNPC(List<String> tags) {
         return generateBaseAttributes(tags, new BaseNPC());
     }
 
-    public MothershipNPC generateMoshNPC(List<String> tags) {
+    @Override public MothershipNPC generateMoshNPC(List<String> tags) {
         MothershipNPC npc = new MothershipNPC();
         tags.add(Systems.MOTHERSHIP.name());
         generateBaseAttributes(tags, npc);
@@ -71,14 +75,14 @@ public class NPCFactory {
     }
 
     // TODO Finish
-    public BaseNPC generateDndPC(List<String> tags) {
+    @Override public BaseNPC generateDndPC(List<String> tags) {
         BaseNPC npc = new BaseNPC();
 
         return npc;
     }
 
     // TODO Finish
-    public BaseNPC generateOSRNPC(List<String> tags) {
+    @Override public BaseNPC generateOSRNPC(List<String> tags) {
         BaseNPC npc = new BaseNPC();
 
         return npc;
