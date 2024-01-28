@@ -2,24 +2,24 @@ package com.ttrpg.quadraticwiz.controller;
 
 import com.ttrpg.quadraticwiz.exceptions.NPCNotFoundException;
 import com.ttrpg.quadraticwiz.exceptions.SystemNotSupportedException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.service.NPCService;
+import com.ttrpg.quadraticwiz.service.api.NPCService;
 import com.ttrpg.quadraticwiz.utilities.StringUtils;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/npc")
+@RequiredArgsConstructor
 public class NPCController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NPCController.class);
 
-    @Autowired
-    NPCService npcService;
+    private final NPCService npcService;
 
     @GetMapping("/{systemName}")
     public BaseNPC generateSystemNPC(@PathVariable String systemName,
