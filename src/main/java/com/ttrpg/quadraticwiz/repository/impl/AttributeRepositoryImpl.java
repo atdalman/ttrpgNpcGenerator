@@ -3,7 +3,7 @@ package com.ttrpg.quadraticwiz.repository.impl;
 import com.ttrpg.quadraticwiz.model.CumulativeChance;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.WeightedAttribute;
-import com.ttrpg.quadraticwiz.repository.api.AttributeDAO;
+import com.ttrpg.quadraticwiz.repository.api.AttributeRepository;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -23,7 +23,7 @@ import static org.springframework.data.mongodb.core.aggregation.Aggregation.newA
 
 @Repository
 @RequiredArgsConstructor
-public class AttributeDAOImpl implements AttributeDAO {
+public class AttributeRepositoryImpl implements AttributeRepository {
 
     private final MongoTemplate mongoTemplate;
 

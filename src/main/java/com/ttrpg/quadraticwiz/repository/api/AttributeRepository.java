@@ -4,7 +4,7 @@ import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
 
 import java.util.List;
 
-public interface AttributeDAO {
+public interface AttributeRepository {
     // Equally weighted attributes
     Object getRandomNPCAttribute(String collectionName, List<String> tags,
                                  Class attributeClass);

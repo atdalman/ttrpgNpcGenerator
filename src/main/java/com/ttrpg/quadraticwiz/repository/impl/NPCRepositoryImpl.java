@@ -2,7 +2,7 @@ package com.ttrpg.quadraticwiz.repository.impl;
 
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 import com.ttrpg.quadraticwiz.repository.MongoCollection;
-import com.ttrpg.quadraticwiz.repository.api.NPCDao;
+import com.ttrpg.quadraticwiz.repository.api.NPCRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -15,7 +15,7 @@ import java.time.ZoneId;
 
 @Repository
 @RequiredArgsConstructor
-public class NPCDaoImpl implements NPCDao {
+public class NPCRepositoryImpl implements NPCRepository {
 
     private final MongoTemplate mongoTemplate;
 

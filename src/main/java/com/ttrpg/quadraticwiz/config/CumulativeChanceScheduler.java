@@ -1,6 +1,6 @@
 package com.ttrpg.quadraticwiz.config;
 
-import com.ttrpg.quadraticwiz.repository.api.AttributeDAO;
+import com.ttrpg.quadraticwiz.repository.api.AttributeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -12,12 +12,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 @RequiredArgsConstructor
 public class CumulativeChanceScheduler {
 
-    private final AttributeDAO attributeDAO;
+    private final AttributeRepository attributeRepository;
 
     // 10 minutes
     @Scheduled(fixedRate = 600000L)
     private void updateCumulativeChances() {
         System.out.println("Running chance scheduler...");
-        attributeDAO.updateChances("size");
+        attributeRepository.updateChances("size");
     }
 }
