@@ -34,7 +34,6 @@ public class RandomUtilTest {
 
         do {
             total = RandomUtils.rollDice(6, 10);
-            System.out.print(total + "  ");
             if (total < 6) Assert.assertTrue(false);
             count--;
         } while (count > 0);
