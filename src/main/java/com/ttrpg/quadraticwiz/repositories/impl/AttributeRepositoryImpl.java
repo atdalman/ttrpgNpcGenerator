@@ -1,9 +1,9 @@
-package com.ttrpg.quadraticwiz.repository.impl;
+package com.ttrpg.quadraticwiz.repositories.impl;
 
 import com.ttrpg.quadraticwiz.model.CumulativeChance;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.WeightedAttribute;
-import com.ttrpg.quadraticwiz.repository.api.AttributeRepository;
+import com.ttrpg.quadraticwiz.repositories.api.AttributeRepository;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;

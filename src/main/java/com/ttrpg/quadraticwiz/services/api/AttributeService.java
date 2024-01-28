@@ -1,8 +1,8 @@
-package com.ttrpg.quadraticwiz.service.api;
+package com.ttrpg.quadraticwiz.services.api;
 
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.*;
-import com.ttrpg.quadraticwiz.repository.MongoCollection;
+import com.ttrpg.quadraticwiz.repositories.MongoCollection;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
 
 import java.util.List;

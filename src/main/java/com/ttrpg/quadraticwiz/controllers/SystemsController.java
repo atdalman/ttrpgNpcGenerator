@@ -1,4 +1,4 @@
-package com.ttrpg.quadraticwiz.controller;
+package com.ttrpg.quadraticwiz.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

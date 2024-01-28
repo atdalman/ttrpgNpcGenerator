@@ -1,10 +1,10 @@
-package com.ttrpg.quadraticwiz.controller;
+package com.ttrpg.quadraticwiz.controllers;
 
 import com.ttrpg.quadraticwiz.exceptions.NPCNotFoundException;
 import com.ttrpg.quadraticwiz.exceptions.SystemNotSupportedException;
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.service.api.NPCService;
+import com.ttrpg.quadraticwiz.services.api.NPCService;
 import com.ttrpg.quadraticwiz.utilities.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,15 +1,15 @@
-package com.ttrpg.quadraticwiz.service.impl;
+package com.ttrpg.quadraticwiz.services.impl;
 
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.repository.api.NPCRepository;
-import com.ttrpg.quadraticwiz.service.api.NPCFactory;
+import com.ttrpg.quadraticwiz.repositories.api.NPCRepository;
+import com.ttrpg.quadraticwiz.services.api.NPCFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NPCServiceImpl implements com.ttrpg.quadraticwiz.service.api.NPCService {
+public class NPCServiceImpl implements com.ttrpg.quadraticwiz.services.api.NPCService {
 
     private final NPCRepository npcRepository;
 

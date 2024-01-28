@@ -2,7 +2,7 @@ package com.ttrpg.quadraticwiz;
 
 import org.junit.Assert;
 import org.junit.Test;
-import com.ttrpg.quadraticwiz.service.api.AttributeService;
+import com.ttrpg.quadraticwiz.services.api.AttributeService;
 import com.ttrpg.quadraticwiz.utilities.WeightedItemList;
 
 import java.util.HashMap;

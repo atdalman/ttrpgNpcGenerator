@@ -1,4 +1,4 @@
-package com.ttrpg.quadraticwiz.repository;
+package com.ttrpg.quadraticwiz.repositories;
 
 public enum MongoCollection {
     BODY_SHAPE("bodyShape"),

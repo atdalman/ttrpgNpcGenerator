@@ -1,12 +1,12 @@
-package com.ttrpg.quadraticwiz.service.impl;
+package com.ttrpg.quadraticwiz.services.impl;
 
 import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 import com.ttrpg.quadraticwiz.model.npc.MothershipNPC;
 import com.ttrpg.quadraticwiz.model.npc.Tags;
-import com.ttrpg.quadraticwiz.repository.MongoCollection;
-import com.ttrpg.quadraticwiz.service.api.AttributeService;
-import com.ttrpg.quadraticwiz.service.api.NPCFactory;
+import com.ttrpg.quadraticwiz.repositories.MongoCollection;
+import com.ttrpg.quadraticwiz.services.api.AttributeService;
+import com.ttrpg.quadraticwiz.services.api.NPCFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.ttrpg.quadraticwiz.repository.api;
+package com.ttrpg.quadraticwiz.repositories.api;
 
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 

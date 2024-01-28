@@ -1,9 +1,9 @@
-package com.ttrpg.quadraticwiz.service.impl;
+package com.ttrpg.quadraticwiz.services.impl;
 
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.*;
-import com.ttrpg.quadraticwiz.repository.api.AttributeRepository;
-import com.ttrpg.quadraticwiz.repository.MongoCollection;
-import com.ttrpg.quadraticwiz.service.api.AttributeService;
+import com.ttrpg.quadraticwiz.repositories.api.AttributeRepository;
+import com.ttrpg.quadraticwiz.repositories.MongoCollection;
+import com.ttrpg.quadraticwiz.services.api.AttributeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
 package com.ttrpg.quadraticwiz.config;
 
-import com.ttrpg.quadraticwiz.repository.api.AttributeRepository;
-import com.ttrpg.quadraticwiz.repository.api.NPCRepository;
+import com.ttrpg.quadraticwiz.repositories.api.AttributeRepository;
+import com.ttrpg.quadraticwiz.repositories.api.NPCRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

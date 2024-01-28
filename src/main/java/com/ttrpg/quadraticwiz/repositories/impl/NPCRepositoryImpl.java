@@ -1,8 +1,8 @@
-package com.ttrpg.quadraticwiz.repository.impl;
+package com.ttrpg.quadraticwiz.repositories.impl;
 
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.repository.MongoCollection;
-import com.ttrpg.quadraticwiz.repository.api.NPCRepository;
+import com.ttrpg.quadraticwiz.repositories.MongoCollection;
+import com.ttrpg.quadraticwiz.repositories.api.NPCRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

@@ -7,7 +7,7 @@ import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
 import com.ttrpg.quadraticwiz.model.npc.DndNPC;
 import com.ttrpg.quadraticwiz.model.npc.MothershipNPC;
-import com.ttrpg.quadraticwiz.service.api.NPCFactory;
+import com.ttrpg.quadraticwiz.services.api.NPCFactory;
 import com.ttrpg.quadraticwiz.utilities.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
