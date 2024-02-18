@@ -1,10 +1,10 @@
 package com.ttrpg.quadraticwiz.controllers;
 
-import com.ttrpg.quadraticwiz.exceptions.NPCNotFoundException;
+import com.ttrpg.quadraticwiz.exceptions.NpcNotFoundException;
 import com.ttrpg.quadraticwiz.exceptions.SystemNotSupportedException;
 import com.ttrpg.quadraticwiz.model.Systems;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.services.api.NPCService;
+import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
+import com.ttrpg.quadraticwiz.services.api.NpcService;
 import com.ttrpg.quadraticwiz.utilities.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/npc")
 @RequiredArgsConstructor
 @Slf4j
-public class NPCController {
+public class NpcController {
 
-    private final NPCService npcService;
+    private final NpcService npcService;
 
     @GetMapping("/{systemName}")
-    public BaseNPC generateSystemNPC(@PathVariable String systemName,
-                                     @RequestParam(required = false) String... tag) {
+    public BaseNpcEntity generateSystemNpc(@PathVariable String systemName,
+                                           @RequestParam(required = false) String... tag) {
         for (Systems system : Systems.values()) {
             if (systemName.equalsIgnoreCase(system.name()))
-                return npcService.generateNPC(system, tag);
+                return npcService.generateNpc(system, tag);
         }
 
         log.info("Unsupported system requested: " + systemName);
@@ -39,22 +39,22 @@ public class NPCController {
     }
 
     @GetMapping("/saved/{npcId}")
-    public BaseNPC getNPCById(@PathVariable String npcId) {
+    public BaseNpcEntity getNpcById(@PathVariable String npcId) {
         if (StringUtils.isStringNullOrBlank(npcId)) throw new IllegalArgumentException("Request does not include a " +
-                "valid NPC Id: " + npcId);
-        BaseNPC result = npcService.getNPCById(npcId);
-        if (result != null) return npcService.getNPCById(npcId);
+                "valid Npc Id: " + npcId);
+        BaseNpcEntity result = npcService.getNpcById(npcId);
+        if (result != null) return npcService.getNpcById(npcId);
         else {
-            log.info("NPC not found: " + npcId);
-            throw new NPCNotFoundException(npcId);
+            log.info("Npc not found: " + npcId);
+            throw new NpcNotFoundException(npcId);
         }
     }
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND,
-            reason = "The NPC with the given id was not found, or has been deleted after a period of disuse.  Please " +
+            reason = "The Npc with the given id was not found, or has been deleted after a period of disuse.  Please " +
                     "check your entry and try again. ")
-    @ExceptionHandler(NPCNotFoundException.class)
-    public void savedNPCNotFoundError() {
+    @ExceptionHandler(NpcNotFoundException.class)
+    public void savedNpcNotFoundError() {
     }
 
     @ResponseStatus(value = HttpStatus.BAD_REQUEST,

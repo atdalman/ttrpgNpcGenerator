@@ -62,15 +62,15 @@ public interface AttributeService {
         return RandomUtils.rollDice(1, diceSize);
     }
 
-    WeightedAttribute generateWeightedNPCAttribute(MongoCollection mongoCollection, List<String> tags);
+    WeightedAttribute generateWeightedNpcAttribute(MongoCollection mongoCollection, List<String> tags);
 
     Size getSize(List<String> tags);
 
-    NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, List<String> tags);
+    NpcAttribute generateNpcAttribute(MongoCollection mongoCollection, List<String> tags);
 
     Movement getMovement(List<String> tags);
 
-    List<NPCAttribute> getCombatStrategies();
+    List<NpcAttribute> getCombatStrategies();
 
-    List<NPCAttribute> getMotivations();
+    List<NpcAttribute> getMotivations();
 }

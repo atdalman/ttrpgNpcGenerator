@@ -1,10 +1,10 @@
 package com.ttrpg.quadraticwiz.services.api;
 
 import com.ttrpg.quadraticwiz.model.Systems;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
+import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 
-public interface NPCService {
-    BaseNPC generateNPC(Systems npcSystem, String... tags);
+public interface NpcService {
+    BaseNpcEntity generateNpc(Systems npcSystem, String... tags);
 
-    BaseNPC getNPCById(String id);
+    BaseNpcEntity getNpcById(String id);
 }

@@ -1,23 +1,24 @@
-package com.ttrpg.quadraticwiz.model.npc;
+package com.ttrpg.quadraticwiz.repositories.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.Movement;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
+import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NpcAttribute;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.Size;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-//@JsonSerialize(using = BaseNPCSerializer.class)
+//@JsonSerialize(using = BaseNpcSerializer.class)
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties({"_id", "updateDate"})
-// A basic monster or NPC
-public class BaseNPC {
+// A basic monster or Npc
+public class BaseNpcEntity implements Serializable {
 
     @Id
     private String _id;
@@ -26,14 +27,14 @@ public class BaseNPC {
     private LocalDate updateDate;
     private Size size;
     private int experienceGiven;
-    private NPCAttribute bodyShape;
-    private NPCAttribute bodySurface;
+    private NpcAttribute bodyShape;
+    private NpcAttribute bodySurface;
     private Movement movement;
-    private NPCAttribute peculiarCharacteristic; // Physical or behavioral
-    private NPCAttribute[] physicalAttacks;
-    private String[] specialAbilities;
-    private List<NPCAttribute> combatStrategies;
-    private List<NPCAttribute> motivations;
+    private NpcAttribute peculiarCharacteristic; // Physical or behavioral
+    private List<NpcAttribute> physicalAttacks;
+    private List<String> specialAbilities;
+    private  List<NpcAttribute> combatStrategies;
+    private List<NpcAttribute> motivations;
 
     @JsonSetter("movement")
     public void setMovement(Movement movement) {

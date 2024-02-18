@@ -1,30 +1,30 @@
 package com.ttrpg.quadraticwiz.services.impl;
 
 import com.ttrpg.quadraticwiz.model.Systems;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.repositories.api.NPCRepository;
-import com.ttrpg.quadraticwiz.services.api.NPCFactory;
+import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
+import com.ttrpg.quadraticwiz.repositories.api.NpcRepository;
+import com.ttrpg.quadraticwiz.services.api.NpcFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NPCServiceImpl implements com.ttrpg.quadraticwiz.services.api.NPCService {
+public class NpcServiceImpl implements com.ttrpg.quadraticwiz.services.api.NpcService {
 
-    private final NPCRepository npcRepository;
+    private final NpcRepository npcRepository;
 
-    private final NPCFactory npcFactory;
+    private final NpcFactory npcFactory;
 
     @Override
-    public BaseNPC generateNPC(Systems npcSystem, String... tags) {
-        BaseNPC npc = npcFactory.generateNPC(npcSystem, tags);
-        npcRepository.saveNPC(npc);
+    public BaseNpcEntity generateNpc(Systems npcSystem, String... tags) {
+        BaseNpcEntity npc = npcFactory.generateNpc(npcSystem, tags);
+        npcRepository.saveNpc(npc);
 
         return npc;
     }
 
     @Override
-    public BaseNPC getNPCById(String id) {
-        return npcRepository.getNPCById(id);
+    public BaseNpcEntity getNpcById(String id) {
+        return npcRepository.getNpcById(id);
     }
 }

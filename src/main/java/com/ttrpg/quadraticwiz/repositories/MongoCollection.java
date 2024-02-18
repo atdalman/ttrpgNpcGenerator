@@ -10,7 +10,7 @@ public enum MongoCollection {
     SAVING_THROW("savingThrow"),
     MOVEMENT("movement"),
     SIZE("size"),
-    NPC("npc");
+    Npc("npc");
 
     public final String label;
 

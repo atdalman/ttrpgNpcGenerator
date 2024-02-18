@@ -1,21 +1,21 @@
 package com.ttrpg.quadraticwiz.services.api;
 
 import com.ttrpg.quadraticwiz.model.Systems;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.model.npc.MothershipNPC;
+import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.MothershipNpcEntity;
 
 import java.util.List;
 
-public interface NPCFactory {
-    BaseNPC generateNPC(Systems npcType, String... tagArr);
+public interface NpcFactory {
+    BaseNpcEntity generateNpc(Systems npcType, String... tagArr);
 
-    BaseNPC generateBaseNPC(List<String> tags);
+    BaseNpcEntity generateBaseNpc(List<String> tags);
 
-    MothershipNPC generateMoshNPC(List<String> tags);
-
-    // TODO Finish
-    BaseNPC generateDndPC(List<String> tags);
+    MothershipNpcEntity generateMoshNpc(List<String> tags);
 
     // TODO Finish
-    BaseNPC generateOSRNPC(List<String> tags);
+    BaseNpcEntity generateDndPC(List<String> tags);
+
+    // TODO Finish
+    BaseNpcEntity generateOSRNpc(List<String> tags);
 }

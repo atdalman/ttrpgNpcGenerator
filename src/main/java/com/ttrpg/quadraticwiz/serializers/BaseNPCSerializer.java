@@ -3,14 +3,14 @@ package com.ttrpg.quadraticwiz.serializers;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
+import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 
 import java.io.IOException;
 
 // TODO Confirm still useful
-public class BaseNPCSerializer extends JsonSerializer<BaseNPC> {
+public class BaseNpcSerializer extends JsonSerializer<BaseNpcEntity> {
 
-    public void serialize(BaseNPC npc, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
+    public void serialize(BaseNpcEntity npc, JsonGenerator jGen, SerializerProvider serializerProvider) throws IOException {
 
         jGen.writeStartObject();
         jGen.writeStringField("size", npc.getSize().getBriefDescription());

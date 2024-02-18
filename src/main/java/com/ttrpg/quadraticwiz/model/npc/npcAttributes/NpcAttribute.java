@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties({"_id", "value", "tags"})
-public class NPCAttribute {
+public class NpcAttribute {
 
     @Id
     private String _id;

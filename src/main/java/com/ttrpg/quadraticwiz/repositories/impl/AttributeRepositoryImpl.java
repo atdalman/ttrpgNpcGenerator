@@ -1,7 +1,7 @@
 package com.ttrpg.quadraticwiz.repositories.impl;
 
 import com.ttrpg.quadraticwiz.model.CumulativeChance;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
+import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NpcAttribute;
 import com.ttrpg.quadraticwiz.model.npc.npcAttributes.WeightedAttribute;
 import com.ttrpg.quadraticwiz.repositories.api.AttributeRepository;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
@@ -29,7 +29,7 @@ public class AttributeRepositoryImpl implements AttributeRepository {
 
     // Equally weighted attributes
     @Override
-    public Object getRandomNPCAttribute(String collectionName, List<String> tags,
+    public Object getRandomNpcAttribute(String collectionName, List<String> tags,
                                         Class attributeClass) {
         MatchOperation matchStage = Aggregation.match(new Criteria("tags").in(tags));
         SampleOperation sampleStage = Aggregation.sample(1);
@@ -40,7 +40,7 @@ public class AttributeRepositoryImpl implements AttributeRepository {
 
     // Unequally weighted attributes.
     @Override
-    public Object getRandomWeightedNPCAttribute(String collectionName,
+    public Object getRandomWeightedNpcAttribute(String collectionName,
                                                 List<String> tags, Class attributeClass) {
         double chanceSum = getChanceByAttributeName(collectionName);
         double rand = RandomUtils.getRandomDouble() * chanceSum;
@@ -58,11 +58,11 @@ public class AttributeRepositoryImpl implements AttributeRepository {
     }
 
     @Override
-    public List<NPCAttribute> getMultipleAttributes(int numResults, String collectionName) {
+    public List<NpcAttribute> getMultipleAttributes(int numResults, String collectionName) {
         SampleOperation sampleStage = Aggregation.sample(numResults);
         Aggregation aggregation = newAggregation(sampleStage);
-        AggregationResults<NPCAttribute> output = mongoTemplate.aggregate(aggregation,
-                collectionName, NPCAttribute.class);
+        AggregationResults<NpcAttribute> output = mongoTemplate.aggregate(aggregation,
+                collectionName, NpcAttribute.class);
         return output.getMappedResults();
     }
 

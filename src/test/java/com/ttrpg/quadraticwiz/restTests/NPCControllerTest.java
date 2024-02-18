@@ -1,4 +1,4 @@
 package com.ttrpg.quadraticwiz.restTests;
 
-public class NPCControllerTest {
+public class NpcControllerTest {
 }

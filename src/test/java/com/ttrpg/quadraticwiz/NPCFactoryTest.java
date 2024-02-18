@@ -4,38 +4,38 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.ttrpg.quadraticwiz.model.Systems;
-import com.ttrpg.quadraticwiz.model.npc.BaseNPC;
-import com.ttrpg.quadraticwiz.model.npc.DndNPC;
-import com.ttrpg.quadraticwiz.model.npc.MothershipNPC;
-import com.ttrpg.quadraticwiz.services.api.NPCFactory;
+import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.DndNpcEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.MothershipNpcEntity;
+import com.ttrpg.quadraticwiz.services.api.NpcFactory;
 import com.ttrpg.quadraticwiz.utilities.StringUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class NPCFactoryTest {
+public class NpcFactoryTest {
 
     @Autowired
-    private NPCFactory NPCFactory;
+    private NpcFactory NpcFactory;
 
     // TODO Write
     @Test
-    public void generateDNDNPCTest() {
-        DndNPC testMon = (DndNPC) NPCFactory.generateNPC(Systems.DND5E);
+    public void generateDNDNpcTest() {
+        DndNpcEntity testMon = (DndNpcEntity) NpcFactory.generateNpc(Systems.DND5E);
         boolean passed = false;
         Assert.assertTrue(passed);
 
     }
 
     @Test
-    public void generateMothershipNPCTest(){
-        MothershipNPC npc = (MothershipNPC) NPCFactory.generateNPC(Systems.MOTHERSHIP);
+    public void generateMothershipNpcTest(){
+        MothershipNpcEntity npc = (MothershipNpcEntity) NpcFactory.generateNpc(Systems.MOTHERSHIP);
         boolean passed = false;
 
     }
 
     @Test
-    public void generateBaseNPCTest(){
-        BaseNPC testMon = NPCFactory.generateNPC(Systems.BASE);
+    public void generateBaseNpcTest(){
+        BaseNpcEntity testMon = NpcFactory.generateNpc(Systems.BASE);
         boolean passed = false;
         if (!StringUtils.isStringNullOrBlank(testMon.getSpecies())
                 && testMon.getSize() != null

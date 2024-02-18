@@ -1,7 +1,7 @@
 package com.ttrpg.quadraticwiz.exceptions;
 
-public class NPCNotFoundException extends RuntimeException {
-    public NPCNotFoundException(String message) {
-        super("NPC, referenced by id: " + message + " was not found.");
+public class NpcNotFoundException extends RuntimeException {
+    public NpcNotFoundException(String message) {
+        super("Npc, referenced by id: " + message + " was not found.");
     }
 }

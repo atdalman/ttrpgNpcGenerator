@@ -15,30 +15,30 @@ public class AttributeServiceImpl implements AttributeService {
 
     private final AttributeRepository attributeRepository;
 
-    @Override public WeightedAttribute generateWeightedNPCAttribute(MongoCollection mongoCollection, List<String> tags) {
-        return (WeightedAttribute) attributeRepository.getRandomWeightedNPCAttribute(mongoCollection.label, tags,
+    @Override public WeightedAttribute generateWeightedNpcAttribute(MongoCollection mongoCollection, List<String> tags) {
+        return (WeightedAttribute) attributeRepository.getRandomWeightedNpcAttribute(mongoCollection.label, tags,
                 WeightedAttribute.class);
     }
 
     @Override public Size getSize(List<String> tags) {
-        return (Size) attributeRepository.getRandomWeightedNPCAttribute(MongoCollection.SIZE.label, tags,
+        return (Size) attributeRepository.getRandomWeightedNpcAttribute(MongoCollection.SIZE.label, tags,
                 Size.class);
     }
 
-    @Override public NPCAttribute generateNPCAttribute(MongoCollection mongoCollection, List<String> tags) {
-        return (NPCAttribute) attributeRepository.getRandomNPCAttribute(mongoCollection.label, tags, NPCAttribute.class);
+    @Override public NpcAttribute generateNpcAttribute(MongoCollection mongoCollection, List<String> tags) {
+        return (NpcAttribute) attributeRepository.getRandomNpcAttribute(mongoCollection.label, tags, NpcAttribute.class);
     }
 
     @Override public Movement getMovement(List<String> tags) {
-        return (Movement) attributeRepository.getRandomNPCAttribute(MongoCollection.MOVEMENT.label, tags, Movement.class);
+        return (Movement) attributeRepository.getRandomNpcAttribute(MongoCollection.MOVEMENT.label, tags, Movement.class);
 
     }
 
-    @Override public List<NPCAttribute> getCombatStrategies() {
+    @Override public List<NpcAttribute> getCombatStrategies() {
         return attributeRepository.getMultipleAttributes(2, MongoCollection.COMBAT_STRATEGY.label);
     }
 
-    @Override public List<NPCAttribute> getMotivations() {
+    @Override public List<NpcAttribute> getMotivations() {
         return attributeRepository.getMultipleAttributes(2, MongoCollection.MOTIVATION.label);
     }
 

@@ -1,19 +1,19 @@
 package com.ttrpg.quadraticwiz.repositories.api;
 
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NPCAttribute;
+import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NpcAttribute;
 
 import java.util.List;
 
 public interface AttributeRepository {
     // Equally weighted attributes
-    Object getRandomNPCAttribute(String collectionName, List<String> tags,
+    Object getRandomNpcAttribute(String collectionName, List<String> tags,
                                  Class attributeClass);
 
     // Unequally weighted attributes.
-    Object getRandomWeightedNPCAttribute(String collectionName,
+    Object getRandomWeightedNpcAttribute(String collectionName,
                                          List<String> tags, Class attributeClass);
 
-    List<NPCAttribute> getMultipleAttributes(int numResults, String collectionName);
+    List<NpcAttribute> getMultipleAttributes(int numResults, String collectionName);
 
     // Updates chances within each document within a given collection of attributes
     void updateChances(String collectionName);
