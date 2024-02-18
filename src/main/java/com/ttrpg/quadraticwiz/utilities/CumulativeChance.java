@@ -1,4 +1,4 @@
-package com.ttrpg.quadraticwiz.model;
+package com.ttrpg.quadraticwiz.utilities;
 
 import lombok.Data;
 

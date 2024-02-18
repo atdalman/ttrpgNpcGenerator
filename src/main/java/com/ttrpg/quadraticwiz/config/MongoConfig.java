@@ -6,13 +6,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
 @PropertySource("classpath:application.properties")
 @RequiredArgsConstructor
-public class MongoConfig {
+@EnableMongoRepositories(basePackages = "com.ttrpg.quadraticwiz.repositories.")
+public class MongoConfig extends AbstractMongoClientConfiguration {
 
     private final Environment env;
 
@@ -33,5 +36,10 @@ public class MongoConfig {
 
         return mongoTemplate;
 
+    }
+
+    @Override
+    protected String getDatabaseName() {
+        return null;
     }
 }

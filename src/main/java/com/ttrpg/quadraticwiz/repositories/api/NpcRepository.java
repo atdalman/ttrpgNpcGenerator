@@ -2,10 +2,12 @@ package com.ttrpg.quadraticwiz.repositories.api;
 
 import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 
-public interface NpcRepository {
-    BaseNpcEntity getNpcById(String id);
+import java.util.UUID;
 
-    String saveNpc(BaseNpcEntity npc);
+public interface NpcRepository {
+    BaseNpcEntity getNpcById(UUID npcId);
+
+    BaseNpcEntity saveNpc(BaseNpcEntity npc);
 
     void removeOldNpcs();
 }

@@ -1,6 +1,6 @@
 package com.ttrpg.quadraticwiz.services.api;
 
-import com.ttrpg.quadraticwiz.model.Systems;
+import com.ttrpg.quadraticwiz.domain.Systems;
 import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 import com.ttrpg.quadraticwiz.repositories.entities.MothershipNpcEntity;
 

@@ -1,43 +1,42 @@
 package com.ttrpg.quadraticwiz.repositories.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.Movement;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NpcAttribute;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.Size;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 //@JsonSerialize(using = BaseNpcSerializer.class)
 @Data
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
-@JsonIgnoreProperties({"_id", "updateDate"})
+@SuperBuilder
+@NoArgsConstructor
 // A basic monster or Npc
 public class BaseNpcEntity implements Serializable {
 
     @Id
-    private String _id;
+    private long _id;
+    private UUID npcId;
     private String species;
     private String properName;
     private LocalDate updateDate;
-    private Size size;
+    private SizeEntity size;
     private int experienceGiven;
-    private NpcAttribute bodyShape;
-    private NpcAttribute bodySurface;
-    private Movement movement;
-    private NpcAttribute peculiarCharacteristic; // Physical or behavioral
-    private List<NpcAttribute> physicalAttacks;
+    private NpcAttributeEntity bodyShape;
+    private NpcAttributeEntity bodySurface;
+    private MovementEntity movement;
+    private NpcAttributeEntity peculiarCharacteristic; // Physical or behavioral
+    private List<NpcAttributeEntity> physicalAttacks;
     private List<String> specialAbilities;
-    private  List<NpcAttribute> combatStrategies;
-    private List<NpcAttribute> motivations;
+    private List<NpcAttributeEntity> combatStrategies;
+    private List<NpcAttributeEntity> motivations;
 
     @JsonSetter("movement")
-    public void setMovement(Movement movement) {
+    public void setMovement(MovementEntity movement) {
         movement.setNumLimbsFromPossible();
         this.movement = movement;
     }

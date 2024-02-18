@@ -1,4 +1,4 @@
-package com.ttrpg.quadraticwiz.model.npc.npcAttributes;
+package com.ttrpg.quadraticwiz.domain.npc.dtos;
 
 import lombok.Data;
 

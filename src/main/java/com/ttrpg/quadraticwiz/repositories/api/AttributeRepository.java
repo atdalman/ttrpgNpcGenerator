@@ -1,6 +1,6 @@
 package com.ttrpg.quadraticwiz.repositories.api;
 
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NpcAttribute;
+import com.ttrpg.quadraticwiz.domain.npc.dtos.NpcAttribute;
 
 import java.util.List;
 

@@ -1,8 +1,13 @@
 package com.ttrpg.quadraticwiz.services.api;
 
-import com.ttrpg.quadraticwiz.model.Systems;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.*;
+import com.ttrpg.quadraticwiz.domain.Systems;
+import com.ttrpg.quadraticwiz.domain.npc.dtos.NpcAttribute;
+import com.ttrpg.quadraticwiz.domain.npc.enums.Alignments;
 import com.ttrpg.quadraticwiz.repositories.MongoCollection;
+import com.ttrpg.quadraticwiz.repositories.entities.MovementEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.NpcAttributeEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.SizeEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.WeightedAttributeEntity;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
 
 import java.util.List;
@@ -62,13 +67,13 @@ public interface AttributeService {
         return RandomUtils.rollDice(1, diceSize);
     }
 
-    WeightedAttribute generateWeightedNpcAttribute(MongoCollection mongoCollection, List<String> tags);
+    WeightedAttributeEntity generateWeightedNpcAttribute(MongoCollection mongoCollection, List<String> tags);
 
-    Size getSize(List<String> tags);
+    SizeEntity getSize(List<String> tags);
 
-    NpcAttribute generateNpcAttribute(MongoCollection mongoCollection, List<String> tags);
+    NpcAttributeEntity generateNpcAttribute(MongoCollection mongoCollection, List<String> tags);
 
-    Movement getMovement(List<String> tags);
+    MovementEntity getMovement(List<String> tags);
 
     List<NpcAttribute> getCombatStrategies();
 

@@ -1,10 +1,10 @@
 package com.ttrpg.quadraticwiz.services.impl;
 
-import com.ttrpg.quadraticwiz.model.Systems;
+import com.ttrpg.quadraticwiz.domain.Systems;
+import com.ttrpg.quadraticwiz.domain.npc.enums.Tags;
+import com.ttrpg.quadraticwiz.repositories.MongoCollection;
 import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 import com.ttrpg.quadraticwiz.repositories.entities.MothershipNpcEntity;
-import com.ttrpg.quadraticwiz.model.npc.Tags;
-import com.ttrpg.quadraticwiz.repositories.MongoCollection;
 import com.ttrpg.quadraticwiz.services.api.AttributeService;
 import com.ttrpg.quadraticwiz.services.api.NpcFactory;
 import lombok.RequiredArgsConstructor;

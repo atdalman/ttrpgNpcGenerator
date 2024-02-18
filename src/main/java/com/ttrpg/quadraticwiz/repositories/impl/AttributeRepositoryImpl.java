@@ -1,9 +1,11 @@
 package com.ttrpg.quadraticwiz.repositories.impl;
 
-import com.ttrpg.quadraticwiz.model.CumulativeChance;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.NpcAttribute;
-import com.ttrpg.quadraticwiz.model.npc.npcAttributes.WeightedAttribute;
+import com.ttrpg.quadraticwiz.domain.npc.dtos.NpcAttribute;
+import com.ttrpg.quadraticwiz.mappers.EntityMapper;
 import com.ttrpg.quadraticwiz.repositories.api.AttributeRepository;
+import com.ttrpg.quadraticwiz.repositories.entities.NpcAttributeEntity;
+import com.ttrpg.quadraticwiz.repositories.entities.WeightedAttributeEntity;
+import com.ttrpg.quadraticwiz.utilities.CumulativeChance;
 import com.ttrpg.quadraticwiz.utilities.RandomUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -26,6 +28,7 @@ import static org.springframework.data.mongodb.core.aggregation.Aggregation.newA
 public class AttributeRepositoryImpl implements AttributeRepository {
 
     private final MongoTemplate mongoTemplate;
+    private final EntityMapper entityMapper;
 
     // Equally weighted attributes
     @Override
@@ -46,9 +49,9 @@ public class AttributeRepositoryImpl implements AttributeRepository {
         double rand = RandomUtils.getRandomDouble() * chanceSum;
 
         Query find = new Query();
-        List<WeightedAttribute> results = mongoTemplate.find(find, attributeClass, collectionName);
+        List<WeightedAttributeEntity> results = mongoTemplate.find(find, attributeClass, collectionName);
 
-        for (WeightedAttribute curr : results) {
+        for (WeightedAttributeEntity curr : results) {
             if (curr.getChanceSum() >= rand) {
                 return curr;
             }
@@ -61,9 +64,9 @@ public class AttributeRepositoryImpl implements AttributeRepository {
     public List<NpcAttribute> getMultipleAttributes(int numResults, String collectionName) {
         SampleOperation sampleStage = Aggregation.sample(numResults);
         Aggregation aggregation = newAggregation(sampleStage);
-        AggregationResults<NpcAttribute> output = mongoTemplate.aggregate(aggregation,
-                collectionName, NpcAttribute.class);
-        return output.getMappedResults();
+        AggregationResults<NpcAttributeEntity> output = mongoTemplate.aggregate(aggregation,
+                collectionName, NpcAttributeEntity.class);
+        return output.getMappedResults().stream().map(entityMapper::toNpcAttribute).toList();
     }
 
     // **** Chance Attribute Updates ****
@@ -75,10 +78,10 @@ public class AttributeRepositoryImpl implements AttributeRepository {
     // Updates chances within each document within a given collection of attributes
     @Override
     public void updateChances(String collectionName) {
-        List<WeightedAttribute> results = mongoTemplate.findAll(WeightedAttribute.class, collectionName);
+        List<WeightedAttributeEntity> results = mongoTemplate.findAll(WeightedAttributeEntity.class, collectionName);
 
         double chanceSum = 0;
-        for (WeightedAttribute curr : results) {
+        for (WeightedAttributeEntity curr : results) {
             chanceSum += curr.getChance();
             curr.setChanceSum(chanceSum);
             mongoTemplate.save(curr, collectionName);

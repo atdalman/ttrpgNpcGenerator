@@ -1,14 +1,14 @@
 package com.ttrpg.quadraticwiz;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.ttrpg.quadraticwiz.model.Systems;
+import com.ttrpg.quadraticwiz.domain.Systems;
 import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 import com.ttrpg.quadraticwiz.repositories.entities.DndNpcEntity;
 import com.ttrpg.quadraticwiz.repositories.entities.MothershipNpcEntity;
 import com.ttrpg.quadraticwiz.services.api.NpcFactory;
 import com.ttrpg.quadraticwiz.utilities.StringUtils;
+import org.junit.Assert;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

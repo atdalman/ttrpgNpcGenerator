@@ -1,10 +1,10 @@
 package com.ttrpg.quadraticwiz.controllers;
 
+import com.ttrpg.quadraticwiz.domain.Systems;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ttrpg.quadraticwiz.model.Systems;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.ttrpg.quadraticwiz.model.npc;
+package com.ttrpg.quadraticwiz.domain.npc.enums;
 
 /****** IMPORTANT NOTE ******
  * Always be careful with assigning tags.  One of the virtues of random generation are the

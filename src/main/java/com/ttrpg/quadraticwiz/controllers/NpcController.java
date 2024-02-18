@@ -1,15 +1,17 @@
 package com.ttrpg.quadraticwiz.controllers;
 
+import com.ttrpg.quadraticwiz.domain.Systems;
+import com.ttrpg.quadraticwiz.domain.npc.dtos.BaseNpc;
 import com.ttrpg.quadraticwiz.exceptions.NpcNotFoundException;
 import com.ttrpg.quadraticwiz.exceptions.SystemNotSupportedException;
-import com.ttrpg.quadraticwiz.model.Systems;
 import com.ttrpg.quadraticwiz.repositories.entities.BaseNpcEntity;
 import com.ttrpg.quadraticwiz.services.api.NpcService;
-import com.ttrpg.quadraticwiz.utilities.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/npc")
@@ -39,10 +41,9 @@ public class NpcController {
     }
 
     @GetMapping("/saved/{npcId}")
-    public BaseNpcEntity getNpcById(@PathVariable String npcId) {
-        if (StringUtils.isStringNullOrBlank(npcId)) throw new IllegalArgumentException("Request does not include a " +
-                "valid Npc Id: " + npcId);
-        BaseNpcEntity result = npcService.getNpcById(npcId);
+    public BaseNpc getNpcById(@PathVariable UUID npcId) {
+
+        BaseNpc result = npcService.getNpcById(npcId);
         if (result != null) return npcService.getNpcById(npcId);
         else {
             log.info("Npc not found: " + npcId);
